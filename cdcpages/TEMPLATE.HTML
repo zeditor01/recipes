@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+
+
+<body>
+
+
+
+<h1>CDC04: Advanced Worked Example - Setting up Classic CDC for IMS.</h1> 
+
+<style> 
+
+#toc_container {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 20px;
+    width: auto;
+}
+
+.toc_title {
+    font-weight: 700;
+    text-align: center;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+}
+
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th, td { 
+  vertical-align: top;
+  background-color: #EBF5FB;
+} 
+code {
+  font-family: Consolas,"courier new";
+  color: #00FFFF;
+  background-color: #000000;
+  padding: 2px;
+  font-size: 105%;
+}
+</style>  
+
+ <table>
+  <tr>
+    <td width=300>Author: </td>
+    <td width=500>Neale Armstrong</td>
+  </tr> 
+  <tr>
+    <td>Email: </td>
+    <td>neale.armstrong@au1.ibm.com</td>
+  </tr> 
+  <tr>
+    <td>Last Modified: </td>
+    <td>January 2022</td>
+  </tr> 
+</table> 
+
+<br /> 
+
+<div id="toc_container">
+<p class="toc_title">Contents</p>
+<ul class="toc_list">
+  <li><a href="#abstract">Abstract</a> 
+  <li><a href="#1.0">1 Introduction to Classic CDC for IMS</a>
+  <ul>
+    <li><a href="#1.1">1.1 Requirements to Replicate IMS Data</a></li>
+    <li><a href="#1.2">1.2 The Classic CDC Started Task</a></li>
+  </ul>
+</li>
+<li><a href="#2.0">2. High Level Review of Implementation Steps</a></li>
+
+</ul>
+</div>
+
+
+<h2 id="abstract"> Abstract</h2>
+<p>This document is a worked example of setting up Classic CDC for IMS as a CDC Source Server. 
+<ul>
+<li>It deals with the practical considerations for implementing IMS as a CDC data source. 
+<li>It's scope is limited to a "basic up and running guide", and does attempt to cover all the product's features.
+<li>It is categorically <b>not</b> a replacement for 
+the official product documentation, but is intended as a helpful "end to end worked example" on setting up Classic CDC for IMS  
+to supplement the <a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=replication-infosphere-classic-cdc-zos">Classic CDC knowledge centre</a>.</p>
+<li>It is part of a series of documents providing practical worked examples and 
+guidance for seting up CDC Replication between mainframe data sources and mid-range or Cloud targets.
+CDC Replication can of course support replication in the opposite direction, but these documents are 
+focussed on the primary use cases in mainframe customers today. 
+</ul> 
+
+<p>The documents below can all be accessed at <a href="http://www.zeditor.org/">Zeditor.Org</a> </p> 
+<ol>
+<li><a href="http://www.zeditor.org/">CDC01: CDC Concepts - Capability, Mechanics, Deployment and Devops.</a></li>
+<li><a href="http://www.zeditor.org/">CDC02: Simple Worked Example - Setting up CDC for Db2 on z/OS.</a></li> 
+<li><a href="http://www.zeditor.org/">CDC03: Simple Worked Example - Setting up CDC for Db2 on Linux.</a></li>
+<li><a href="http://www.zeditor.org/">CDC04: Advanced Worked Example - Setting up Classic CDC for IMS.</a></li>
+<li><a href="http://www.zeditor.org/">CDC05: Advanced Worked Example - Setting up Classic CDC for VSAM.</a></li> 
+<li><a href="http://www.zeditor.org/">CDC06: Advanced Worked Example - MQ Publishing from Classic CDC.</a></li>
+<li><a href="http://www.zeditor.org/">CDC07: Advanced Worked Example - Setting up CDC for Kafka.</a></li>
+<li><a href="http://www.zeditor.org/">CDC08: Advanced Worked Example - Setting up remote CDC Capture for Db2 z/OS.</a></li>
+<li><a href="http://www.zeditor.org/">CDC09: Advanced Worked Example - Setting up remote CDC Capture for VSAM.</a></li>
+<li><a href="http://www.zeditor.org/">CDC10: Devops Options for CDC - Change Control, Operations and Monitoring.</a></li> 
+<li><a href="http://www.zeditor.org/">CDC11: Devops Scripting for CDC - CHCCLP Scripting from Windows, Linux or Mainframe.</a></li>
+<li><a href="http://www.zeditor.org/">CDC12: Security for CDC - LDAP Authentication and TLS Encryption.</a></li>
+<li><a href="http://www.zeditor.org/">CDC13: Container Deployment - CDC containers, for Cloud and Mainframe.</a></li>
+<li><a href="http://www.zeditor.org/">CDC14: Mainframe-Centric CDC Devops - using ZOWE.</a></li>
+<li><a href="http://www.zeditor.org/">CDC15: Using CDC to expose and consume mainframe data - A Point of View.</a></li>
+</ol>
+
+<h2 id="1.0">1. Introduction to Classic CDC for IMS</h2>  
+
+<p>Classic CDC for IMS is a CDC Capture Source only. It does not have CDC Apply functionality.</p>
+
+<p>CDC Replication is a set of products that implement a common data replication architecture spanning 
+a large number of diverse data sources and targets. The CDC common architecture is based upon replication of 
+data that conforms to the relational model. Any CDC capture or apply agent that supports a non-relational data structure 
+must perform whatever conversion work that is necessary to implement a mapping between that data structure and the 
+relational model of data.</p> 
+
+<h3 id="1.1">1.1 Requirements to Replicate IMS Data</h3> 
+
+<p>The core functionaility of any CDC Capture agent is to read the source database logs asynchronously, 
+stage captured data (preferably in memory) until the Unit of Work is commited or rolled back, 
+and then publish the changes over TCPIP sockets to a CDC Apply agent.</p> 
+<p>In addition to the usual requirements, Classic CDC for IMS needs to handle the fact that IMS data is stored 
+in hierarchical structures (not relational), and the Log configurations supporting IMS workloads (online and batch) 
+are significantly different to a comparatively simple recovery log used by most relational databases.</p>
+
+<p><b>Regarding hierarchical data structures:</b> The Classic CDC for IMS product provides tooling to map the hierarchical data structures
+into relational projections of that data, for the purposes of acting as a CDC Replication capture agent. 
+The mappings of data structures are stored in a zFS dataset called the "Classic Catalog". This contains relational catalog tables 
+like Db2 ( sysibm.systables , sysibm.syscolumns etc... ) that contain the mapping between the fields in the relevant copybooks for the 
+IMS data, and their relational projection. The mapping information allows SQL access to the IMS database to retrieve the base data, 
+and also allows IMS log records to be consumed for the purposes of capturing IMS database changes.</p>
+<p><b>Regarding IMS logs:</b>Interfaces must be established between Classic CDC and the IMS logging environment, which is managed by DBRC. 
+Additionally new log records (Type 99) must be cut for IMS databases, because standard Type 50 log records do not contain enough 
+information for the purposes of data repliaction.</p> 
+
+<h3 id="1.2">1.2 The Classic CDC Started Task</h3>
+<p>The diagram below is a representation of the components within a Classic CDC for IMS started task, and how they 
+relate to external artefacts.</p>
+
+<img src="cdc01_01.png" alt="Classic CDC Services" style="border:1px solid black"> 
+
+<p>The services that are outlined in red are the ones that can be protected by the SAF Exit. 
+The primary services involved in the cdc capture server are  the IMS Log Reader Service (IMSLRS) and the Capture process (Capture). 
+The following is a brief summary of what some of the key services do.</p>
+ <table>
+  <tr>
+    <th width=300>Service</th>
+    <th width=500>Function</th>
+  </tr>
+  <tr><td>Connection Handler</td>
+    <td>Listens on a TCPIP port for requests from other CDC components (Classic Data Architect, 
+	Management Console & Access Server, CDC Apply agents).</td>
+  </tr> 
+  <tr>
+   <td>Admin Service</td>
+   <td>Dispatches tasks to appropriate services within the Started Task.</td>
+  </tr> 
+   <tr>
+   <td>Query Processor</td>
+   <td>Converts SQL requests into DL/I language to access IMS data structures.</td>
+  </tr> 
+  <tr>
+   <td>DRA</td>
+   <td>Sevice to connect to IMS via the IMS Database Remote Access interface.</td>
+  </tr> 
+  <tr>
+   <td>IMSLRS</td>
+   <td>IMS Log Reader Service.</td>
+  </tr> 
+  <tr>
+   <td>Capture</td>
+   <td>Extracts log changes needed for subscriptions, and publishes them over TCPIP to CDC Apply Agents.</td>
+  </tr> 
+  <tr>
+   <td>Operator</td>
+   <td>Command Processor. (Start, Stop, Park etc... )</td>
+  </tr> 
+  <tr>
+   <td>Logger</td>
+   <td>Writes Started Task logs to z/OS logstreams.</td>
+  </tr> 
+  <tr>
+   <td>Monitor</td>
+   <td>Tracks health and performance data.</td>
+  </tr> 
+</table> 
+
+
+<p>All the services, and their governing parameters are documented in the knowledge 
+centre <a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=zos-configuration-parameters-classic-data-servers-services">Classic Services</a>.
+
+
+<h2 id="2.0">2. High Level Review of Implementation Steps</h2>
+<p>There are a lot of moving parts, and a lot of inter-related dependencies in setting up Classic CDC for IMS. 
+It is helpful to establish a structured overview of the main installation and configuration activities before 
+diving into the technical details of very nut and bolt. 
+This paper identifies five separate stages of implementation</p>
+
+	<ul> 
+	<li>SMPE Installation of Code Libraries
+	<li>Creating the Customised Classic CDC Instance
+	<li>Configure the z/OS Environment
+	<li>Configure the IMS Environment
+	<li>Integrate with the wider CDC Landscape
+	</ul>
+
+<h2>2.1 SMPE Installation of Code Libraries</h2>
+<p>SMPE installation is a well documented, standardised process that every systems programming shop manages with 
+their own standards. It is outside the scope of this paper, aside from noting that it is a pre-requisite to the 
+followng stages.</p>
+<p>Once the SMPE installation is complete, the following target libraries will exist under the chosen high level qualifier. (CCDC in this example).</p>
+
+ <table>
+  <tr><td width=200>Library</td><td width=500>Contents</td></tr> 
+  <tr><td>CCDC.SCACBASE</td><td>xxxx</td></tr> 
+  <tr><td>CCDC.SCACCONF</td><td>xxxx</td></tr>  
+  <tr><td>CCDC.SCACLOAD</td><td>xxxx</td></tr>  
+  <tr><td>CCDC.SCACMAC</td><td>xxxx</td></tr>  
+  <tr><td>CCDC.SCACMSGS</td><td>xxxx</td></tr> 
+  <tr><td>CCDC.SCACSAMP</td><td>xxxx</td></tr>  
+  <tr><td>CCDC.SCACSIDE</td><td>xxxx</td></tr>  
+  <tr><td>CCDC.SCACSKEL</td><td>xxxx</td></tr>  
+</table> 
+
+	
+<h2>2.2 Creating the Classic CDC Instance</h2>
+<p>The installed product code can now be used to support one or more instances of Classic CDC for IMS. 
+This worked example will create a single instance, under the instance high level qualifier of CCDC.I1.</p>
+
+<h3>Create the Instance Libraries</h3> 
+<p>Creating the instance libraries is easy. Just edit CCDC.SCACSAMP(CECCUSC1) to specify the high level qualifier for 
+the instance libraries, and submit the job to create the instance libraries.</p> 
+
+<!--This is a comment. Comments are not displayed in the browser-->
+<!--567890123456789012345678901234567890123456789012345678901234567890123456789012345-->
+
+<pre>
+<code>line 1 of my code                                                              </code>                                                         
+<code>line 2 of my code                                                              </code>                                                               
+<code>line 3 of my code                                                              </code>                                                               
+</pre>
+
+<p>The result should be to allocate the following libraries.</p>
+ <table>
+  <tr><td width=200>Library</td><td width=500>Contents</td></tr> 
+  <tr><td>CCDC.I1.USERCONF</td><td>xxxx</td></tr> 
+  <tr><td>CCDC.I1.SCACSAMP</td><td>xxxx</td></tr>  
+</table> 
+
+<h3>Edit the Parameters member</h3> 
+<p>xxx</p>
+
+<h3>Generate the Customised JCL members</h3> 
+<p>xxx</p>
+
+<h3>Define CDC Logstreams</h3> 
+<p>xxx</p>
+
+<h3>Define and Mount the Classic Catalog zFS</h3> 
+<p>xxx</p>
+
+<h3>Define and Populate the Configuration Datasets</h3> 
+<p>xxx</p>
+
+<h3>Create the Metadata Catalog</h3> 
+<p>xxx</p>
+
+<h3>Create the Replication Mapping Datasets</h3> 
+<p>xxx</p>
+
+
+<h2>2.3 Configure the z/OS Environment</h2>
+<p>This document </p>
+
+<h3>APF Authorised Load Libraries</h2=3>
+<p>This document </p>
+
+<h3>TCPIP Ports</h3> 
+<p>xxx</p> 
+
+<h3>RACF Started Task ID</h3> 
+<p>xxx</p>
+
+<h3>Test Start the Classic CDC Server</h3> 
+<p>xxx</p>
+
+
+
+<h2>2.4 Configure the IMS Environment</h2>
+<p>This document </p>
+
+<h2>DRA Startup Module</h2>
+<p>This document </p>
+
+<h3>IMS Logging and Notification Exits</h3> 
+<p>xxx</p> 
+
+<h3>Augment DBD to generate T99 Log Records</h3> 
+<p>xxx</p>
+
+<h3>Copy the IBM-Supplied Exits into IMS RESLIB</h3> 
+<p>xxx</p>
+
+
+<h2>2.5 Integrate with the wider CDC Landscape</h2>
+<p>This document </p>
+
+<h3>Deploy Classic CDC as a Started Task</h3> 
+<p>xxx</p> 
+
+<h3>Deploy and use the Classic Data Architect IDE</h3>
+<p>This document </p>
+
+<h3>Connect from Management Console to Classic CDC Started Task</h3>
+<p>This document </p>
+
+<h3>Use CHCCLP Scripting for z/OS</h3>
+<p>This document </p>
+
+<h3>Conforming to site standards for devops and security.</h3> 
+<p>xxx</p>
+
+<h3>Collaboration with non-z/OS teams</h3> 
+<p>xxx</p>
+
+
+<h2>Appendix</h2>
+<p>This document </p>
+
+<h3>Information Sources</h3> 
+<p>xxx</p>
+
+
+
+</body>
+</html>
+

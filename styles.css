@@ -1,6 +1,9 @@
 body { 
-  margin-left: 50px;
   background: #EBF5FB;
   text-align: left;
   }
   
+p {
+  color: navy;
+  text-indent: 50px;
+}

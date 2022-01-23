@@ -253,6 +253,8 @@ code {
 guidance for seting up CDC Replication between mainframe data sources and mid-range or Cloud targets.
 The complete set of articles can be read at <a href="http://www.zeditor.org/">Zeditor.Org</a></p> 
 
+<hr>
+
 <h2 id="1.0">1. Introduction to Classic CDC for IMS</h2>  
 
 <p>Classic CDC for IMS is a CDC Capture Source only. It does not have CDC Apply functionality.</p>
@@ -338,6 +340,7 @@ The following is a brief summary of what some of the key services do.</p>
 <p>All the services, and their governing parameters are documented in the knowledge 
 centre <a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=zos-configuration-parameters-classic-data-servers-services">Classic Services</a>.
 
+<hr>
 
 <h2 id="2.0">2. High Level Review of Implementation Steps</h2>
 <p>There are a lot of moving parts, and a lot of inter-related dependencies in setting up Classic CDC for IMS. 
@@ -371,6 +374,7 @@ followng stages.</p>
   <tr><td>CCDC.SCACSKEL</td><td>xxxx</td></tr>  
 </table> 
 
+<hr>	
 	
 <h2 id="4.0">4. Creating the Classic CDC Instance</h2>
 <p>The installed product code can now be used to support one or more instances of Classic CDC for IMS. 
@@ -605,6 +609,7 @@ This is performed using job CECCDSUB. Review the generated JCL and submit when h
 <code>/*                                 </code>
 </pre>
 
+<hr>
 
 <h2 id="5.0">5. Configure the z/OS Environment</h2>
 <p>Every z/OS environment will have different constraints and considerations for deployment. 
@@ -647,6 +652,8 @@ Specifically the SpcRC codes can be particularly useful.</p>
 
 <p>It should be expected that Classic CDC will have errors connecting to IMS until you have completed the IMS configuration work, which is 
 covered in the next section.</p>
+
+<hr>
 
 <h2 id="6.0">6. Configure the IMS Environment</h2>
 <p>This is the section where Classic CDC differs from deploying CDC for a relational data source. 
@@ -927,6 +934,8 @@ you need to copy the IBM-Supplied Exits from CCDC.SCACLOAD into IMS RESLIB.</p>
 
 <p>That's it for the Classic CDC Server!</p>
 
+<hr>
+
 <h2 id="7.0">7. Integrate with the wider CDC Landscape</h2>
 <p>Now that the mainframe CDC Capture Server is ready for business, you will need to start using some non-mainframe tools in order 
 to define "IMS Tables", and define Subscriptions from them to target systems. Section 7 covers this matters.</p>
@@ -1107,7 +1116,7 @@ This case be done by selecting different CDC agents in many cases, as follows</p
 <p>Please be aware of the flexible CDC deployment options that exist, and take an early view on what choices may provide the best 
 devops lifecycle proposition for your organisation.</p>
 
-
+<hr>
 
 <h2 id="App">Appendix</h2>
 <p>This document </p>

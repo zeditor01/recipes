@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>ZEDITOR R1C1</title>
+<title>ZEDITOR CDC</title>
 </head>
 <!-- ******************************************************************************************************************** -->
 <!-- Editing Instructions.                                                                                                -->
@@ -70,20 +70,23 @@
             <td style="padding:20px; background-color:#d4d7dc; vertical-align:top;">
                 <h2>Z Data in Motion</h2>
                 <p>In recent years there has been an explosive growth in cloud applications, often with mobile phone apps as clients, that demand 
-				access to <b>current</b> data from operational datatores. Whether you are ordering a taxi, a pizza or a bank balance, the customer 
-                has zero interest in the state of the data 5 minutes ago. The only kind of data that is acceptable for most apps is data that is bang up to date.</p>
-				<p style="margin-left:15px;">Writing as a mainframe advocate, my instinctive reaction is to build APIs on the mainframe to serve those cloud applications directly. 
-				There is plenty of great software available from IBM to build REST APIs on top of various mainframe resources including CICS transactions, 
-				IMS transactions, Websphere programs, DB2 queries, Db2 stored procedures, VSAM and IMS data and so on.
-				The <a href="/recipes/docs/R2C1/cellr2c1.html" style="color:#333;">Z Data at REST</a> section provides details of those patterns.</p>
-				<p style="margin-left:15px;">However, it is an undeniable fact that the pattern most commonly adopted by enterprises today is to capture changes from mainframe databases, and stream
-				them to a midrange or cloud platform, where the data can be received and manipulated to act as a source for serving APIs from that platform.</p> 
-				<p style="margin-left:15px;">Arguing the relative merits of the different approaches is set aside for the purposes 
-				of the <a href="/recipes/docs/R2C1/cellr1c1.html" style="color:#333;">Z Data in Motion</a> 
-				and <a href="/recipes/docs/R2C1/cellr2c1.html" style="color:#333;">Z Data at REST</a> worked examples. However, the relative merits of moving data or accessing it 
-				in situ are considered in the <a href="/recipes/docs/R3C1/cellr2c1.html" style="color:#333;">ERIS</a> Technical Zone, where a hybrid approach is presented.</p>
-				<p>The articles in this section contain worked examples of how to use various IBM software solutions to satisfy the pattern of streaming 
-				mainframe data off the mainframe to a remote consumer</p>
+<ol>
+<li><a href="http://www.zeditor.org/">CDC01: CDC Concepts - Capability, Mechanics, Deployment and Devops.</a></li>
+<li><a href="http://www.zeditor.org/">CDC02: Simple Worked Example - Setting up CDC for Db2 on z/OS.</a></li> 
+<li><a href="http://www.zeditor.org/">CDC03: Simple Worked Example - Setting up CDC for Db2 on Linux.</a></li>
+<li><a href="http://www.zeditor.org/">CDC04: Advanced Worked Example - Setting up Classic CDC for IMS.</a></li>
+<li><a href="http://www.zeditor.org/">CDC05: Advanced Worked Example - Setting up Classic CDC for VSAM.</a></li> 
+<li><a href="http://www.zeditor.org/">CDC06: Advanced Worked Example - MQ Publishing from Classic CDC.</a></li>
+<li><a href="http://www.zeditor.org/">CDC07: Advanced Worked Example - Setting up CDC for Kafka.</a></li>
+<li><a href="http://www.zeditor.org/">CDC08: Advanced Worked Example - Setting up remote CDC Capture for Db2 z/OS.</a></li>
+<li><a href="http://www.zeditor.org/">CDC09: Advanced Worked Example - Setting up remote CDC Capture for VSAM.</a></li>
+<li><a href="http://www.zeditor.org/">CDC10: Devops Options for CDC - Change Control, Operations and Monitoring.</a></li> 
+<li><a href="http://www.zeditor.org/">CDC11: Devops Scripting for CDC - CHCCLP Scripting from Windows, Linux or Mainframe.</a></li>
+<li><a href="http://www.zeditor.org/">CDC12: Security for CDC - LDAP Authentication and TLS Encryption.</a></li>
+<li><a href="http://www.zeditor.org/">CDC13: Container Deployment - CDC containers, for Cloud and Mainframe.</a></li>
+<li><a href="http://www.zeditor.org/">CDC14: Mainframe-Centric CDC Devops - using ZOWE.</a></li>
+<li><a href="http://www.zeditor.org/">CDC15: Using CDC to expose and consume mainframe data - A Point of View.</a></li>
+</ol>
             </td>
         </tr>
     </table> 
@@ -141,7 +144,7 @@
         </tr>  
         <tr>
             <td style="width:20%; padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-            <p style="margin-left:15px;"><a href="/recipes/docs/NA_DATAGATE/datagate01.html" style="color:#333;"><button class="btn success">Datagate</button></a></p>
+            <p style="margin-left:15px;"><a href="/recipes/docs/NA_DATAGATE/datagate.html" style="color:#333;"><button class="btn success">Datagate</button></a></p>
             </td>
 			<td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
             <p>Datagate is an ultra-efficient data replication protocol between a Db2 z/OS V12 source and a Db2 Linux target via Cloudpak for Data 

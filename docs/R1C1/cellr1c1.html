@@ -112,7 +112,13 @@
             <p style="margin-left:15px;"><a href="/recipes/docs/SITE/about.html" style="color:#333;"><button class="btn success">CDC Replication</button></a></p>
             </td>
 			<td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-            <p>CDC Replication is
+            <p>CDC Replication is aimed at <b>heterogenous</b> data replication.</p>
+				<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
+				<li>It supports all the regular relational databases ( Db2 Oracle, SQL Server etc... ) as sources and targets.
+				<li>Additionally, it supports non-relational databases such as IMS and VSAM.
+				<li>And it supports non-relational targets such as Apache Kafka (various distributions of Kafka).
+				</ul> 			
+			<p>Capture Agents stream changes to Apply agents over TCPIP sockets. Devops management is supported with both graphical and scripting interfaces.</p>
             </td>
         </tr> 	 
         <tr>
@@ -120,7 +126,14 @@
             <p style="margin-left:15px;"><a href="/recipes/docs/SITE/about.html" style="color:#333;"><button class="btn success">Q Replication</button></a></p>
             </td>
 			<td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-            <p>Q Replication is
+            <p>Q Replication is aimed at Homogeneous DB2 Replication. (both Db2 z/OS and DB2 LUW). If your sources and targets are all Db2, 
+			then Q Replication offers some attractive benefits such as:</p> 
+			<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
+				<li>It supports in-line DDL Replication between Db2 z/OS sources and Db2 z/OS targets..
+				<li>It supports publishing to MQ in open formats, which avoids the need to co-ordinate management Capture, Apply and the network in-between.
+				<li>It is the basis for the GDPS Active-Active continuous availability solution.
+				</ul> 			
+			<p>Capture Agents stream changes to Apply agents over TCPIP sockets. Devops management is supported with both graphical and scripting interfaces.</p>
             </td>
         </tr>  
         <tr>
@@ -128,7 +141,15 @@
             <p style="margin-left:15px;"><a href="/recipes/docs/SITE/about.html" style="color:#333;"><button class="btn success">Datagate</button></a></p>
             </td>
 			<td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-            <p>Datagate is
+            <p>Datagate is an ultra-efficient data replication protocol between a Db2 z/OS V12 source and a Db2 Linux target via Cloudpak for Data 
+			on a number of Redhat openshift platforms. </p> 
+			<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
+				<li>It supports a choice of conventional row-based Db2 targets, or columnar Db2 targets that are optimised for Analytics.
+				<li>It provides the option to accelerate analytics SQL queries on Db2 z/OS by transparently routing them through to a columnar copy on Db2 Linux.
+				<li>It provides the ability to place your operational Db2 z/OS data in the cloud to support new cloud-native development projects.
+				</ul> 			
+			<p>Datagate is a much narrower use case that the more generalised CDC and Q Replication tools. But if your requirements fit within that 
+			envelope it is the best replication option by far (z/OS software consumption charges, cpu cycles, low data latency, devops controls for changes, etc... ).</p>
             </td>
         </tr> 			
     </table> 

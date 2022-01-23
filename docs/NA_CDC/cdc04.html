@@ -670,8 +670,6 @@ CDC needs the following 3 things that are more complex to provide from IMS than 
 <p>When a CDC Capture agent works with a relational database it uses the SQL interface to the database 
 to obtain the data structures in the development phase, and to perform a full refresh in the operational phase. 
 With Classic CDC for IMS we use the IMS DRA interface to achieve these tasks.</p>
-<p>The JCL used to assemble the DRA table in this example can be 
-found in the zeditor01 github repository here <a href="https://github.com/zeditor01/recipes/blob/main/samples/cdc/asmbldra.jcl">here.</a></p>
 <p>You need to assemble a DRA Table with an assemble and link edit job. 
 My example below was used to assemble and link edit a DRA Table called DFSPZP01, which is written to the IMS RESLIB.</p>
 <pre>
@@ -739,6 +737,7 @@ My example below was used to assemble and link edit a DRA Table called DFSPZP01,
 <code>/*                                                                      </code>
 </pre>
 
+<p>This JCL can be downloaded from the github repository <a href="https://github.com/zeditor01/recipes/blob/main/samples/cdc/asmbldra.jcl">here.</a></p>
 <p>Note the deliberate mistake! I generated a DRA Table with suffix 01 <code>NAME DFSPZP01 (R)</code></p>
 <p>Back in section 4.2 I coded my parameters member with suffix 00 <code>IMSDRASX="00"</code> </p>
 <p>That "mistake" serves to force us to review how to change the Classic CDC Service parameters.</p>

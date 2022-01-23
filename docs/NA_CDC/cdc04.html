@@ -129,7 +129,7 @@ code {
     </table> 
 
 
-    <table style="width:100%; padding:20px; border-collapse:collapse; font:14px Arial,sans-serif;">
+    <table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
         <tr>
             <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;">  
 <!-- **************************************************************************************************************************** -->
@@ -670,6 +670,8 @@ CDC needs the following 3 things that are more complex to provide from IMS than 
 <p>When a CDC Capture agent works with a relational database it uses the SQL interface to the database 
 to obtain the data structures in the development phase, and to perform a full refresh in the operational phase. 
 With Classic CDC for IMS we use the IMS DRA interface to achieve these tasks.</p>
+<p>The JCL used to assemble the DRA table in this example can be 
+found in the zeditor01 github repository here <a href="https://github.com/zeditor01/recipes/blob/main/samples/cdc/asmbldra.jcl">here.</a></p>
 <p>You need to assemble a DRA Table with an assemble and link edit job. 
 My example below was used to assemble and link edit a DRA Table called DFSPZP01, which is written to the IMS RESLIB.</p>
 <pre>

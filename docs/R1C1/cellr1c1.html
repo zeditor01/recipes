@@ -12,6 +12,35 @@
 <!-- ******************************************************************************************************************** -->
 
 
+<!-- ******************************************************************************************************************** -->
+<!-- Style Sheet.                                                                                                         -->
+<!-- Define  the styles needed to support an interactive button, class success                                            -->
+<!-- template html to create a button to link to a page is                                                                -->
+<!-- <a href="/recipes/docs/path/pagename.html" style="color:#333;"><button class="btn success">Button Text</button></a>  -->
+<!-- ******************************************************************************************************************** -->
+
+<style>
+.btn {
+  border: 2px solid black;
+  background-color: white;
+  color: black;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* Green */
+.success {
+  border-color: #1e88e5;
+  color: green;
+}
+
+.success:hover {
+  background-color: #1e88e5;
+  color: white;
+}
+</style>
+
 <!-- ********************************************************************************************** -->
 <!-- Common Header Below.                                                                           -->
 <!-- You need to customize contents of the second column of the second row                          -->
@@ -76,6 +105,10 @@
         </tr> 	
     </table> 
 
+				<p><a href="/recipes/docs/SITE/about.html" style="color:#333;"><button class="btn success">CDC Replication</button></a><p>
+				<p><a href="/recipes/docs/SITE/about.html" style="color:#333;"><button class="btn success">Q Replication</button></a><p>
+				 <p><a href="/recipes/docs/SITE/about.html" style="color:#333;"><button class="btn success">Datagate</button></a><p> 
+				 
     <table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
         <tr>
             <td style="width:33%; padding:20px; background-color:#e3f2fd; vertical-align: top;"> 

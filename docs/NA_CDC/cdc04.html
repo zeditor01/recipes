@@ -1013,18 +1013,18 @@ projection of data slices from the IMS hierarchical database. It helps to be abl
 <li>Specify the required Table Usage ( Query / Update / Data Capture )
 </ul>
 
-<img src="/recipes/images/neale/cdc//cdc01_27.png" alt="Classic CDC Services" style="border:1px solid black"> 
+<img src="/recipes/images/neale/cdc/cdc01_27.png" alt="Classic CDC Services" style="border:1px solid black"> 
 
 <p>Map the root segment (PARTROOT) followed by the child segment (STOKSTAT)</p>
 <p>Just tick the fields that you want to include in the IMS Table</p>
-<img src="/recipes/images/neale/cdc//cdc01_28.png" alt="Classic CDC Services" style="border:1px solid black"> 
+<img src="/recipes/images/neale/cdc/cdc01_28.png" alt="Classic CDC Services" style="border:1px solid black"> 
 
 <p>Review the generated mapping. It will show the selected copybook fields and their corresponding relational data types.</p>
-<img src="/recipes/images/neale/cdc//cdc01_29.png" alt="Classic CDC Services" style="border:1px solid black"> 
+<img src="/recipes/images/neale/cdc/cdc01_29.png" alt="Classic CDC Services" style="border:1px solid black"> 
 
 <p>Review the generated DDL. This will be structured like a relational "Create Table" statement. 
 However it will include the required offsets and types in the underlying IMS segment where the fields actually reside.</p>
-<img src="/recipes/images/neale/cdc//cdc01_30.png" alt="Classic CDC Services" style="border:1px solid black"> 
+<img src="/recipes/images/neale/cdc/cdc01_30.png" alt="Classic CDC Services" style="border:1px solid black"> 
 
 
 
@@ -1037,7 +1037,7 @@ However it will include the required offsets and types in the underlying IMS seg
 <p>Once you have deployed the IMS Table to the Classic CDC Server, you should validate that the table mapping is correct. 
 The simplest way to do this is to run an SQL query against the mapped IMS Table. 
 Right Click on the Table, and either "return all rows" or choose "sample contents" to eyeball the data for validity</p>
-<img src="/recipes/images/neale/cdc//cdc01_31.png" alt="Classic CDC Services" style="border:1px solid black"> 
+<img src="/recipes/images/neale/cdc/cdc01_31.png" alt="Classic CDC Services" style="border:1px solid black"> 
 
 <p>You can dig deeper into data validation with more probing SQL through the Classic Data Architect. 
 Just click the SQL icon in the Data Source Exporer window (bottom-right) and SQL away.</p>

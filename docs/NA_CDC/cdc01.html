@@ -68,24 +68,24 @@
                 </ul>
             </td>
             <td style="padding:20px; background-color:#d4d7dc; vertical-align:top;">
-                <h2>Z Data in Motion</h2>
+                <h2>CDC Replication Worked Examples</h2>
                 <p>In recent years there has been an explosive growth in cloud applications, often with mobile phone apps as clients, that demand 
 <ol>
-<li><a href="http://www.zeditor.org/">CDC01: CDC Concepts - Capability, Mechanics, Deployment and Devops.</a></li>
-<li><a href="http://www.zeditor.org/">CDC02: Simple Worked Example - Setting up CDC for Db2 on z/OS.</a></li> 
-<li><a href="http://www.zeditor.org/">CDC03: Simple Worked Example - Setting up CDC for Db2 on Linux.</a></li>
-<li><a href="http://www.zeditor.org/">CDC04: Advanced Worked Example - Setting up Classic CDC for IMS.</a></li>
-<li><a href="http://www.zeditor.org/">CDC05: Advanced Worked Example - Setting up Classic CDC for VSAM.</a></li> 
-<li><a href="http://www.zeditor.org/">CDC06: Advanced Worked Example - MQ Publishing from Classic CDC.</a></li>
-<li><a href="http://www.zeditor.org/">CDC07: Advanced Worked Example - Setting up CDC for Kafka.</a></li>
-<li><a href="http://www.zeditor.org/">CDC08: Advanced Worked Example - Setting up remote CDC Capture for Db2 z/OS.</a></li>
-<li><a href="http://www.zeditor.org/">CDC09: Advanced Worked Example - Setting up remote CDC Capture for VSAM.</a></li>
-<li><a href="http://www.zeditor.org/">CDC10: Devops Options for CDC - Change Control, Operations and Monitoring.</a></li> 
-<li><a href="http://www.zeditor.org/">CDC11: Devops Scripting for CDC - CHCCLP Scripting from Windows, Linux or Mainframe.</a></li>
-<li><a href="http://www.zeditor.org/">CDC12: Security for CDC - LDAP Authentication and TLS Encryption.</a></li>
-<li><a href="http://www.zeditor.org/">CDC13: Container Deployment - CDC containers, for Cloud and Mainframe.</a></li>
-<li><a href="http://www.zeditor.org/">CDC14: Mainframe-Centric CDC Devops - using ZOWE.</a></li>
-<li><a href="http://www.zeditor.org/">CDC15: Using CDC to expose and consume mainframe data - A Point of View.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc01.html">CDC01: CDC Concepts, and Systems Environment that these examples are built on.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc02.html">CDC02: Worked Example - Setting up CDC for Db2 on z/OS.</a></li> 
+<li><a href="/recipes/docs/NA_CDC/cdc03.html">CDC03: Worked Example - Setting up CDC for Db2 on Linux.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc04.html">CDC04: Worked Example - Setting up Classic CDC for IMS.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc05.html">CDC05: Worked Example - Setting up Classic CDC for VSAM.</a></li> 
+<li><a href="/recipes/docs/NA_CDC/cdc06.html">CDC06: Worked Example - MQ Publishing from Classic CDC.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc07.html">CDC07: Worked Example - Setting up CDC for Kafka.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc08.html">CDC08: Worked Example - Setting up remote CDC Capture for Db2 z/OS.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc09.html">CDC09: Worked Example - Setting up remote CDC Capture for VSAM.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc10.html">CDC10: Devops Options for CDC - Change Control, Operations and Monitoring.</a></li> 
+<li><a href="/recipes/docs/NA_CDC/cdc11.html">CDC11: Devops Scripting for CDC - CHCCLP Scripting from Windows, Linux or Mainframe.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc12.html">CDC12: Security for CDC - LDAP Authentication and TLS Encryption.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc13.html">CDC13: Container Deployment - CDC containers, for Cloud and Mainframe.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc14.html">CDC14: Mainframe-Centric CDC Devops - using CHCCLP and ZOWE.</a></li>
+<li><a href="/recipes/docs/NA_CDC/cdc15.html">CDC15: Using CDC to expose and consume mainframe data - A Point of View.</a></li>
 </ol>
             </td>
         </tr>
@@ -102,64 +102,32 @@
 
     <table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
         <tr>
-            <td style="width:20%; padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-			<h3 align=center>IBM's Z Data in Motion Options</h3>
-                <p>The three primary options for replicating Z data to other platforms are Q Replication, CDC Replication and Datagate. 
-				They all have different characteristics that suit them to different scenarios.</p>
-				<p>The notes below provide some broad positioning statements. 
-				Click on the appropriate button to reveal a range of implementation worked examples for that replication technology</p>
+            <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
+			<h3 align=center>CDC01: CDC Concepts, and Systems Environment that these examples are built on.</h3>
             </td>
         </tr> 	
     </table> 
-				 
+	
     <table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
         <tr>
-            <td style="width:20%; padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-            <p style="margin-left:15px;"><a href="/recipes/docs/NA_CDC/cdc01.html" style="color:#333;"><button class="btn success">CDC Replication</button></a></p>
+            <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
+			<h3 align=left>CDC Concepts: Capability, Mechanics, Deployment and Devops.</h3> 
+			<p>Blah blah blah
             </td>
-			<td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-            <p>CDC Replication is aimed at <b>heterogenous</b> data replication.</p>
-				<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
-				<li>It supports all the regular relational databases ( Db2 Oracle, SQL Server etc... ) as sources and targets.
-				<li>Additionally, it supports non-relational databases such as IMS and VSAM.
-				<li>And it supports non-relational targets such as Apache Kafka (various distributions of Kafka).
-				</ul> 			
-			<p>CDC Capture Agents stream changes to CDC Apply agents over TCPIP sockets. Devops management is supported with both graphical and scripting interfaces.</p>
-            </td>
-        </tr> 	 
-        <tr>
-            <td style="width:20%; padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-            <p style="margin-left:15px;"><a href="/recipes/docs/NA_QREP/qrep01.html" style="color:#333;"><button class="btn success">Q Replication</button></a></p>
-            </td>
-			<td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-            <p>Q Replication is primarily aimed at <b>homogeneous</b> DB2 Replication. (both Db2 z/OS and DB2 LUW). If your sources and targets are all Db2, 
-			then Q Replication offers some attractive benefits such as:</p> 
-			<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
-				<li>It supports in-line DDL Replication between Db2 z/OS sources and Db2 z/OS targets..
-				<li>It supports publishing to MQ in open formats, which avoids the need to co-ordinate management Capture, Apply and the network in-between.
-				<li>It is the basis for the GDPS Active-Active continuous availability solution.
-				</ul> 			
-			<p>Q Capture Agents stream changes to Q Apply agents over Websphere MQ messaging channels. Devops management is supported with both graphical and scripting interfaces.</p>
-            </td>
-        </tr>  
-        <tr>
-            <td style="width:20%; padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-            <p style="margin-left:15px;"><a href="/recipes/docs/NA_DATAGATE/datagate.html" style="color:#333;"><button class="btn success">Datagate</button></a></p>
-            </td>
-			<td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-            <p>Datagate is an ultra-efficient data replication protocol between a Db2 z/OS V12 source and a Db2 Linux target via Cloudpak for Data 
-			on a number of Redhat openshift platforms. </p> 
-			<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
-				<li>It supports a choice of conventional row-based Db2 targets, or columnar Db2 targets that are optimised for Analytics.
-				<li>It provides the option to accelerate analytics SQL queries on Db2 z/OS by transparently routing them through to a columnar copy on Db2 Linux.
-				<li>It provides the ability to place your operational Db2 z/OS data in the cloud to support new cloud-native development projects.
-				</ul> 			
-			<p>Datagate is a much narrower use case that the more generalised CDC and Q Replication tools. But if your requirements fit within that 
-			envelope it is the best replication option by far (z/OS software consumption charges, cpu cycles, low data latency, devops controls for changes, etc... ).</p>
-            </td>
-        </tr> 			
+        </tr> 	
     </table> 
-
+	
+	<table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
+        <tr>
+            <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
+			<h3 align=left>The Systems Environment that these examples are built on.</h3> 
+			<p>Blah blah blah
+            </td>
+        </tr> 	
+    </table>  
+	
+	
+	
 	
 <!-- ********************************************************************************************** -->
 <!-- Common Footer Below.                                                                           -->

@@ -40,10 +40,16 @@
     list-style: outside none none !important;
 }
 
-td.wrappable,
-table.data_table td.wrappable {
-    white-space: normal;
-}  
+      table {
+        border-collapse: collapse;
+        table-layout: fixed;
+        width: 310px;
+      }
+      table td {
+        border: solid 1px #666;
+        width: 110px;
+        word-wrap: break-word;
+      }
 
 .btn {
   border: 2px solid black;
@@ -179,7 +185,7 @@ code {
 <hr>
 <p class="toc_title">Contents</p>
 <ul class="toc_list">
-<li><a href="#abstract">Abstracty</a>   
+<li><a href="#abstract">Abstract</a>   
 <li><a href="#1.0">1 Introduction to Classic CDC for IMS</a>
 <ul>
   <li><a href="#1.1">1.1 Requirements to Replicate IMS Data</a></li>

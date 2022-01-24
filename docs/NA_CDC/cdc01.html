@@ -2,66 +2,15 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>ZEDITOR CDC</title>
+<title>ZEDITOR CDC</title> 
+<link rel="stylesheet" href="/recipes/styles.css">
 </head>
 <!-- ******************************************************************************************************************** -->
-<!-- Editing Instructions.                                                                                                -->
-<!-- This is one of the 9 landing pages when somebody clicks on the title of one of the 9 techzone cells on the home page -->
-<!-- It contains the common header and footer sections for the site.                                                      -->
-<!-- It also contains an empty HTML Table, which is where you should place your recipe or article                         -->
+<!-- Editing Instructions, annotated as comments.                                                                         -->
+<!-- Style Sheet is referenced in the head section   /recipes/styles.css                                                  -->
 <!-- ******************************************************************************************************************** -->
 
 
-<!-- ******************************************************************************************************************** -->
-<!-- Style Sheet.                                                                                                         -->
-<!-- Define  the styles needed to support an interactive button, class success                                            -->
-<!-- template html to create a button to link to a page is                                                                -->
-<!-- <a href="/recipes/docs/path/pagename.html" style="color:#333;"><button class="btn success">Button Text</button></a>  -->
-<!-- ******************************************************************************************************************** -->
-
-<style> 
-
-#toc_container {
-    background: #f9f9f9 none repeat scroll 0 0;
-    border: 1px solid #aaa;
-    display: table;
-    font-size: 95%;
-    margin-bottom: 1em;
-    padding: 20px;
-    width: 100%;
-}
-
-.toc_title {
-    font-weight: 700;
-    text-align: left;
-}
-
-#toc_container li, #toc_container ul, #toc_container ul li{
-    list-style: outside none none !important;
-}
-
-
-.btn {
-  border: 2px solid black;
-  background-color: white;
-  color: black;
-  padding: 14px 28px;
-  font-size: 16px;
-  cursor: pointer; 
-  width: 200px;
-}
-
-/* Blue */
-.success {
-  border-color: #1e88e5;
-  color: #1e88e5;
-}
-
-.success:hover {
-  background-color: #1e88e5;
-  color: white;
-}
-</style>
 
 <!-- ********************************************************************************************** -->
 <!-- Common Header Below.                                                                           -->
@@ -81,16 +30,23 @@
             </td>
         </tr>
         <tr style="height:170px;">
-            <td style="width:20%; padding:20px; background-color:#acb3b9; vertical-align: top;">
+            <td style="width:15%; padding:20px; background-color:#acb3b9; vertical-align: top;">
                 <ul style="list-style:none; padding:0px; line-height:24px;">
                     <li><a href="/recipes/index.html" style="color:#333;">Home</a></li>
                     <li><a href="/recipes/docs/SITE/about.html" style="color:#333;">About</a></li>
                     <li><a href="/recipes/docs/SITE/contact.html" style="color:#333;">Contact</a></li>
                 </ul>
             </td>
-            <td style="padding:20px; background-color:#d4d7dc; vertical-align:top;">
+            <td style="padding:20px; background-color:#d4d7dc; vertical-align:top;">  
+<!-- **************************************************************************************************************************** -->
+<!--                                                                                                                              -->
+<!-- If this is an article in a series, you might want to include the navigation links here                                       -->
+<!-- If this is a standalone article, you might want to introduce it here                                                         -->
+<!--                                                                                                                              -->
+<!-- **************************************************************************************************************************** -->			
+
                 <h2>CDC Replication Worked Examples</h2>
-                <p>In recent years there has been an explosive growth in cloud applications, often with mobile phone apps as clients, that demand 
+                <p>15 artciles in this series. Click on the one your want to read next.</p> 
 <ul>
 <li><a href="/recipes/docs/NA_CDC/cdc01.html">CDC01: CDC Concepts, and Systems Environment that these examples are built on.</a></li>
 <li><a href="/recipes/docs/NA_CDC/cdc02.html">CDC02: Setting up CDC for Db2 on z/OS.</a></li> 
@@ -112,28 +68,29 @@
         </tr>
     </table> 
 
-<!-- **************************************************************************************************************************** -->
-<!-- The main content of the Landing Page for this Tech Zone.                                                                     -->
-<!-- Keep the content inside the table, in order to keep the site style.                                                          -->
-<!-- Use whatever HTML content and formatting you want.                                                                           -->
-<!-- But ultimately, the purpose of this page is to provide annotated links to the actual articles and recipes in this zone.      --> 
-<!-- This example just uses active links to a destination page, carefully noting the github path to the html file.                --> 
-<!-- You might have a graphic as a button for accessing. If so, you would need to provide a github path to the image file.        --> 
-<!-- **************************************************************************************************************************** -->
-
-
-
 
     <table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
+
+
+<!-- **************************************************************************************************************************** -->
+<!--                                                                                                                              -->
+<!-- Edit Document Title      BELOW                                                                                               -->
+<!--                                                                                                                              -->
+<!-- **************************************************************************************************************************** -->	
         <tr>
-            <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
+            <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;">  
 			<h2 align=left>CDC01: CDC Concepts, and Systems Environment that these examples are built on.</h2>
             </td>
         </tr> 	
 
+
+<!-- **************************************************************************************************************************** -->
+<!--                                                                                                                              -->
+<!-- Edit Author Name, Email and document currency      BELOW                                                                     -->
+<!--                                                                                                                              -->
+<!-- **************************************************************************************************************************** -->	
 		<tr> 
 		    <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;">
-
                  <div id="toc_container">
 				 		     <table>
                                <tr>
@@ -146,21 +103,29 @@
                                </tr> 
                                <tr>
                                 <td>Last Modified or Verified: </td>
-                                <td>January 2022</td>
+                                <td>To be written</td>
                                </tr> 
-                             </table>  
+                             </table>   
+
+
+<!-- **************************************************************************************************************************** -->
+<!--                                                                                                                              -->
+<!-- The Table of Contents needs to be edited manually. Either delete it, or edit it and test in                                  -->
+<!--                                                                                                                              -->
+<!-- **************************************************************************************************************************** -->			
+						 
 			       <hr>
                    <p class="toc_title">Contents</p>
                       <ul class="toc_list">
                          <li><a href="#abstract">Abstract</a>   
-                         <li><a href="#1.0">1 Introduction to Classic CDC for IMS</a>
+                         <li><a href="#1.0">1 Introduction to CDC Data Replication</a>
                            <ul>
-                              <li><a href="#1.1">1.1 CDC Capability.</a></li>
-                              <li><a href="#1.2">1.2 CDC Mechanics.</a></li> 
-                              <li><a href="#1.1">1.3 CDC Deployment.</a></li>
-                              <li><a href="#1.2">1.4 CDC Devops.</a></li>
+                              <li><a href="#1.1">1.1 CDC Capability</a></li>
+                              <li><a href="#1.2">1.2 CDC Mechanics</a></li> 
+                              <li><a href="#1.1">1.3 CDC Deployment</a></li>
+                              <li><a href="#1.2">1.4 CDC Devops</a></li>
                            </ul>
-                         <li><a href="#2.0">2. The Systems Environment that these examples are built on.</a>
+                         <li><a href="#2.0">2. Systems Environment for these worked examples</a>
                          <li><a href="#App">Appendix</a>
                      </ul>
                  </div>
@@ -174,36 +139,23 @@
     <table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
         <tr>
             <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-			<h3 align=left id="1.0">CDC Concepts: Capability, Mechanics, Deployment and Devops.</h3> 
-			<p>Blah blah blah
-			
-			<h4 align=left id="1.1">CDC Capability.</h4> 
-			<p>Blah blah blah
-			
-			<h4 align=left id="1.2">CDC Mechanics.</h4> 
-			<p>Blah blah blah
-			
-			<h4 align=left id="1.3">CDC Deployment.</h4> 
-			<p>Blah blah blah
-			
-			<h4 align=left id="1.4">CDC Devops.</h4> 
-			<p>Blah blah blah
-			
-			
+   
+<!-- **************************************************************************************************************************** -->
+<!--                                                                                                                              -->
+<!-- Add Content Here.                                                                                                            -->
+<!--                                                                                                                              -->
+<!-- **************************************************************************************************************************** -->			
+             <p>XXXXXXXXXXXXXX Placeholder for article to be published. 
+Placeholder for article to be published. 
+Placeholder for article to be published. 
+Placeholder for article to be published. 
+Placeholder for article to be published. 
+Placeholder for article to be published. 
+Placeholder for article to be published.</p> 			
             </td>
         </tr> 	
     </table> 
-	
-	<table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
-        <tr>
-            <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;"> 
-			<h3 align=left id="2.0">The Systems Environment that these examples are built on.</h3> 
-			<p>Blah blah blah
-            </td>
-        </tr> 	
-    </table>  
-	
-	
+
 	
 	
 <!-- ********************************************************************************************** -->

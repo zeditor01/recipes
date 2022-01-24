@@ -2,6 +2,7 @@
     background: #f9f9f9 none repeat scroll 0 0;
     border: 1px solid #aaa;
     display: table;
+    font-size: 95%;
     margin-bottom: 1em;
     padding: 20px;
     width: 100%;
@@ -15,6 +16,16 @@
 #toc_container li, #toc_container ul, #toc_container ul li{
     list-style: outside none none !important;
 }
+
+      table {
+        border-collapse: collapse;
+      }
+      table td {
+        border: solid 0px #666;
+        word-wrap: break-word;
+      }
+
+
 
 .myDiv {
   border: 0px outset black;
@@ -52,3 +63,10 @@
   color: white;
 }
 
+code {
+  font-family: Consolas,"courier new";
+  color: #00FF00;
+  background-color: #000000;
+  padding: 2px;
+  font-size: 105%;
+}

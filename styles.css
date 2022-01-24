@@ -1,3 +1,12 @@
+.myDiv {
+  border: 0px outset black;
+  background-color: #e3f2fd;    
+  text-align: left; 
+  padding: 50px;
+  width: 100%;
+}
+
+
 #toc_container {
     background: #f9f9f9 none repeat scroll 0 0;
     border: 1px solid #aaa;
@@ -5,7 +14,7 @@
     font-size: 95%;
     margin-bottom: 1em;
     padding: 20px;
-    width: auto;
+    width: 100%;
 }
 
 .toc_title {
@@ -17,24 +26,13 @@
     list-style: outside none none !important;
 }
 
-
-
-
-
-.myDiv {
-  border: 0px outset black;
-  background-color: #e3f2fd;    
-  text-align: left; 
-  padding: 50px;
-  width: 100%;
-}
-
-.footerDiv {
-  border: 0px outset black;
-  background-color: #acb3b9;    
-  text-align: center; 
-  width: 100%;
-}
+      table {
+        border-collapse: collapse;
+      }
+      table td {
+        border: solid 0px #666;
+        word-wrap: break-word;
+      }
 
 .btn {
   border: 2px solid black;
@@ -55,7 +53,7 @@
 .success:hover {
   background-color: #1e88e5;
   color: white;
-}
+} 
 
 code {
   font-family: Consolas,"courier new";

@@ -58,7 +58,7 @@
 <!--                                                                                                                              -->
 <!-- **************************************************************************************************************************** -->			
 
-                <h2>jCDC Replication Worked Examples</h2>
+                <h2>jkCDC Replication Worked Examples</h2>
                 <p>15 artciles in this series. Click on the one your want to read next.</p> 
                    <ul>
                      <li><a href="/recipes/docs/NA_CDC/cdc01.html">CDC01: CDC Concepts, and Systems Environment that these examples are built on.</a></li>
@@ -89,54 +89,92 @@
 <!-- Edit Document Title      BELOW                                                                                               -->
 <!--                                                                                                                              -->
 <!-- **************************************************************************************************************************** -->	
-<div class="myDiv">
-			<h2 align=left>CDC15: Using CDC to expose and consume mainframe data - A Point of View.</h2> 
-</div>		 
-		 
-<!-- **************************************************************************************************************************** -->
-<!--                                                                                                                              -->
-<!-- Edit Author Name, Email and document currency      BELOW                                                                     -->
-<!--                                                                                                                              -->
-<!-- **************************************************************************************************************************** -->			
+<table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
+    <tr>
+      <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;">  
+        <h2 align=left>CDC15: Using CDC to expose and consume mainframe data - A Point of View.</h2>
+      </td>
+    </tr> 	
+    <tr> 
+      <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;">
+         <div id="toc_container">
 
-<div id="toc_container">
-    <table>
-      <tr>
-        <td width=300>Author: </td>
-        <td width=500>Neale Armstrong</td>
-      </tr> 
-      <tr>
-       <td>Email: </td>
-       <td>neale.armstrong@au1.ibm.com</td>
-      </tr> 
-      <tr>
-        <td>Last Modified or Verified: </td>
-        <td>To be written</td>
-      </tr> 
-    </table>    	
-<hr> 
-	
+          <table>
+            <tr>
+              <td width=300>Author: </td>
+              <td width=500>Neale Armstrong</td>
+            </tr> 
+            <tr>
+              <td>Email: </td>
+              <td>neale.armstrong@au1.ibm.com</td>
+            </tr> 
+            <tr>
+               <td>Last Modified or Verified: </td>
+               <td>January 2022</td>
+            </tr> 
+          </table>   
 <!-- **************************************************************************************************************************** -->
 <!--                                                                                                                              -->
 <!-- The Table of Contents needs to be edited manually. Either delete it, or edit it and test in                                  -->
 <!--                                                                                                                              -->
-<!-- **************************************************************************************************************************** -->					   
-
-    <p class="toc_title">Contents</p>
-    <ul class="toc_list">
-      <li><a href="#abstract">Abstract</a>   
-      <li><a href="#1.0">1 Section 1</a>
-        <ul>
-          <li><a href="#1.1">1.1 Section 1.1</a></li>
-          <li><a href="#1.2">1.2 Section 1.2</a></li> 
-          <li><a href="#1.1">1.3 Section 1.3</a></li>
-          <li><a href="#1.2">1.4 Section 1.4</a></li>
-        </ul>
-      <li><a href="#2.0">2. Section 2</a>
-      <li><a href="#App">Appendix</a>
-    </ul>
+<!-- **************************************************************************************************************************** -->			
+						 
+<hr>
+<p class="toc_title">Contents</p>
+<ul class="toc_list">
+<li><a href="#abstract">Abstract</a>   
+<li><a href="#1.0">1 Introduction to Classic CDC for IMS</a>
+<ul>
+  <li><a href="#1.1">1.1 Requirements to Replicate IMS Data</a></li>
+  <li><a href="#1.2">1.2 The Classic CDC Started Task</a></li>
+</ul>
+<li><a href="#2.0">2. High Level Review of Implementation Steps</a>
+<li><a href="#3.0">3. SMPE Installation of Code Libraries</a>
+<li><a href="#4.0">4. Creating the Classic CDC Instance</a>
+<ul>
+  <li><a href="#4.1">4.1 Create the Instance Libraries</a></li>
+  <li><a href="#4.2">4.2 Edit the Parameters member</a></li>
+  <li><a href="#4.3">4.3 Generate the Customised JCL members</a></li>
+  <li><a href="#4.4">4.4 Define CDC Logstreams</a></li>  
+  <li><a href="#4.5">4.5 Define and Mount the Classic Catalog zFS</a></li>
+  <li><a href="#4.6">4.6 Define and Populate the Configuration Datasets</a></li>
+  <li><a href="#4.7">4.7 Create the Metadata Catalog</a></li>
+  <li><a href="#4.8">4.8 Create the Replication Mapping Datasets</a></li>  
+</ul> 
+<li><a href="#5.0">5. Configure the z/OS Environment</a>
+<ul>
+  <li><a href="#5.1">5.1 APF Authorised Load Libraries</a></li>
+  <li><a href="#5.2">5.2 TCPIP Ports</a></li>
+  <li><a href="#5.3">5.3 RACF Started Task ID</a></li>
+  <li><a href="#5.4">5.4 Test Start the Classic CDC Server</a></li>  
+</ul>
+<li><a href="#6.0">6. Configure the IMS Environment</a>
+<ul>
+  <li><a href="#6.1">6.1 DRA Startup Module</a></li>
+  <li><a href="#6.2">6.2 IMS Logging and Notification Exits</a></li>
+  <li><a href="#6.3">6.3 Augment DBD to generate T99 Log Records</a></li>
+  <li><a href="#6.4">6.4 Copy the IBM-Supplied Exits into IMS RESLIB</a></li>  
+</ul>
+<li><a href="#7.0">7. Integrate with the wider CDC Landscape</a>
+<ul>
+  <li><a href="#7.1">7.1 Deploy Classic CDC as a Started Task</a></li>
+  <li><a href="#7.2">7.2 Deploy and use the Classic Data Architect IDE</a></li>
+  <li><a href="#7.3">7.3 Connect from Management Console to Classic CDC Started Task</a></li>
+  <li><a href="#7.4">7.4 Use CHCCLP Scripting for z/OS</a></li>  
+  <li><a href="#7.5">7.5 Conforming to site standards for devops and security</a></li>
+  <li><a href="#7.6">7.6 Collaboration with non-z/OS teams</a></li>
+</ul> 
+<li><a href="#App">Appendix</a>
+<ul>
+  <li><a href="#A1">Information Sources</a></li>
+</ul>
+</ul>
 </div>
 
+		    </td>
+        </tr>	
+    </table> 
+	
 <!-- **************************************************************************************************************************** -->
 <!--                                                                                                                              -->
 <!-- Add Content Here - between div tags.                                                                                         -->

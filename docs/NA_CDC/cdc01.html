@@ -12,6 +12,46 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 .mySlides {display:none}
 .w3-tag, .fa {cursor:pointer}
 .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
+
+<style> 
+
+#toc_container {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #aaa;
+    display: table;
+    font-size: 95%;
+    margin-bottom: 1em;
+    padding: 20px;
+    width: auto;
+}
+
+.toc_title {
+    font-weight: 700;
+    text-align: center;
+}
+
+#toc_container li, #toc_container ul, #toc_container ul li{
+    list-style: outside none none !important;
+}
+
+table, th, td {
+  border: 1px solid white;
+  border-collapse: collapse;
+}
+th, td { 
+  vertical-align: top;
+  background-color: #EBF5FB;
+} 
+code {
+  font-family: Consolas,"courier new";
+  color: #00FF00;
+  background-color: #000000;
+  padding: 2px;
+  font-size: 105%;
+}
+</style>  
+
+
 </style>
 <body style="margin:0px;"> 
 
@@ -47,7 +87,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
     <div class="w3-third w3-margin-bottom">
       <ul class="w3-ul w3-border w3-left w3-hover-shadow" style="width:100%">
         <li class="w3-black w3-large w3-padding-16">Using CDC</li>
-        <li><a href="/recipes/docs/NA_CDC/cdc01.html">Environment for Worked Examples.</a></li>
+        <li><a href="/recipes/docs/NA_CDC/cdc01.html">Environment for CDC Worked Examples.</a></li>
         <li><a href="/recipes/docs/NA_CDC/cdc10.html">Devops Options for CDC.</a></li> 
         <li><a href="/recipes/docs/NA_CDC/cdc11.html">CHCCLP Scripting.</a></li>
         <li><a href="/recipes/docs/NA_CDC/cdc12.html">Security for CDC (LDAP and TLS).</a></li>
@@ -81,7 +121,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 
 <!-- Page Contents Here -->
-<h2>CDC Concepts.</h2>
+<h2>Environment for CDC Worked Examples.</h2>
 
    <!-- Grid -->
   <div class="w3-row-padding">
@@ -95,60 +135,25 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
   </div>
 
+<hr>
 
+<div id="toc_container">
 
-<table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
+  <p class="toc_title">Table of Contents</p>
+    <ul class="toc_list">
+      <li><a href="#abstract">Abstract</a>   
+      <li><a href="#1.0">1 Section 1</a>
+        <ul>
+          <li><a href="#1.1">1.1 Section 1.1</a></li>
+          <li><a href="#1.2">1.2 Section 1.2</a></li> 
+          <li><a href="#1.1">1.3 Section 1.3</a></li>
+          <li><a href="#1.2">1.4 Section 1.4</a></li>
+        </ul>
+      <li><a href="#2.0">2. Section 2</a>
+      <li><a href="#App">Appendix</a>
+    </ul>
+</div>
 
-
-<!-- **************************************************************************************************************************** -->
-<!--                                                                                                                              -->
-<!-- Edit Document Title      BELOW                                                                                               -->
-<!--                                                                                                                              -->
-<!-- **************************************************************************************************************************** -->	
-        <tr>
-            <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;">  
-			<h2 align=left>CDC02: Setting up CDC for Db2 on z/OS.</h2>
-            </td>
-        </tr> 	
-
-
-<!-- **************************************************************************************************************************** -->
-<!--                                                                                                                              -->
-<!-- Edit Author Name, Email and document currency      BELOW                                                                     -->
-<!--                                                                                                                              -->
-<!-- **************************************************************************************************************************** -->	
-		<tr> 
-		    <td style="padding:20px; background-color:#e3f2fd; vertical-align: top;">
-                 <div id="toc_container">
-
-
-<!-- **************************************************************************************************************************** -->
-<!--                                                                                                                              -->
-<!-- The Table of Contents needs to be edited manually. Either delete it, or edit it and test in                                  -->
-<!--                                                                                                                              -->
-<!-- **************************************************************************************************************************** -->			
-						 
-			       <hr>
-                   <p class="toc_title">Contents</p>
-                      <ul class="toc_list">
-                         <li><a href="#abstract">Abstract</a>   
-                         <li><a href="#1.0">1 Section 1</a>
-                           <ul>
-                              <li><a href="#1.1">1.1 Section 1.1</a></li>
-                              <li><a href="#1.2">1.2 Section 1.2</a></li> 
-                              <li><a href="#1.1">1.3 Section 1.3</a></li>
-                              <li><a href="#1.2">1.4 Section 1.4</a></li>
-                           </ul>
-                         <li><a href="#2.0">2. Section 2</a>
-                         <li><a href="#App">Appendix</a>
-                     </ul>
-                 </div>
-
-		    </td>
-        </tr>
-
-	
-</table> 
 	
 <table style="width:100%; border-collapse:collapse; font:14px Arial,sans-serif;">
   <tr>
@@ -161,7 +166,12 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
     Placeholder for article to be published. 
 	Placeholder for article to be published. 
     Placeholder for article to be published. 
-    Placeholder for article to be published.</p> 			
+    Placeholder for article to be published.</p> 	
+
+<pre>
+<code>some cool code   </code>
+<code>some very cool code   </code>
+</pre>	
 
     </td>
   </tr> 	

@@ -45,11 +45,12 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
                 has zero interest in the state of the data 5 minutes ago. The only kind of data that is acceptable for most apps is data that is bang up to date. </p> 
 				
 				<p>IBM provides several data streaming solutions to allow mainframe data changes to be pushed to many different targets with very low latency.</p>
+				
 				<p style="margin-left:50px;">Writing as a mainframe advocate, I am sometimes frustrated by the widespread practice of copying data off the mainframe for any new application requirement. 
 				It is an undeniable fact that the pattern most commonly adopted by enterprises today is to capture changes from mainframe databases, and stream
 				them to a midrange or cloud platform, where the data can be received and manipulated to act as a source for serving APIs from that platform.
 				In many cases the data could be left where it is and accessed directly by applications on remote platforms via a choice of APIs. These options are 
-				covered in the <a href="/recipes/docs/R2C1/cellr2c1.html" style="color:#333;">Z Data at REST</a> section.</p>.
+				covered in the <a href="/recipes/docs/R2C1/cellr2c1.html" style="color:#333;">Z Data at REST</a> section.</p>
 				
 				<p>The articles in this section contain worked examples of how to use various IBM software solutions to satisfy the pattern of streaming 
 				mainframe data off the mainframe to a remote consumer</p>
@@ -88,10 +89,10 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
             </td>
         </tr> 	 
         <tr>
-            <td style="width:20%; padding:20px; vertical-align: top;"> 
+            <td style="width:20%; vertical-align: top;"> 
             <button class="w3-button w3-blue w3-padding-large"  style="width:200px"><a href="/recipes/docs/NA_CDC/cdc01.html">Q Replication</a></button>
             </td>
-			<td style="padding:20px; vertical-align: top;"> 
+			<td style="vertical-align: top;"> 
             <p>Q Replication is primarily aimed at <b>homogeneous</b> DB2 Replication. (both Db2 z/OS and DB2 LUW). If your sources and targets are all Db2, 
 			then Q Replication offers some attractive benefits such as:</p> 
 			<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
@@ -103,10 +104,10 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
             </td>
         </tr>  
         <tr>
-            <td style="width:20%; padding:20px; vertical-align: top;"> 
+            <td style="width:20%; vertical-align: top;"> 
             <button class="w3-button w3-blue w3-padding-large"  style="width:200px"><a href="/recipes/docs/NA_CDC/cdc01.html">Datagate</a></button>
             </td>
-			<td style="padding:20px; vertical-align: top;"> 
+			<td style="vertical-align: top;"> 
             <p>Datagate is a <b>lightning fast</b> data replication protocol between a Db2 z/OS V12 source and a <b>Db2 Software Container</b>, such as Db2 Analytics Accelerator, or Datagate. </p> 
 			<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
 				<li>It supports a choice of conventional row-based Db2 targets, or columnar Db2 targets that are optimised for Analytics.

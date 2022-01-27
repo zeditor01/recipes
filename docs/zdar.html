@@ -13,8 +13,6 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 .mySlides {display:none}
 .w3-tag, .fa {cursor:pointer}
 .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
-
-
 </style>
 <body style="margin:0px;"> 
 
@@ -36,49 +34,99 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   </div>
 </div>
 
+<!-- Start of Page Content -->
+<div class="w3-content w3-padding-large w3-light-grey" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
+
+                <h2>Z Data at REST</h2>
+                <p>The ongoing costs of making low-latency copies of z/OS data for every new application that needs current operational data access are <b>HUGE</b>, not 
+				to mention the layers of technical debt that can be added to your systems to be maintained forwever. 
+				Some use cases may genuinely have some need for a physical copy of the mainframe data, but many use cases can be served better and cheaper by just deploying an 
+				API to serve the data on demand to any application on the internet</p> 
+				
+				<p style="margin-left:50px;">It is true that the predominant pattern for serving new cloud applications with current operational data is to stream the data off the mainframe 
+				to a digital integration hub of some sort. Many sites are so familiar with that pattern that they don't fully evaluate the merits of serving APIs 
+				directly from the original data source.</p> 
+												
+				<p>The articles in this section contain worked examples of how to use various IBM software solutions to serve data and information APIs directly from z/OS.</p>
+
+</div>
 
 <div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
 
-<!-- Start of Page Content -->
 
-<h2>Headers</h2>
+	<h3 align=center>IBM's Z Data at REST Options</h3>
+    <p>The three primary options for replicating Z data to other platforms are Q Replication, CDC Replication and Datagate. 
+	They all have different characteristics that suit them to different scenarios. 
+    The notes below provide some broad positioning statements. 
+	Click on the appropriate button to reveal a range of implementation worked examples for that replication technology</p>
 
-<p>paragraphs</p>
-
-<p>Tables</p>
-
- <table>
-  <tr><td width=200>Library</td><td width=500>Contents</td></tr> 
-  <tr><td>CCDC.SCACBASE</td><td>xxxx</td></tr> 
-  <tr><td>CCDC.SCACCONF</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACLOAD</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACMAC</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACMSGS</td><td>xxxx</td></tr> 
-  <tr><td>CCDC.SCACSAMP</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACSIDE</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACSKEL</td><td>xxxx</td></tr>  
-</table> 
-
-<p>and code</p>
-
-
-
-<!-- 3270 Code Block -->
-<div class="w3-left" style="color:#00FF00; background-color:#000000; align:left">  
-  <pre>
-  <code>This is some really awesome code           eee             dd            </code>
-  <code>and then even some more ddjhkghgkjh jh kh hjelhkj lkjljk                X</code>
-  </pre>
-</div>
-	
-	
-<!-- End of Page Content   -->
+		  
+				 
+    <table style="width:100%; border:1px;">
+        <tr>
+            <td style="width:20%; vertical-align: center;"> 
+            <a href="/recipes/docs/NA_CDC/cdcu1.html"><button class="w3-button w3-blue w3-padding-large" style="width:200px">DB2 Distributed Data Facility</button></a>
+            </td>
+			<td style="vertical-align:top;"> 
+            <p>CDC Replication is aimed at <b>heterogenous</b> data replication.</p>
+				<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
+				<li>It supports all the regular relational databases ( Db2 Oracle, SQL Server etc... ) as sources and targets.
+				<li>Additionally, it supports non-relational databases such as IMS and VSAM.
+				<li>And it supports non-relational targets such as Apache Kafka (various distributions of Kafka).
+				</ul> 			
+			<p>CDC Capture Agents stream changes to CDC Apply agents over TCPIP sockets. Devops management is supported with both graphical and scripting interfaces.</p>
+            </td>
+        </tr>  
+    </table> 
+	<hr>
+    <table style="width:100%; border:1px;">	
+        <tr>
+            <td style="width:20%; vertical-align: center;">  
+            <button class="w3-button w3-blue w3-padding-large"  style="width:200px"><a href="/recipes/docs/NA_CDC/cdc01.html">Data Virtualisation Manager</a></button>
+            </td>
+			<td style="vertical-align: top;"> 
+            <p>Q Replication is primarily aimed at <b>homogeneous</b> DB2 Replication. (both Db2 z/OS and DB2 LUW). If your sources and targets are all Db2, 
+			then Q Replication offers some attractive benefits such as:</p> 
+			<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
+				<li>It supports in-line DDL Replication between Db2 z/OS sources and Db2 z/OS targets..
+				<li>It supports publishing to MQ in open formats, enabling a pub/sub integration model with MQ consumers.
+				<li>It is the basis for the GDPS Active-Active continuous availability solution.
+				</ul> 			
+			<p>Q Capture Agents stream changes to Q Apply agents over Websphere MQ messaging channels. Devops management is supported with both graphical and scripting interfaces.</p>
+            </td>
+        </tr> 
+    </table> 
+	<hr>
+    <table style="width:100%; border:1px;">			
+        <tr>
+            <td style="width:20%; vertical-align: center;"> 
+            <button class="w3-button w3-blue w3-padding-large"  style="width:200px"><a href="/recipes/docs/NA_CDC/cdc01.html">Query Management Facility</a></button>
+            </td>
+			<td style="vertical-align: top;"> 
+            <p>Datagate is a <b>lightning fast</b> data replication protocol between a Db2 z/OS V12 source and a <b>Db2 Software Container</b>, such as Db2 Analytics Accelerator, or Datagate. </p> 
+			<ul style="list-style:none; padding:0px; margin-left:15px; line-height:24px;">
+				<li>It supports a choice of conventional row-based Db2 targets, or columnar Db2 targets that are optimised for Analytics.
+				<li>It supports acceleration of analytical SQL queries on Db2 z/OS by transparently routing them to a columnar Db2 Software Container.
+				<li>It provides the ability to place your operational Db2 z/OS data in the cloud to support new cloud-native development projects.
+				</ul> 			
+			<p>Datagate is a much narrower use case that the more generalised CDC and Q Replication tools, because it only supports Db2 Software containers as targets. 
+			But if your requirements fit within that envelope it is the best replication option by far ( lower z/OS software consumption charges, redcued cpu cycles, 
+			ultra-low data latency, devops controls for changes, etc... ).</p>
+            </td>
+        </tr> 			
+    </table> 
 
 	<div class="w3-center w3-dark-grey" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
 	<p>copyright &copy; zeditor.org</p>
     </div>
-	
+
 </div>
+
+<!-- End of Page Content   -->
+
+
+	
+
 	
 </body>
 </html>

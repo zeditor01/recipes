@@ -380,6 +380,7 @@ Simply edit and submit <code>CCDC.I1.USERSAMP(CECCUSC2)</code> to do this.</p>
 By commenting out the Logstream Storage Class they will ge generated as DASD logstreams in this simple example.</p> 
 <p>Review and submit member <code>CCDC.I1.USERSAMP(CECCDSLS)</code> to define these as DASD logstreams.</p>
 
+<div class="w3-container" style="color:#00FF00; background-color:#000000">   
 <pre> 
 <code>//*********************************************</code>
 <code>//* ALLOCATE THE LOG STREAM FOR THE EVENT LOG *</code>
@@ -397,9 +398,12 @@ By commenting out the Logstream Storage Class they will ge generated as DASD log
 <code>          RETPD(14) AUTODELETE(YES)            </code>
 <code>/*                                             </code>
 </pre>
+</div>
 
 <p>and</p>
 
+<div class="w3-container" style="color:#00FF00; background-color:#000000">   
+<pre> 
 <pre>
 <code>//************************************************</code>
 <code>//* ALLOCATE THE LOG STREAM FOR THE DIAGNOSTIC LOG</code>
@@ -416,6 +420,7 @@ By commenting out the Logstream Storage Class they will ge generated as DASD log
 <code>          RETPD(7) AUTODELETE(YES)                </code>
 <code>/*                                                </code>
 </pre>
+</div>
 
 <h3 id="4.5">4.5 Define and Mount the Classic Catalog zFS</h3> 
 <p>The Metadata Catalog is conceptually similar to the Db2 catalog ( SYSTABLES, SYSCOLUMNS etc… ). 

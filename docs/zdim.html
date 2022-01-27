@@ -42,16 +42,15 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
                 <h2>Z Data in Motion</h2>
                 <p>In recent years there has been an explosive growth in cloud applications, often with mobile phone apps as clients, that demand 
 				access to <b>current</b> data from operational datatores. Whether you are ordering a taxi, a pizza or a bank balance, the customer 
-                has zero interest in the state of the data 5 minutes ago. The only kind of data that is acceptable for most apps is data that is bang up to date.</p>
-				<p style="margin-left:50px;">Writing as a mainframe advocate, my instinctive reaction is to build APIs on the mainframe to serve those cloud applications directly. 
-				There is plenty of great software available from IBM to build REST APIs on top of various mainframe resources including CICS transactions, 
-				IMS transactions, Websphere programs, DB2 queries, Db2 stored procedures, VSAM and IMS data and so on.
-				The <a href="/recipes/docs/R2C1/cellr2c1.html" style="color:#333;">Z Data at REST</a> section provides details of those patterns. 
-                However, it is an undeniable fact that the pattern most commonly adopted by enterprises today is to capture changes from mainframe databases, and stream
-				them to a midrange or cloud platform, where the data can be received and manipulated to act as a source for serving APIs from that platform.</p> 
-				<p style="margin-left:50px;">Arguing the relative merits of the different approaches is set aside for the purposes 
-				of the <a href="/recipes/docs/R2C1/cellr1c1.html" style="color:#333;">Z Data in Motion</a> Technical Zone, which is 100% focussed on how to use 
-                data replication software, regardless of your target architecture.</p>				
+                has zero interest in the state of the data 5 minutes ago. The only kind of data that is acceptable for most apps is data that is bang up to date. </p> 
+				
+				<p>IBM provides several data streaming solutions to allow mainframe data changes to be pushed to many different targets with very low latency.<p>
+				<p style="margin-left:50px;">Writing as a mainframe advocate, I get frustrated by the widespread practice of copying data off the mainframe for any new application requirement. 
+				It is an undeniable fact that the pattern most commonly adopted by enterprises today is to capture changes from mainframe databases, and stream
+				them to a midrange or cloud platform, where the data can be received and manipulated to act as a source for serving APIs from that platform.
+				In many cases the data could be left where it is and accessed directly by applications on remote platforms via a choice of APIs. These options are 
+				covered in the <a href="/recipes/docs/R2C1/cellr2c1.html" style="color:#333;">Z Data at REST</a> section.</p>.
+				
 				<p>The articles in this section contain worked examples of how to use various IBM software solutions to satisfy the pattern of streaming 
 				mainframe data off the mainframe to a remote consumer</p>
 

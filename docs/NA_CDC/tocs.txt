@@ -1,0 +1,40 @@
+ZEDITOR PLAN
+
+zdim.html 
+  using
+    cdcu1: concepts and environment
+	cdcu2: devops options
+	cdcu3: chcclp scripting
+	cdcu4: security
+	cdcu5: container deployment
+  zos
+    cdcz1: Db2 z/OS 
+	cdcz2: IMS 
+	cdcz3: VSAM 
+  linux
+    cdcl1: db2luw
+	cdcl2: kafka
+	cdcl3: remote Db2 zos 
+	cdcl3: remote VSAM 
+	
+	
+  using
+    cdcu1: concepts and environment
+	cdcu2: devops options
+	cdcu3: chcclp scripting
+	cdcu4: security
+	cdcu5: container deployment
+  zos
+    cdcz1: Db2 z/OS 
+	cdcz2: IMS 
+	cdcz3: VSAM 
+  linux
+    cdcl1: db2luw
+	cdcl2: kafka
+	cdcl3: remote Db2 zos 
+	cdcl3: remote VSAM 
+	
+	
+	
+	
+	

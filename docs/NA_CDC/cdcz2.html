@@ -191,19 +191,22 @@ relational model of data.</p>
 
 <p>The core functionaility of any CDC Capture agent is to read the source database logs asynchronously, 
 stage captured data (preferably in memory) until the Unit of Work is commited or rolled back, 
-and then publish the changes over TCPIP sockets to a CDC Apply agent.</p> 
+and then publish the committed changes over TCPIP sockets to a CDC Apply agent.</p> 
 <p>In addition to the usual requirements, Classic CDC for IMS needs to handle the fact that IMS data is stored 
 in hierarchical structures (not relational), and the Log configurations supporting IMS workloads (online and batch) 
 are significantly different to a comparatively simple recovery log used by most relational databases.</p>
 
-<p><b>Regarding hierarchical data structures:</b> The Classic CDC for IMS product provides tooling to map the hierarchical data structures
+<p><b>Regarding hierarchical data structures:</b> The Classic CDC for IMS product provides 
+a tool (Classic Data Architect) to map the hierarchical data structures
 into relational projections of that data, for the purposes of acting as a CDC Replication capture agent. 
 The mappings of data structures are stored in a zFS dataset called the "Classic Catalog". This contains relational catalog tables 
 like Db2 ( sysibm.systables , sysibm.syscolumns etc... ) that contain the mapping between the fields in the relevant copybooks for the 
 IMS data, and their relational projection. The mapping information allows SQL access to the IMS database to retrieve the base data, 
 and also allows IMS log records to be consumed for the purposes of capturing IMS database changes.</p>
 <p><b>Regarding IMS logs:</b>Interfaces must be established between Classic CDC and the IMS logging environment, which is managed by DBRC. 
-Additionally new log records (Type 99) must be cut for IMS databases, because standard Type 50 log records do not contain enough 
+DBRC provides Classic CDC with information about all the IMS log datasets that it needs to track, and notifies Classic CDC when 
+log datasets become full and are switched. 
+Additionally, new log record types (Type 99) must be cut for IMS databases, because standard Type 50 log records do not contain enough 
 information for the purposes of data repliaction.</p> 
 
 <h3 id="1.2">1.2 The Classic CDC Started Task</h3>
@@ -288,14 +291,14 @@ followng stages.</p>
 
  <table>
   <tr><td width=200>Library</td><td width=500>Contents</td></tr> 
-  <tr><td>CCDC.SCACBASE</td><td>xxxx</td></tr> 
-  <tr><td>CCDC.SCACCONF</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACLOAD</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACMAC</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACMSGS</td><td>xxxx</td></tr> 
-  <tr><td>CCDC.SCACSAMP</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACSIDE</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACSKEL</td><td>xxxx</td></tr>  
+  <tr><td>CCDC.SCACBASE</td><td>Samples</td></tr> 
+  <tr><td>CCDC.SCACCONF</td><td>Configuration datsets</td></tr>  
+  <tr><td>CCDC.SCACLOAD</td><td>Load modules</td></tr>  
+  <tr><td>CCDC.SCACMAC</td><td>Macros</td></tr>  
+  <tr><td>CCDC.SCACMSGS</td><td>Messages</td></tr> 
+  <tr><td>CCDC.SCACSAMP</td><td>Sample JCL</td></tr>  
+  <tr><td>CCDC.SCACSIDE</td><td>Load Modules</td></tr>  
+  <tr><td>CCDC.SCACSKEL</td><td>ISPF skeleton library</td></tr>  
 </table> 
 
 <br><hr>

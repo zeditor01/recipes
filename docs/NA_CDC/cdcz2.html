@@ -127,6 +127,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   <li><a href="#4.6">4.6 Define and Populate the Configuration Datasets</a></li>
   <li><a href="#4.7">4.7 Create the Metadata Catalog</a></li>
   <li><a href="#4.8">4.8 Create the Replication Mapping Datasets</a></li>  
+  <li><a href="#4.9">4.9 Setup Encrypted Passwords</a></li>  
 </ul> 
 <li><a href="#5.0">5. Configure the z/OS Environment</a>
 <ul>
@@ -555,6 +556,26 @@ This is performed using job CECCDSUB. Review the generated JCL and submit when h
 <code>/*                                 </code>
 </pre>
 </div>
+
+
+<h3 id="4.8">4.9 Setup Encrypted Passwords</h3> 
+<p>Assuming that you enabled security in the CACCUSPC parameters file earlier: <code style="color:#00FF00; background-color:#000000">CDCPSAFX="CACSX04"</code> 
+you will need to setup encrypted passwords for connections to the Classic CDC instance. (Enabling security requires providing a password for all user access. 
+The utilities used in the validation job require encrypted passwords to access the Classic data server.)</p>
+<p>The steps needed are as follows, and are captured in the slideshow beneath the task list.</p>
+<ol>
+<li>Edit the generated USERHLQ.USERCONF(CACPWDIN) member. Set the value to the TSO password for the User ID that you use to run the customization jobs.
+<li>Submit the generated USERHLQ.USERSAMP(CACENCRP) JCL to run the password generator utility. This JCL updates the USERHLQ.USERCONF(CACPWDIN) with the encrypted value.
+<li>Edit the USERHLQ.USERCONF(CACPWDIN) member and copy the hex string value (x'<16-byte hexadecimal value>') for the ENCRYPTED= keyword.
+<li>Edit the generated USERHLQ.USERCONF(CACMUCON) member and replace the X'.ENCRYP PASSWD..' string with the hex string copied in the previous step.
+<li>Edit the generated USERHLQ.USERSAMP(CACQRSYS) member and replace the second line of the member with the hex string that you copied.
+</ol>
+
+
+<p> COPY THE SLIDESHOW HTML HERE</p)
+
+
+
 
 <br><hr>
 

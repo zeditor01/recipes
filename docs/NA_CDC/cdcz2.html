@@ -681,7 +681,7 @@ Specifically the SpcRC codes can be particularly useful.</p>
 
 <img src="/recipes/images/neale/cdc//cdc01_17.png" alt="Classic CDC Startup SpcRC codes" style="border:1px solid black"> 
 
-Specifically, if you lookup SPcRC(00570082) in the Classic CDC Messages 
+<p>Specifically, if you lookup SPcRC(00570082) in the Classic CDC Messages 
 publication you will see the following explanation:</p>
 
 <p style="margin-left: 50px"><b>0x00570082</b> (5701762) The DRA initialization failed.
@@ -1037,6 +1037,8 @@ Installation to Windows is a standard setup.exe style of installer.</p>
 (bottom left window in the Data Perspective), right click on "Database Connections" and choose "New". 
 Then fill in the connection details ( 192.168.1.191:9087 IBMUSER/SYS1 ), test the connection and press OK.</p>
 <img src="/recipes/images/neale/cdc/CDA_Connect.png" alt="CDA Connection" style="border:1px solid black"> 
+<p>You must also repeat this process to define a connection on the "Console Explorer" window. Defining a connection in one window does 
+not copy that connection to the other window.</p>
 <p>If the connection fails, the most likely cause is a firewall. Once you have eliminated firewalls, 
 check in the Classic CDC started task output for correction errors.</p> 
 <p>Once connected, you can expand the "SAMPLEDS" datasource and explore the schemas, and the table objects within the schemas. 
@@ -1049,7 +1051,7 @@ If you select a configuration (such as the DRA Service configuration) and edit t
 <img src="/recipes/images/neale/cdc/CDA_Console_Parms.png" alt="CDA Imported Artefacts" style="border:1px solid black"> 
 
 <h4>7.2.2 Create a data development project, and Import DBDs and Copybooks for the mapping work</h4>
-<p>Go to the "Data Project Explorer" (top left window) and create a new project, such as "Project1"</p>
+<p>Having definedGo to the "Data Project Explorer" (top left window) and create a new project, such as "Project1"</p>
 <p>Now, highlight "Data Models" within "Project1" and create a new Physical Data Model based on the Classic Integration V11.3 template.</p>
 <img src="/recipes/images/neale/cdc/CDA_PhysicalDM.png" alt="CDA Physical Data Model" style="border:1px solid black"> 
 <p>Next, highlight the sections for "IMS DBDs" and "COBOL Copybooks", and import the corresponding definitions. You have a choice of 

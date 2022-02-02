@@ -183,7 +183,7 @@ The complete set of articles can be accessed using the links at the very top of 
 <p>Classic CDC for IMS is a CDC Capture Source only. It does not have CDC Apply functionality.</p>
 
 <p style="margin-left: 50px"><b>Aside:</b> Classic CDC for IMS is licensed seperately from Classic CDC for VSAM. However, these two 
-products share a lot of common components. The sister document about Setting up Classic CDC follows the same pattern as this worked 
+products share a lot of common components. The sister document <a href="/recipes/docs/NA_CDC/cdcz3.html">Setting up Classic CDC for VSAM.</a> follows the same pattern as this worked 
 example for much of the setup work, but has differences with regard to the services to access VSAM and capture changes from VSAM.</p>
 
 <p>CDC Replication is a set of products that implement a common data replication architecture spanning 
@@ -201,14 +201,14 @@ and then publish the committed changes over TCPIP sockets to a CDC Apply agent.<
 in hierarchical structures (not relational), and the Log configurations supporting IMS workloads (online and batch) 
 are significantly different to a comparatively simple recovery log used by most relational databases.</p>
 
-<p><b>Regarding hierarchical data structures:</b> The Classic CDC for IMS product provides 
+<p style="margin-left: 50px"><b>Regarding hierarchical data structures:</b> The Classic CDC for IMS product provides 
 a tool (Classic Data Architect) to map the hierarchical data structures
 into relational projections of that data, for the purposes of acting as a CDC Replication capture agent. 
 The mappings of data structures are stored in a zFS dataset called the "Classic Catalog". This contains relational catalog tables 
 like Db2 ( sysibm.systables , sysibm.syscolumns etc... ) that contain the mapping between the fields in the relevant copybooks for the 
 IMS data, and their relational projection. The mapping information allows SQL access to the IMS database to retrieve the base data, 
 and also allows IMS log records to be consumed for the purposes of capturing IMS database changes.</p>
-<p><b>Regarding IMS logs:</b>Interfaces must be established between Classic CDC and the IMS logging environment, which is managed by DBRC. 
+<p style="margin-left: 50px"><b>Regarding IMS logs:</b>Interfaces must be established between Classic CDC and the IMS logging environment, which is managed by DBRC. 
 DBRC provides Classic CDC with information about all the IMS log datasets that it needs to track, and notifies Classic CDC when 
 log datasets become full and are switched. 
 Additionally, new log record types (Type 99) must be cut for IMS databases, because standard Type 50 log records do not contain enough 

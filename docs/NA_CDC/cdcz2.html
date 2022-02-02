@@ -796,8 +796,8 @@ So, Classic CDC for IMS requires that IMS tells it about log activations, deacti
 <p>This is done with the <b>IMS Partner Program User Exit</b> (PPUE). 
 <p>A modified PPUE must be created and deployed into IMS RESLIB. 
 The module CEC1OPT must be assembled, and contain the TCPIP Log Reader Notification Port 
-that was defined in the CECCUSPC parameters module <code>IMCPNPRT="5003"</code>.</p>
-<p>A sample assembler source module (CECE1OPT) is provided for the PPUE <code>CCDC.I1.USERSAMP(CECE1OPT)</code>.</p> 
+that was defined in the CECCUSPC parameters module <code style="color:#00FF00; background-color:#000000">IMCPNPRT="5003"</code>.</p>
+<p>A sample assembler source module (CECE1OPT) is provided for the PPUE here :  <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CECE1OPT)</code>.</p> 
 <p>You need to edit the module to suit your environment. 
 In the worked example below the TCPIP address of the z/OS system was 192.168.1.191 and 
 Classic CDC Server is configured to listen on port 5003.</p>  

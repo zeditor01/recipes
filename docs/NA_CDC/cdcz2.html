@@ -220,7 +220,7 @@ relate to external artefacts.</p>
 
 <center><img src="/recipes/images/neale/cdc/ccdc_services.PNG" alt="Classic CDC Services" style="border:1px solid black; width:800px"></center> 
 
-<p>Thee services that are outlined in red are the ones that can be protected by the SAF Exit. 
+<p>The services that are outlined in red are the ones that can be protected by the SAF Exit. 
 The primary services involved in the cdc capture server are  the IMS Log Reader Service (IMSLRS) and the Capture process (Capture). 
 The following is a brief summary of what some of the key services do.</p>
  <table>
@@ -295,7 +295,7 @@ followng stages.</p>
 <p>Once the SMPE installation is complete, the following target libraries will exist under the chosen high level qualifier. (CCDC in this example).</p>
 
  <table>
-  <tr><td width=200>Library</td><td width=500>Contents</td></tr> 
+  <tr><td width=200><b>Library</b></td><td width=500><b>Contents</b></td></tr> 
   <tr><td>CCDC.SCACBASE</td><td>Samples</td></tr> 
   <tr><td>CCDC.SCACCONF</td><td>Configuration datsets</td></tr>  
   <tr><td>CCDC.SCACLOAD</td><td>Load modules</td></tr>  
@@ -310,16 +310,13 @@ followng stages.</p>
 	
 <h2 id="4.0">4. Creating the Classic CDC Instance</h2>
 <p>The installed product code can now be used to support one or more instances of Classic CDC for IMS. 
-This worked example will create a single instance, under the instance high level qualifier of CCDC.I1.</p>
+This worked example will create a single instance, under the instance high level qualifier of CCDC.I1 (in this example).</p>
 
 <h3 id="4.1">4.1 Create the Instance Libraries</h3> 
 <p>Creating the instance libraries is easy. Job CECCUSC1 will allocate the instance library, 
 and populate the instance library with a parameters file and a job to generate fully customised versions of all the JCL and configuration members that you need</p>
 <p>Just edit CCDC.SCACSAMP(CECCUSC1) to specify the high level qualifier for 
 the installation library (CACINHLQ=CCDC) and the instance library (CACUSHLQ=CCDC.I1), and submit the job to create the instance libraries.</p> 
-
-<!--This is a comment. Comments are not displayed in the browser-->
-<!--567890123456789012345678901234567890123456789012345678901234567890123456789012345-->
 
 <div class="w3-container" style="color:#00FF00; background-color:#000000">   
 <pre> 
@@ -347,6 +344,14 @@ the installation library (CACINHLQ=CCDC) and the instance library (CACUSHLQ=CCDC
   <tr><td>CCDC.I1.SCACSAMP</td><td>just a parameters member plus generation job</td></tr>  
 </table> 
 
+<div class="w3-container" style="color:#00FF00; background-color:#000000">   
+<pre> 
+<code>CECCUSC2                                                         </code>
+<code>CECCUSPC                                                         </code>                                                          
+</pre>
+</div>
+
+
 <h3 id="4.2">4.2 Edit the Parameters member</h3> 
 <p>Editing the parameters member <code>CCDC.I1.USERSAMP(CECCUSPC)</code> is a critical step. It will generate 
 fully customised JCL for pretty much everything you need to do to deploy the Classic CDC instance in your environment. 
@@ -373,7 +378,7 @@ In this worked example the parameters (and line numbers for V11.3) that we edite
 <li>Line 235, provide the Userid that will access IMS via DRA <code style="color:#00FF00; background-color:#000000">IMSDRAUS="IBMUSER"</code>
 <li>Line 236, provide the identification suffix for the DRA Table to use <code style="color:#00FF00; background-color:#000000">IMSDRASX="00"</code> 
 </ul>
-<p>... and optionally, if you also want to use the ability to publish changes to MQ</p>
+<p>... and optionally, if you also want to use the ability to publish changes to MQ (in addition to CDC Apply agents)</p>
 <ul>
 <li>Line 249, provide the HLQ for the MQ Libraries <code style="color:#00FF00; background-color:#000000">CDCMQHLQ="CSQ911"</code>
 <li>Line 250, provide the name of the Queue Manager to connect to for MQ publishing<code style="color:#00FF00; background-color:#000000">CDCMQMGR="CSQ9"</code>

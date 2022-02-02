@@ -988,7 +988,7 @@ to define "IMS Tables", and define Subscriptions from them to target systems. Se
 
 <h3 id="7.1">7.1 Deploy Classic CDC as a Started Task</h3> 
 <p>Assuming you want to run Classic CDC as a started task, rather than a batch job, you should copy 
-the contents of the JCL to run Classic CDC as a batch job <code>CCDC.I1.USERSAMP(CECCDSRC)</code> 
+the contents of the JCL to run Classic CDC as a batch job <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CECCDSRC)</code> 
 to your PROCLIB, and follow your site standards for establishing a new started task.</p> 
 
 <h3 id="7.2">7.2 Deploy and use the Classic Data Architect IDE</h3>
@@ -1009,16 +1009,16 @@ Installation to Windows is a standard setup.exe style of installer.</p>
 </ol> 
 
 <h4>7.2.1 Configure the connection to the Classic CDC started task</h4>
-<p>This should work fine unless you need to punch a hole in a firewall.</p>
+
 <p>Start up the CDA and choose a workspace on your PC filesystem.</p>
-<p>Verify that you are using the "Data Perspective" from the Action Bar : Window - Open Perspective - Data. The Data Perpective 
-is shown in the screenshot below.</p>  
+<p>Verify that you are using the "Data Perspective" from the Action Bar : Window - Open Perspective - Data.</p>
+<p>The Data Perpective is shown in the screenshot below.</p>  
 <ul>
 <li>Top-Left Window : The project explorer
 <li>Top-Middle Window : Working subject pane (contents depend on what objects are selected)
 <li>Bottom-Left Window : Data Source Explorer (data soucre data access) and Console Explorer (data source configurations).
 </ul>
-<img src="/recipes/images/neale/cdc/CDA_Data_Perspective.png" alt="CDA Data Perspective" style="border:1px solid black"> 
+<center><img src="/recipes/images/neale/cdc/CDA_Data_Perspective.png" alt="CDA Data Perspective" style="border:1px solid black; width:800px"></center> 
 
 <p>In order to make a connection to the Classic CDC Server you must open up the "Data Source Explorer" 
 (bottom left window in the Data Perspective), right click on "Database Connections" and choose "New". 

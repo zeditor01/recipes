@@ -907,7 +907,7 @@ write log records with all the before and after images in the log record.
 <p>For Db2 databases, the log records can simply be expanded for the tables of interest, by altering 
 the definition, with DDL such as:</p>
 <pre> 
-<code>ALTER TABLE MYSCHEMA.MYTABLE DATA CAPTURE CHANGES</code>.
+<code style="color:#00FF00; background-color:#000000">ALTER TABLE MYSCHEMA.MYTABLE DATA CAPTURE CHANGES</code>.
 </pre>
 <p>IMS is different. IMS generates Type 50 log records by default. 
 In order to support data replication you need to augment the IMS database to write Type 99 log records, 
@@ -915,7 +915,7 @@ which are designed for the purposes of data replication.
 This requires the IMS database to be “augmented” with an EXIT clause to specify the content 
 to be written to the Type 99 log records.</p> 
 <p>This worked example used the IBM-provided sample database (DI21PART) as the CDC source database. 
-The DBD source is stored in DFSF10.SDFSISRC(DI21PART). 
+The DBD source is stored in <code style="color:#00FF00; background-color:#000000">DFSF10.SDFSISRC(DI21PART)</code>. 
 This example only adds the EXIT clause to three specific segments (PARTROOT, STANINFO, STOKSTAT). 
 You can choose to augment whichever segments you want, or you could augment the entire database on the DBD statement. 
 This DBD source in this worked example was edited to specify Type 99 logging as follows.</p>

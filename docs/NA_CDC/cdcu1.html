@@ -118,10 +118,12 @@ spanlightblue {
 <p>These CDC Worked Examples are based upon the systems landscape illustrated below</p>
 <center><img src="/recipes/images/neale/cdc/cdc_landscape.PNG" style="width:800px"></center>
 
-<p>IBM InfoSphere Data Replication ( aka "CDC" ) provides a data replication capability between lots of <b>heterogeneous</b> database servers. 
-Some databases ( like IMS and VSAM ) can only act as CDC sources <spandarkblue>CDC Cap</spandarkblue>.
-Some "databases" ( like Apache Kafka ) can only act as CDC targets <spanlightblue>CDC Cap</spanlightblue>.
-Some databases ( like DB2 z/OS ) can act as CDC sources and CDC targets. <p>
+<p>IBM InfoSphere Data Replication ( aka "CDC" ) provides a data replication capability between lots of <b>heterogeneous</b> data sources. 
+<sl>
+<li>Some data sources ( like IMS and VSAM ) can only act as CDC sources <spandarkblue>CDC Cap</spandarkblue>.
+<li>Some data sources ( like Apache Kafka ) can only act as CDC targets <spanlightblue>CDC App</spanlightblue>.
+<li>Some data sources ( like DB2 z/OS ) can act as both CDC sources and CDC targets.
+</sl>
 
 <p>A CDC Source can replicate data to any CDC Target</p>
 <center><img src="/recipes/images/neale/cdc/cdc_landscapeC.PNG" style="width:800px"></center>

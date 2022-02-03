@@ -577,29 +577,21 @@ The utilities used in the validation job require encrypted passwords to access t
 <center><img src="/recipes/images/neale/cdc/encrypt01.PNG" style="width:800px"></center>
 
 <p>Submit <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CACENCRP)</code> JCL to run the password generator utility, which updates <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERCONF(CACPWDIN)</code> with the encrypted value.</p>
-<center><img src="/recipes/images/neale/cdc/encrypt02.PNG" style="width:700px"></center>
+<center><img src="/recipes/images/neale/cdc/encrypt02.PNG" style="width:800px"></center>
 
 <p>Edit <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERCONF(CACPWDIN)</code> again and copy the hex string value for the ENCRYPTED= keyword.</p>
-<center><img src="/recipes/images/neale/cdc/encrypt03.PNG" style="width:600px"></center>
+<center><img src="/recipes/images/neale/cdc/encrypt03.PNG" style="width:800px"></center>
 
 <p>Edit <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERCONF(CACMUCON)</code> and replace the X'.ENCRYP PASSWD..' string with the hex string copied in the previous step.</p>
-<center><img src="/recipes/images/neale/cdc/encrypt04.PNG" style="width:100%"></center>
+<center><img src="/recipes/images/neale/cdc/encrypt04.PNG" style="width:800px"></center>
 
 <p>Edit <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CACQRSYS)</code> and replace the second line of the member with the hex string that you copied.</p>
-<center><img src="/recipes/images/neale/cdc/encrypt05.PNG" style="width:100%"></center>
-
-
+<center><img src="/recipes/images/neale/cdc/encrypt05.PNG" style="width:800px"></center>
 
 
 
 <p><code style="color:#00FF00; background-color:#000000">CCDC.I1.USERCONF(CACMUCON)</code> and <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CACQRSYS)</code> will be 
 referenced by the Installation Verification Jobs, and other utility jobs. Click through the slideshow sequence below to follow the example above</p)
-
-
-
-
-
-  
 
 
 <br><hr>
@@ -1046,7 +1038,79 @@ projection of data slices from the IMS hierarchical database. It helps to be abl
 
 
   <!-- Slideshow -->
-  <div class="w3-container">
+  <div class="w3-container"> 
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab01.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab02.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab03.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab04.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab05.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab06.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab07.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab08.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div> 
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab09.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab10.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab11.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides2">
+      <img src="/recipes/images/neale/cdc/imstab12.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-white w3-padding-large w3-animate-bottom">Generate DDL</span>
+      </div>
+    </div>
     <div class="w3-display-container mySlides2">
       <img src="/recipes/images/neale/cdc/imsgen01.PNG" style="width:100%">
       <div class="w3-display-bottomright w3-container w3-padding-32">
@@ -1089,7 +1153,14 @@ projection of data slices from the IMS hierarchical database. It helps to be abl
         <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
 		<span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
         <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(5)"></span>
-      </div>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(6)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(7)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(8)"></span>
+		<span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(9)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(10)"></span>		
+ 		<span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(11)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(12)"></span>
+	  </div>
     </div>
   </div>
   

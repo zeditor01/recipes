@@ -1063,9 +1063,18 @@ importing from local PC files, or connecting the z/OS and importing from PDS mem
 <p>This is a multi-step graphical dialog, that enables you to use DBDs and Copybooks to create a relational 
 projection of data slices from the IMS hierarchical database. It helps to be able to visualize the IMS database, and the 
 "IMS Table" that you want to project.</p>
-<p>Click the arrows to progress through a dialog of defining an IMS Table with CDA.</p>
 
-
+<p>The following steps are required to generate an encrypted password for the userid that will run jobs to access Classic CDC, and save it in a referencable PDS member.</p>
+<ol>
+<li>Create a Data Development Project.
+<li>Create a physical data model (Classic Integration) within that project.
+<li>Right Click on the Data Model to create an IMS Table.
+<li>Specify the IMS DBD, and the Schema for the IMS Table.
+<li>Specify the Segments to map, the IMS SSID, IMS PSB and the desired Table Usage.
+<li>Map the copybooks for each segment, and choose fields to include in the IMS Table.
+<li>Review the field and datatype mappings
+</ol>
+<p>Click the arrows to progress through series of screenshots for performing these tasks.</p>
 
 
   <!-- Slideshow -->

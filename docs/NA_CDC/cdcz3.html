@@ -715,28 +715,28 @@ CDC needs the following 3 things that are more complex to provide from IMS than 
 
 <h2 id="7.0">7. Integrate with the wider CDC Landscape</h2>
 <p>Now that the mainframe CDC Capture Server is ready for business, you will need to start using some non-mainframe tools in order 
-to define "IMS Tables", and define Subscriptions from them to target systems. Section 7 covers this matters.</p>
+to define "VSAM Tables", and define Subscriptions from them to target systems. Section 7 covers this matters.</p>
 
 <h3 id="7.1">7.1 Deploy Classic CDC as a Started Task</h3> 
 <p>Assuming you want to run Classic CDC as a started task, rather than a batch job, you should copy 
-the contents of the JCL to run Classic CDC as a batch job <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CECCDSRC)</code> 
+the contents of the JCL to run Classic CDC as a batch job <code style="color:#00FF00; background-color:#000000">CDCV.I2.USERSAMP(CECCDSRC)</code> 
 to your PROCLIB, and follow your site standards for establishing a new started task.</p> 
 
 <h3 id="7.2">7.2 Deploy and use the Classic Data Architect IDE</h3>
-<p>The next step is to create some "IMS Tables" to be used as CDC replication source objects.</p>
-<p>The Classic CDC Metadata catalog contains the mapping information from hierarchical IMS structures to the 
-a relational projection, as is required to participate in CDC data replication. The mapping process is enabled 
+<p>The next step is to create some "VSAM Tables" to be used as CDC replication source objects.</p>
+<p>The Classic CDC Metadata catalog contains the mapping information from VSAM structures to  
+a relational projection, as this is required to participate in CDC data replication. The mapping process is enabled 
 by using an Eclipse-based tool called the Classic Data Architect to define the data mapping.</p>
 <p>The current release of the Classic Data Architect tool should be downloaded from IBM fix Central. 
 Installation to Windows is a standard setup.exe style of installer.</p>
 <p>Once CDA is installed, the tasks you will need to perform with it are as follows:</p>
 <ol>
 <li>Configure the connection to the Classic CDC started task
-<li>Create a data development project, and Import DBDs and Copybooks for the mapping work
-<li>Develop a relational model "IMS Table" based on the imported DBDs and copybooks 
-<li>Deploy the "IMS Table" to the Classic CDC for IMS Started Task
-<li>Test the validity of the IMS Table Mapping using SQL through the CDA
-<li>Make the IMS Table available for use as a source for CDC subscriptions 
+<li>Create a data development project, and Import Copybooks for the mapping work
+<li>Develop a relational model "VSAM Table" based on the imported copybooks 
+<li>Deploy the "VSAM Table" to the Classic CDC for VSAM Started Task
+<li>Test the validity of the VSAM Table Mapping using SQL through the CDA
+<li>Make the VSAM Table available for use as a source for CDC subscriptions 
 </ol> 
 
 <h4>7.2.1 Configure the connection to the Classic CDC started task</h4>
@@ -753,7 +753,7 @@ Installation to Windows is a standard setup.exe style of installer.</p>
 
 <p>In order to make a connection to the Classic CDC Server you must open up the "Data Source Explorer" 
 (bottom left window in the Data Perspective), right click on "Database Connections" and choose "New". 
-Then fill in the connection details ( 192.168.1.191:9087 IBMUSER/SYS1 ), test the connection and press OK.</p>
+Then fill in the connection details ( 192.168.1.191:9088 IBMUSER/SYS1 ), test the connection and press OK.</p>
 <center><img src="/recipes/images/neale/cdc/CDA_Connect.png" alt="CDA Connection" style="border:1px solid black; width:500px"></center> 
 
 <p>You must also repeat this process to define a connection on the "Console Explorer" window. Defining a connection in one window does 

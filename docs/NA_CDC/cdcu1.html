@@ -30,6 +30,13 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   display: inline-block;
 }
 
+spandarkblue {
+  background-color: #f18973;
+}
+
+spanlightblue {
+  background-color: #f18973;
+}
 
 </style>
 <body style="margin:0px;"> 
@@ -109,7 +116,18 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 
 <p>These CDC Worked Examples are based upon the systems landscape illustrated below</p>
-<center><img src="/recipes/images/neale/cdc/cdc_environment.PNG" style="width:800px"></center>
+<center><img src="/recipes/images/neale/cdc/cdc_landscape.PNG" style="width:800px"></center>
+
+<p>IBM InfoSphere Data Replication ( aka "CDC" ) provides a data replication capability between lots of <b>heterogeneous</b> database servers. 
+Some databases ( like IMS and VSAM ) can only act as CDC sources <spandarkblue>CDC Cap</spandarkblue>.
+Some "databases" ( like Apache Kafka ) can only act as CDC targets <spanlightblue>CDC Cap</spanlightblue>.
+Some databases ( like DB2 z/OS ) can act as CDC sources and CDC targets. <p>
+
+<p>A CDC Source can replicate data to any CDC Target</p>
+<center><img src="/recipes/images/neale/cdc/cdc_landscapeC.PNG" style="width:800px"></center>
+
+<p>A CDC Target can receive replicated data from and CDC Source</p>
+<center><img src="/recipes/images/neale/cdc/cdc_landscapeA.PNG" style="width:800px"></center>
 
 <hr>
 <h2 id="1.0">1. CDC Concepts</h2>

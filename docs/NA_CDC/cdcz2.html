@@ -1009,28 +1009,20 @@ If you select a configuration (such as the DRA Service configuration) and edit t
 
 
 <h4>7.2.2 Create a data development project, and Import DBDs and Copybooks for the mapping work</h4>
-<p>Having definedGo to the "Data Project Explorer" (top left window) and create a new project, such as "Project1"</p>
-<p>Now, highlight "Data Models" within "Project1" and create a new Physical Data Model based on the Classic Integration V11.3 template.</p>
-<img src="/recipes/images/neale/cdc/CDA_PhysicalDM.png" alt="CDA Physical Data Model" style="border:1px solid black"> 
+<p>Having configured CDA to operate with the Classic CDC server, the next task is to define an IMS Table. 
+This is a multi-step graphical dialog, that enables you to use DBDs and Copybooks to create a relational 
+projection of data slices from the IMS hierarchical database.</p>
+<p>Go to the "Data Project Explorer" (top left window) and create a new project, such as "Zeditor"</p>
 
-<p>Next, highlight the sections for "IMS DBDs" and "COBOL Copybooks", and import the corresponding definitions. You have a choice of 
-importing from local PC files, or connecting the z/OS and importing from PDS members.</p>
-<img src="/recipes/images/neale/cdc/CDA_Import.png" alt="CDA Imported Artefacts" style="border:1px solid black"> 
-
-<h4>7.2.3 Develop a relational model "IMS Table" based on the imported DBDs and copybooks</h4> 
-<p>This is a multi-step graphical dialog, that enables you to use DBDs and Copybooks to create a relational 
-projection of data slices from the IMS hierarchical database. It helps to be able to visualize the IMS database, and the 
-"IMS Table" that you want to project.</p>
-
-<p>The following steps are required to generate an encrypted password for the userid that will run jobs to access Classic CDC, and save it in a referencable PDS member.</p>
+<p>The steps you need to follow are described in the list below, and illustrated in the slideshow below that.</p>
 <ol>
 <li>Create a Data Development Project.
 <li>Create a physical data model (Classic Integration) within that project.
-<li>Right Click on the Data Model to create an IMS Table.
-<li>Specify the IMS DBD, and the Schema for the IMS Table.
-<li>Specify the Segments to map, the IMS SSID, IMS PSB and the desired Table Usage.
-<li>Map the copybooks for each segment, and choose fields to include in the IMS Table.
-<li>Review the field and datatype mappings
+<li>Import the IMS DBDs and Copybooks that describe the IMS database.
+<li>Create an IMS Table mapping based on the imported DBDs and Copybooks.
+<li>Generate DDL to create that IMS Table definition.
+<li>Execute the DDL against the target Classic CDC server.
+<li>Verify the generated object
 </ol>
 
 <p>Click the arrows to progress through series of screenshots for performing these tasks.</p>

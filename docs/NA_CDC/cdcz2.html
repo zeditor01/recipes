@@ -148,14 +148,10 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   <li><a href="#7.1">7.1 Deploy Classic CDC as a Started Task</a></li>
   <li><a href="#7.2">7.2 Deploy and use the Classic Data Architect IDE</a></li>
   <li><a href="#7.3">7.3 Connect from Management Console to Classic CDC Started Task</a></li>
-  <li><a href="#7.4">7.4 Use CHCCLP Scripting for z/OS</a></li>  
-  <li><a href="#7.5">7.5 Conforming to site standards for devops and security</a></li>
-  <li><a href="#7.6">7.6 Collaboration with non-z/OS teams</a></li>
+  <li><a href="#7.4">7.4 Use CHCCLP Scripting</a></li>  
+  <li><a href="#7.5">7.5 Conforming to site standards for cross-platform devops and security</a></li>
 </ul> 
 <li><a href="#App">Appendix</a>
-<ul>
-  <li><a href="#A1">Information Sources</a></li>
-</ul>
 </ul>
 </div>
 
@@ -1160,7 +1156,7 @@ projection of data slices from the IMS hierarchical database.</p>
     </div>
   </div>
   
-
+<br>
 
 <h4>7.2.3 Test the validity of the IMS Table Mapping using SQL through the CDA</h4>
 <p>Once you have deployed the IMS Table to the Classic CDC Server, you should validate that the table mapping is correct. 
@@ -1203,7 +1199,7 @@ the <a href="/recipes/docs/NA_CDC/cdcu2.html">Devops Options for CDC.</a> paper.
 
 
 <h3 id="7.4">7.4 Use CHCCLP Scripting for z/OS</h3>
-<p>CDC Replication is traditionally a Windows-centric environment for operations and control.</p>
+<p>CDC Replication is traditionally a Windows-centric environment for operations and control, but it also has advanced scripting capabilities for automation.</p>
 <p>The CDC Management Console is a comprehensive GUI that addresses all parts of the devops 
 lifecycle ( access control, definition, operations, monitoring ).</p>
 <p>The CHCCLP Scripting tools offer automated devops controls using scripts. These can be executed from the Windows-based 
@@ -1222,6 +1218,7 @@ The challenges to overcome will include...</p>
 <ul>
 <li>different development and operational teams supporting the capture and apply services
 <li>co-ordinating devops tasks between cross-platform teams
+<li>change control procedures
 <li>implementing TLS encryption between the application-transparent z/OS platform and application-controlled LUW platforms
 </ul>
 <p>A good approach is to start by considering the non-functional requriements for the business service that CDC will support. If the business 
@@ -1247,10 +1244,8 @@ to address the practical devops challenges with recommendations on how to addres
 <br><hr>
 
 <h2 id="App">Appendix</h2>
-<p>This document </p>
+<p>placeholder</p>
 
-<h3 id="A1">Information Sources</h3> 
-<p>xxx</p>
 
 
 

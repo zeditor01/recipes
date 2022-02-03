@@ -877,7 +877,7 @@ projection of data slices from the IMS hierarchical database.</p>
       </div>
     </div>
     <div class="w3-display-container mySlides">
-      <img src="/recipes/images/neale/cdc/vsamt15.PNG" style="width:100%">
+      <img src="/recipes/images/neale/cdc/vsamt16.PNG" style="width:100%">
       <div class="w3-display-bottomright w3-container w3-padding-32">
         <span class="w3-yellow w3-padding-large w3-animate-bottom">Review DDL, and tick to execute DDL on Classic CDC Server</span>
       </div>
@@ -920,7 +920,7 @@ Right Click on the Table, and either "return all rows" or choose "sample content
 <p>You can dig deeper into data validation with more probing SQL through the Classic Data Architect. 
 Just click the SQL icon in the Data Source Exporer window (bottom-right) and SQL away.</p>
 
-<p>Be mindful of the fact that many test IMS systems have "dirty data". 
+<p>Be mindful of the fact that many test VSAM systems have "dirty data". 
 If this is true for your environment, you can overcome dirty data with some forgiving Classic CDC parameters. 
 However, at some point before deploying to production, you must take responsibility for validating the data and the accuracy of the mapping.</p>
 
@@ -936,17 +936,21 @@ However, at some point before deploying to production, you must take responsibil
     <td>1 will convert invalid numeric data to -9s for query actions</td>
   </tr> 
   <tr>
+    <td>DATAVALIDATEACT</td>
+    <td>1 will convert invalid numeric data to -9s for change data capture actions</td>
+  </tr>   
+  <tr>
     <td>CSDATAVALIDATEAC</td>
     <td>1 will convert invalid numeric data to -9s for change data capture actions</td>
   </tr> 
 </table> 
 
 
-<p>Deploying the IMS Table <b>(with Change Capture Table Usage)</b> makes it visible to the CDC Management Console and Access Server 
+<p>Deploying the VSAM Table <b>(with Change Capture Table Usage)</b> makes it visible to the CDC Management Console and Access Server 
 when they connect to the Classic CDC Server</p>
 
 <h3 id="7.3">7.3 Connect from Management Console to Classic CDC Started Task</h3>
-<p>This document is primarily concerned with everything that needs to be done to establish Classic CDC for IMS as a CDC source.</p>
+<p>This document is primarily concerned with everything that needs to be done to establish Classic CDC for VSAM as a CDC source.</p>
 <p>Using the the CDC administration tools is now a standard CDC task which is covered in 
 the <a href="/recipes/docs/NA_CDC/cdcu2.html">Devops Options for CDC.</a> paper.</p>
 
@@ -964,9 +968,9 @@ inside z/OS, either from unix system services (USS) or from JCL (using the java 
 and <a href="/recipes/docs/NA_CDC/cdcu3.html">CHCCLP Scripting.</a> paper in this series of articles.</p>
 
 <h3 id="7.5">7.5 Conforming to site standards for cross-platform devops and security.</h3> 
-<p>So far, this document has been primarily concerned with the mechanics of making CDC operate from IMS to any number of heterogeneous targets. 
+<p>So far, this document has been primarily concerned with the mechanics of making CDC operate from VSAM to any number of heterogeneous targets. 
 It may be hard to believe, but that was the easy part!</p>
-<p>The author has worked with several mainframe customers deploying CDC for IMS to feed a stream of changes to midrange and Cloud targets. 
+<p>The author has worked with several mainframe customers deploying CDC for VSAM to feed a stream of changes to midrange and Cloud targets. 
 The challenges to overcome will include...</p>
 <ul>
 <li>different development and operational teams supporting the capture and apply services

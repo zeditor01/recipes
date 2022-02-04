@@ -354,19 +354,20 @@ suffix (65) which will be the identity of the CDC for z/OS instance that we are 
 </div>
 
 
-<p><code style="color:#00FF00; background-color:#000000">CDCD.CHCCFG65</code> contains the general configuration statements for this instance. The defaults are all fine for a basic first setup.</p>
+<p><b>>CDCD.CHCCFG65</b> contains the general configuration statements for this instance. The defaults are all fine for a basic first setup.</p>
 <center><img src="/recipes/images/neale/cdc/chccfg65.PNG" style="width:800px"></center>
 
-<p><code style="color:#00FF00; background-color:#000000">CDCD.CHCCMM65</code> contains TCPIP information. Idefined the listener port as 6789.</p>
+<p><b>>CDCD.CHCCMM65</b> contains TCPIP information. Idefined the listener port as 6789.</p>
 <center><img src="/recipes/images/neale/cdc/chccmm65.PNG" style="width:800px"></center>
 
-<p><code style="color:#00FF00; background-color:#000000">CDCD.CHCDBM65</code> contains Db2 z/OS connection paramaters. I identified my Db2 z/OS V12 system by providing SSID, DRDA Locations Name etc...</p>
+<p><b>>CDCD.CHCDBM65</b> contains Db2 z/OS connection paramaters. I identified my Db2 z/OS V12 system by providing SSID. 
+I also provided the configuration values for a basic log cache which helps performance when you have multiple subscriptions.</p>
 <center><img src="/recipes/images/neale/cdc/chcdbm65.PNG" style="width:800px"></center>
 
-<p><code style="color:#00FF00; background-color:#000000">CDCD.CHCLDR65</code> contains data loader configuration statements. The defaults are all fine for a basic first setup.</p>
+<p><b>>CDCD.CHCLDR65</b> contains data loader configuration statements. The defaults are all fine for a basic first setup.</p>
 <center><img src="/recipes/images/neale/cdc/chcldr65.PNG" style="width:800px"></center>
 
-<p><code style="color:#00FF00; background-color:#000000">CDCD.CHCUCS65</code> contains code page configuration parameters. The defaults were fine for my system.</p>
+<p><b>>CDCD.CHCUCS65</b> contains code page configuration parameters. The defaults were fine for my system.</p>
 <center><img src="/recipes/images/neale/cdc/cdcucs65.PNG" style="width:800px"></center>
 
 

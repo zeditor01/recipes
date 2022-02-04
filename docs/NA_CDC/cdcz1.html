@@ -278,8 +278,7 @@ relate to external artefacts.</p>
 </table> 
 
 
-<p>All the services, and their governing parameters are documented in the knowledge 
-centre <a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=zos-configuration-parameters-classic-data-servers-services">Classic Services</a>.
+<p>All the services, and their governing parameters are documented in the <a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=zos-about-cdc-replication">knowledge centre</a>.
 
 <br><hr>
 
@@ -291,9 +290,9 @@ This paper identifies five separate stages of implementation</p>
 
 	<ul> 
 	<li>SMPE Installation of Code Libraries
-	<li>Creating the Customised Classic CDC Instance
+	<li>Creating the Customised CDC Instance
 	<li>Configure the z/OS Environment
-	<li>Configure the CICS-VSAM Environment
+	<li>Configure the Db2 z/OS Environment
 	<li>Integrate with the wider CDC Landscape
 	</ul>
 
@@ -303,49 +302,73 @@ This paper identifies five separate stages of implementation</p>
 <p>SMPE installation is a well documented, standardised process that every systems programming shop manages with 
 their own standards. It is outside the scope of this paper, aside from noting that it is a pre-requisite to the 
 followng stages.</p>
-<p>Once the SMPE installation is complete, the following target libraries will exist under the chosen high level qualifier. (CDCV in this example).</p>
+<p>Once the SMPE installation is complete, the following target libraries will exist under the chosen high level qualifier. (CDCD in this example).</p>
 
  <table>
   <tr><td width=200><b>Library</b></td><td width=500><b>Contents</b></td></tr> 
-  <tr><td>CDCV.SCACBASE</td><td>Samples</td></tr> 
-  <tr><td>CDCV.SCACCONF</td><td>Configuration datsets</td></tr>  
-  <tr><td>CDCV.SCACLOAD</td><td>Load modules</td></tr>  
-  <tr><td>CDCV.SCACMAC</td><td>Macros</td></tr>  
-  <tr><td>CDCV.SCACMSGS</td><td>Messages</td></tr> 
-  <tr><td>CDCV.SCACSAMP</td><td>Sample JCL</td></tr>  
-  <tr><td>CDCV.SCACSIDE</td><td>Load Modules</td></tr>  
-  <tr><td>CDCV.SCACSKEL</td><td>ISPF skeleton library</td></tr>  
+  <tr><td>CDCD.SCHCASM</td><td>?</td></tr> 
+  <tr><td>CDCD.SCHCC</td><td>?</td></tr>  
+  <tr><td>CDCD.SCHCCNTL</td><td>Sample JCL</td></tr>  
+  <tr><td>CDCD.SCHCCOB</td><td>?</td></tr>  
+  <tr><td>CDCD.SCHCDATA</td><td>Configuration library</td></tr> 
+  <tr><td>CDCD.SCHCDBRM</td><td>DBRM Library</td></tr>  
+  <tr><td>CDCD.SCHCH</td><td></td></tr>  
+  <tr><td>CDCD.SCHCLOAD</td><td>Load Modules</td></tr>  
+  <tr><td>CDCD.SCHCMAC</td><td>Macros</td></tr>  
+  <tr><td>CDCD.SCHCNOTC</td><td>?</td></tr>  
+  <tr><td>CDCD.SCHCTTL</td><td>?</td></tr>  
 </table> 
+
+
+
 
 <br><hr>
 	
-<h2 id="4.0">4. Creating the Classic CDC Instance</h2>
-<p>The installed product code can now be used to support one or more instances of Classic CDC for IMS. 
-This worked example will create a single instance, under the instance high level qualifier of CDCV.I2 (in this example).</p>
+<h2 id="4.0">4. Creating the CDC Instance</h2>
+<p>The installed product code can now be used to support one or more instances of CDC for Db2 z/OS. 
+This worked example will create a single instance, under the instance high level qualifier of CDCD (in this example).</p>
 
 <h3 id="4.1">4.1 Edit the SCHCDATA config dataset members</h3> 
-<p>Creating the instance libraries is easy. Job CECCUSC1 will allocate the instance library, 
-and populate the instance library with a parameters file and a job to generate fully customised versions of all the JCL and configuration members that you need</p>
-<p>Just edit CDCV.SCACSAMP(CECCUSC1) to specify the high level qualifier for 
-the installation library (CACINHLQ=CDCV) and the instance library (CACUSHLQ=CDCV.I2), and submit the job to create the instance libraries.</p> 
+<p>With CDC for Db2 z/OS an instance of CDC is defined by creating a set of members in the SCHCDATA dataset that define the identity of the instance.</p>
+<p>Inside CDCD.SCHCDATA you will find four 'XX' template members (CHCCFGXX. CHCCMMXX, CHCDBMXX, CDCLDRXX and CHCUCSXX). Make copies of these members into a different 
+suffix (65) which will be the identity of the CDC for z/OS instance that we are going to create.</p>
+
 
 <div class="w3-container" style="color:#00FF00; background-color:#000000">   
 <pre> 
-<code>//GENSAMPE EXEC GENSAMP                                          </code>
-<code>//CRTSAMP.SYSTSIN  DD *                                          </code>
-<code> PROFILE NOPREFIX  MSGID                                         </code>
-<code>                                                                 </code>
-<code> ISPSTART CMD(%CACCUSX1                                         +</code>
-<code>      CACDUNIT=SYSALLDA                                         +</code>
-<code>      CACINHLQ=CDCV                                             +</code>
-<code>      CACUSHLQ=CDCV.I2                                          +</code>
-<code>      ISPFHLQ=ISP                                               +</code>
-<code>      ISPFLANG=ENU                                              +</code>
-<code>      SERVERROLE=(CDC_VSAM_SRC)                                 +</code>
-<code> )                                                               </code>
-<code>/*                                                               </code>                                                              
+<code>CHCCFGXX                                                           </code>  
+<code>CHCCMMXX                                                           </code>
+<code>CHCDBMXX                                                           </code>
+<code>CHCLDRXX                                                           </code>
+<code>CHCUCSXX                                                           </code>
+<code>CHCCFG65                                                           </code>
+<code>CHCCMM65                                                           </code>
+<code>CHCDBM65                                                           </code>
+<code>CHCLDR65                                                           </code>
+<code>CHCUCS65                                                           </code>
+<code>CHCMTDIN                                                           </code>
+<code>CHCTMZON                                                           </code>
+<code>CHCUEIMP                                                           </code>
+<code>CHCUTIL                                                            </code>                                                           
 </pre>
 </div>
+
+
+<p><code style="color:#00FF00; background-color:#000000">CDCD.CHCCFG65</code> contains the general configuration statements for this instance. The defaults are all fine for a basic first setup.</p>
+<center><img src="/recipes/images/neale/cdc/chccfg65.PNG" style="width:800px"></center>
+
+<p>Submit <code style="color:#00FF00; background-color:#000000">CDCD.CHCCMM65</code> contains TCPIP information. Idefined the listener port as 6789.</p>
+<center><img src="/recipes/images/neale/cdc/chccmm65.PNG" style="width:800px"></center>
+
+<p>Edit <code style="color:#00FF00; background-color:#000000">CDCD.CHCDBM65</code> contains Db2 z/OS connection paramaters. I identified my Db2 z/OS V12 system by providing SSID, DRDA Locations Name etc...</p>
+<center><img src="/recipes/images/neale/cdc/chcdbm65.PNG" style="width:800px"></center>
+
+<p>Edit <code style="color:#00FF00; background-color:#000000">CDCD.CHCLDR65</code> contains data loader configuration statements. The defaults are all fine for a basic first setup.</p>
+<center><img src="/recipes/images/neale/cdc/chcldr65.PNG" style="width:800px"></center>
+
+<p>Edit <code style="color:#00FF00; background-color:#000000">CDCD.CHCUCS65</code> contains code page configuration parameters. The defaults were fine for my system.</p>
+<center><img src="/recipes/images/neale/cdc/cdcucs65.PNG" style="width:800px"></center>
+
 
 
 <p>The result should be to allocate the following libraries.</p>

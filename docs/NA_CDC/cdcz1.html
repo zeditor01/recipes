@@ -136,45 +136,42 @@ spanlightblue {
 <p class="toc_title">Table of Contents</p>
 <ul class="toc_list">
 <li><a href="#abstract">Abstract</a>   
-<li><a href="#1.0">1 Introduction to Classic CDC for VSAM</a>
+<li><a href="#1.0">1 Introduction to CDC for Db2/z/OS</a>
 <ul>
-  <li><a href="#1.1">1.1 Requirements to Replicate VSAM Data</a></li>
-  <li><a href="#1.2">1.2 The Classic CDC Started Task</a></li>
+  <li><a href="#1.1">1.1 Requirements to Replicate Db2 z/OS Data</a></li>
+  <li><a href="#1.2">1.2 The CDC Started Task</a></li>
 </ul>
 <li><a href="#2.0">2. High Level Review of Implementation Steps</a>
 <li><a href="#3.0">3. SMPE Installation of Code Libraries</a>
-<li><a href="#4.0">4. Creating the Classic CDC Instance</a>
+<li><a href="#4.0">4. Creating the CDC Instance</a>
 <ul>
-  <li><a href="#4.1">4.1 Create the Instance Libraries</a></li>
-  <li><a href="#4.2">4.2 Edit the Parameters member</a></li>
-  <li><a href="#4.3">4.3 Generate the Customised JCL members</a></li>
-  <li><a href="#4.4">4.4 Define CDC Logstreams</a></li>  
-  <li><a href="#4.5">4.5 Define and Mount the Classic Catalog zFS</a></li>
-  <li><a href="#4.6">4.6 Define and Populate the Configuration Datasets</a></li>
-  <li><a href="#4.7">4.7 Create the Metadata Catalog</a></li>
-  <li><a href="#4.8">4.8 Create the Replication Mapping Datasets</a></li>  
-  <li><a href="#4.9">4.9 Setup Encrypted Passwords</a></li>  
+  <li><a href="#4.1">4.1 Edit the SCHCDATA config dataset members</a></li>
+  <li><a href="#4.2">4.2 Create PAL ( Product Admin Log )</a></li>
+  <li><a href="#4.3">4.3 Create cluster for metadata</a></li>
+  <li><a href="#4.4">4.4 Bind Packages for metadata utility</a></li>  
+  <li><a href="#4.5">4.5 Create Metadata tables in Db2</a></li>
+  <li><a href="#4.6">4.6 Grant Package Execution</a></li>
+  <li><a href="#4.7">4.7 Bind CDC Plan</a></li>
+  <li><a href="#4.8">4.8 Create Log Cache ( Single Scrape )</a></li>  
 </ul> 
 <li><a href="#5.0">5. Configure the z/OS Environment</a>
 <ul>
   <li><a href="#5.1">5.1 APF Authorised Load Libraries</a></li>
   <li><a href="#5.2">5.2 TCPIP Ports</a></li>
   <li><a href="#5.3">5.3 RACF Started Task ID</a></li>
-  <li><a href="#5.4">5.4 Test Start the Classic CDC Server</a></li>  
+  <li><a href="#5.4">5.4 Test Start the CDC Server</a></li>  
 </ul>
-<li><a href="#6.0">6. Configure the CICS-VSAM Environment</a>
+<li><a href="#6.0">6. Configure the Db2 z/OS Environment</a>
 <ul>
-  <li><a href="#6.1">6.1 VSAM Access Service</a></li>
-  <li><a href="#6.2">6.2 CICS-TS or CICS-VR to write the replication logstream</a></li>
-  <li><a href="#6.3">6.3 Augment VSAM to write replication log records</a></li>
+  <li><a href="#6.1">6.1 Alter Source Tables for full row logging</a></li>
+  <li><a href="#6.2">6.2 Db2 configuration considerations</a></li>
 </ul>
 <li><a href="#7.0">7. Integrate with the wider CDC Landscape</a>
 <ul>
-  <li><a href="#7.1">7.1 Deploy Classic CDC as a Started Task</a></li>
-  <li><a href="#7.2">7.2 Deploy and use the Classic Data Architect IDE</a></li>
-  <li><a href="#7.3">7.3 Connect from Management Console to Classic CDC Started Task</a></li>
-  <li><a href="#7.4">7.4 Use CHCCLP Scripting</a></li>  
-  <li><a href="#7.5">7.5 Conforming to site standards for cross-platform devops and security</a></li>
+  <li><a href="#7.1">7.1 Deploy CDC as a Started Task</a></li>
+  <li><a href="#7.3">7.2 Connect from Management Console to Classic CDC Started Task</a></li>
+  <li><a href="#7.4">7.3 Use CHCCLP Scripting</a></li>  
+  <li><a href="#7.5">7.4 Conforming to site standards for cross-platform devops and security</a></li>
 </ul> 
 <li><a href="#App">Appendix</a>
 </ul>

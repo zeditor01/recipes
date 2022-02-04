@@ -354,270 +354,45 @@ suffix (65) which will be the identity of the CDC for z/OS instance that we are 
 </div>
 
 
-<p><b>>CDCD.CHCCFG65</b> contains the general configuration statements for this instance. The defaults are all fine for a basic first setup.</p>
+<p><b>CDCD.CHCCFG65</b> contains the general configuration statements for this instance. The defaults are all fine for a basic first setup.</p>
 <center><img src="/recipes/images/neale/cdc/chccfg65.PNG" style="width:800px"></center>
 
-<p><b>>CDCD.CHCCMM65</b> contains TCPIP information. Idefined the listener port as 6789.</p>
+<p><b>CDCD.CHCCMM65</b> contains TCPIP information. Idefined the listener port as 6789.</p>
 <center><img src="/recipes/images/neale/cdc/chccmm65.PNG" style="width:800px"></center>
 
-<p><b>>CDCD.CHCDBM65</b> contains Db2 z/OS connection paramaters. I identified my Db2 z/OS V12 system by providing SSID. 
+<p><b>CDCD.CHCDBM65</b> contains Db2 z/OS connection paramaters. I identified my Db2 z/OS V12 system by providing SSID. 
 I also provided the configuration values for a basic log cache which helps performance when you have multiple subscriptions.</p>
 <center><img src="/recipes/images/neale/cdc/chcdbm65.PNG" style="width:800px"></center>
 
-<p><b>>CDCD.CHCLDR65</b> contains data loader configuration statements. The defaults are all fine for a basic first setup.</p>
+<p><b>CDCD.CHCLDR65</b> contains data loader configuration statements. The defaults are all fine for a basic first setup.</p>
 <center><img src="/recipes/images/neale/cdc/chcldr65.PNG" style="width:800px"></center>
 
-<p><b>>CDCD.CHCUCS65</b> contains code page configuration parameters. The defaults were fine for my system.</p>
+<p><b>CDCD.CHCUCS65</b> contains code page configuration parameters. The defaults were fine for my system.</p>
 <center><img src="/recipes/images/neale/cdc/cdcucs65.PNG" style="width:800px"></center>
 
 
-
-<p>The result should be to allocate the following libraries.</p>
- <table>
-  <tr><td width=200>Library</td><td width=500>Initial Contents</td></tr> 
-  <tr><td>CDCV.I2.USERCONF</td><td>empty</td></tr> 
-  <tr><td>CDCV.I2.USERSAMP</td><td>just a parameters member plus generation job, listed below:</td></tr>  
-</table> 
-
-<div class="w3-container" style="color:#00FF00; background-color:#000000">   
-<pre> 
-<code>CECCUSC2                                                         </code>
-<code>CECCUSPC                                                         </code>                                                          
-</pre>
-</div>
-
-
 <h3 id="4.2">4.2 Create PAL ( Product Admin Log )</h3> 
-<p>Editing the parameters member <code>CDCV.I2.USERSAMP(CECCUSPC)</code> is a critical step. It will generate 
-fully customised JCL for pretty much everything you need to do to deploy the Classic CDC instance in your environment. 
-You will need to gather configuration information for z/OS, TCPIP, IMS, MQ and so forth to populate the parameters member.</p>
-<p>Many of the default paramaters will be just fine. You should review the descriptions for each of the parameters that are 
-provided inside the parameters member to assess whether they need to be changed in your system. 
-In this worked example the parameters (and line numbers for V11.3) that we edited were as follows.</p> 
-<ul>
-<li>Line 45, specify the installation HLQ <code style="color:#00FF00; background-color:#000000">CACINHLQ="CDCV"</code> 
-<li>Line 47, specify the instance HLQ <code style="color:#00FF00; background-color:#000000">CACUSHLQ="CDCV.I2"</code> 
-<li>Line 49, specify the default UNIT for DSN creation <code style="color:#00FF00; background-color:#000000">CACDUNIT="SYSALLDA"</code> 
-<li>Lines 60 and 61, provide a job card for all the JCLs that will be generated
-<li>Line 71, provide the HLQ for the various source datasets that will be created for this instance <code style="color:#00FF00; background-color:#000000">CDCPHLQD="CDCV.I2.CDCSRC"</code>
-<li>Line 83, provide the zFS path for the Metadata Catalog that will be created <code style="color:#00FF00; background-color:#000000">CATPATH="/opt/IBM/ccdci1/catalogv"</code> 
-<li>Line 105, provide the TCPIP listener port for the Server <code style="color:#00FF00; background-color:#000000">CDCPPORT="9088"</code>  
-<li>Line 106, provide the Data Source Name for the Server <code style="color:#00FF00; background-color:#000000">CDCDSRCE="SAMPLEVS"</code>  
-<li>Line 111, provide the SYSADM ID for the Server <code style="color:#00FF00; background-color:#000000">CDCADMUS="ADMUSER"</code>  
-<li>Line 156, Accept the default supplied security exit name for the SAF-protected services <code style="color:#00FF00; background-color:#000000">CDCPSAFX="CACSX04"</code> 
-<li>Line 187 and 194, Comment the storage classes for the logstreams (which will result in DASD logstreams, rather than CF logstreams <code style="color:#00FF00; background-color:#000000">**CPLGSC="STG1"</code> and <code style="color:#00FF00; background-color:#000000">**CPEVSC="STG1"</code> 
-</ul>
-<p>... and optionally, if you also want to use the ability to publish changes to MQ (in addition to CDC Apply agents)</p>
-<ul>
-<li>Line 202, provide the HLQ for the MQ Libraries <code style="color:#00FF00; background-color:#000000">CDCMQHLQ="CSQ911"</code>
-<li>Line 203, provide the name of the Queue Manager to connect to for MQ publishing<code style="color:#00FF00; background-color:#000000">CDCMQMGR="CSQ9"</code>
-<li>Line 208, provide the name of the Bookmark Queue to use for MQ publishing <code style="color:#00FF00; background-color:#000000">CDCBKMKQ="CDCV.BOOKMARK"</code> 
-<li>Line 213, provide the name of the Subscription Queue to use for MQ publishing <code style="color:#00FF00; background-color:#000000">CDCSUBLQ="CDCV.PUBLISH1"</code>
-</ul>
 
-<p>Browse the entire PARMS file in the github repository (opens new tab) <a href="https://github.com/zeditor01/recipes/blob/main/samples/cdc/CECCUSPC_VSAM.TXT" target="_blank">here.</a></p>
 
 <h3 id="4.3">4.3 Create cluster for metadata</h3> 
-<p>The list of parameters above is enough to completely define the Classic CDC instance. All you need is to run a program 
-that will merge those paramaters with some skeleton files in order to generate all the customised JCL and configuration members from them. 
-Simply edit and submit <code style="color:#00FF00; background-color:#000000">CDCV.I2.USERSAMP(CECCUSC2)</code> to do this.</p>
-<p>You should end up with 4 configuration members in <code style="color:#00FF00; background-color:#000000">CDCV.I2.USERCONF</code> and 50 JCL members in <code style="color:#00FF00; background-color:#000000">CDCV.I2.USERSAMP</code>.</p>
 
 
 <h3 id="4.4">4.4 Bind Packages for metadata utility</h3> 
-<p>Classic CDC uses z/OS Logstreams for the diagnostic log and the event log. The logstreams can be either CF logstreams or DASD logstreams. 
-By commenting out the Logstream Storage Class they will ge generated as DASD logstreams in this simple example.</p> 
-<p>Review and submit member <code style="color:#00FF00; background-color:#000000">CDCV.I2.USERSAMP(CECCDSLS)</code> to define these as DASD logstreams.</p>
 
-<div class="w3-container" style="color:#00FF00; background-color:#000000">   
-<pre> 
-<code>//*********************************************</code>
-<code>//* ALLOCATE THE LOG STREAM FOR THE EVENT LOG *</code>
-<code>//*********************************************</code>
-<code>//ALLOCEV    EXEC  PGM=IXCMIAPU                </code>
-<code>//SYSPRINT DD SYSOUT=*                         </code>
-<code>//SYSOUT   DD SYSOUT=*                         </code>
-<code>//SYSIN    DD *                                </code>
-<code>   DATA TYPE(LOGR) REPORT(NO)                  </code>
-<code>   DEFINE LOGSTREAM NAME(CDCSRC.I2.EVENTS)     </code>
-<code>          DASDONLY(YES)                        </code>
-<code>          MAXBUFSIZE(4096)                     </code>
-<code>          LS_SIZE(1024)                        </code>
-<code>          STG_SIZE(512)                        </code>
-<code>          RETPD(14) AUTODELETE(YES)            </code>
-<code>/*                                             </code>
-</pre>
-</div>
 
-<p>and</p>
-
-<div class="w3-container" style="color:#00FF00; background-color:#000000">   
-<pre> 
-<pre>
-<code>//************************************************</code>
-<code>//* ALLOCATE THE LOG STREAM FOR THE DIAGNOSTIC LOG</code>
-<code>//************************************************</code>
-<code>//ALLOCDG    EXEC  PGM=IXCMIAPU                   </code>
-<code>//SYSPRINT DD SYSOUT=*                            </code>
-<code>//SYSOUT   DD SYSOUT=*                            </code>
-<code>//SYSIN    DD *                                   </code>
-<code>   DATA TYPE(LOGR) REPORT(NO)                     </code>
-<code>   DEFINE LOGSTREAM NAME(CDCSRC.I2.DIAGLOG)       </code>
-<code>          DASDONLY(YES)                           </code>
-<code>          LS_SIZE(1024)                           </code>
-<code>          STG_SIZE(512)                           </code>
-<code>          RETPD(7) AUTODELETE(YES)                </code>
-<code>/*                                                </code>
-</pre>
-</div>
-
-<p>and</p>
-
-<div class="w3-container" style="color:#00FF00; background-color:#000000">   
-<pre> 
-<pre>
-<code>//************************************************</code>
-<code>//* ALLOCATE THE LOG STREAM FOR THE IVP LOGSTREAM </code>
-<code>//************************************************</code>
-<code>//ALLOCDG    EXEC  PGM=IXCMIAPU                   </code>
-<code>//SYSPRINT DD SYSOUT=*                            </code>
-<code>//SYSOUT   DD SYSOUT=*                            </code>
-<code>//SYSIN    DD *                                   </code>
-<code>   DATA TYPE(LOGR) REPORT(NO)                     </code>
-<code>   DEFINE LOGSTREAM NAME(CDCSRC.IVP.REPLLOG)      </code>
-<code>          DASDONLY(YES)                           </code>
-<code>          LS_SIZE(1024)                           </code>
-<code>          STG_SIZE(512)                           </code>
-<code>          RETPD(7) AUTODELETE(YES)                </code>
-<code>/*                                                </code>
-</pre>
-</div>
 
 <h3 id="4.5">4.5 Create Metadata tables in Db2</h3> 
-<p>The Metadata Catalog is conceptually similar to the Db2 catalog ( SYSTABLES, SYSCOLUMNS etc… ). 
-Not only does it store metadata about IMS Tables, but it also contains the details of the IMS to relational model mapping.</p> 
-<p>The Metadata catalog is deployed as a zFS which needs to be mounted at the path specified for “CATPATH” in CECCUSPC.</p>
-<p>The zFS is allocated with generated job CECCRZCT. 
-The VSAM cluster is defined in the first job step as <code>CDCV.I2.ZFS</code>, and the zFS is formatted in the second job step. 
-Review the submit <code>CDCV.I2.USERSAMP(CECCRZCT)</code> to define the Metadata Catalog.</p>
 
-<div class="w3-container" style="color:#00FF00; background-color:#000000">   
-<pre> 
-<code> DEFINE CLUSTER ( -    </code>
-<code>   NAME(CDCV.I2.ZFS) - </code>
-<code>   LINEAR -            </code>
-<code>   MEGABYTES(150 128) -</code>
-<code>   VOLUMES(*) -        </code>
-<code>   SHAREOPTIONS(3 3)  -</code>
-<code>   CISZ(4096))         </code>
-</pre>
-<p>and</p>
-<pre>   
-<code>//FORMAT EXEC PGM=IOEAGFMT,REGION=0M,       </code>
-<code>//    COND=(0,LT),                          </code>
-<code>//    PARM='-aggregate CDCV.I2.ZFS  -compat'</code>
-</pre> 
-</div>
 
 
 
 <h3 id="4.6">4.6 Grant Package Execution</h3> 
-<p>Classic CDC for IMS is governed by a number of parameters that are defined in the configuration datasets. 
-Parameters governing threads, memory, tcpip ports and so forth, as documented in the knowledge centre. 
-The creation and population of the configuration datasets is controlled by job CECCDCFG. Review the generated JCL and submit when happy.</p>
- 
-<div class="w3-container" style="color:#00FF00; background-color:#000000">   
-<pre>
-<code>//CFGALLOC     EXEC PGM=IEFBR14                       </code>
-<code>//CACCFGD      DD  DSN=&CPHLQ..CACCFGD,               </code>
-<code>//             UNIT=&DISKU,                           </code>
-<code>//             STORCLAS=&STGCL,                       </code>
-<code>//             MGMTCLAS=&MGTCL,                       </code>
-<code>//             SPACE=(TRK,(20,10)),                   </code>
-<code>//             DCB=(RECFM=FBS,LRECL=64,BLKSIZE=27968),</code>
-<code>//             DISP=(NEW,CATLG,DELETE)                </code>
-<code>//CACCFGX  DD  DSN=&CPHLQ..CACCFGX,                   </code>
-<code>//             UNIT=&DISKU,                           </code>
-<code>//             STORCLAS=&STGCL,                       </code>
-<code>//             MGMTCLAS=&MGTCL,                       </code>
-<code>//             SPACE=(TRK,(10,5)),                    </code>
-<code>//             DCB=(RECFM=FBS,LRECL=64,BLKSIZE=27968),</code>
-<code>//             DISP=(NEW,CATLG,DELETE)                </code>
-<code>//*                                                   </code>
-</pre>
-</div>
 
-<p>and the final step imports the default parameter values into the configuration datasets</p>
-
-<div class="w3-container" style="color:#00FF00; background-color:#000000">   
-<pre>
-<code>//ALLOCATE EXEC ALLOCFG                         </code>
-<code>//CFGINIT.SYSIN DD *                            </code>
-<code>IMPORT,CONFIG,FILENAME=DDN:IMPORTCF(CECCDXFG)   </code>
-<code>REPORT                                          </code>
-<code>QUIT                                            </code>
-<code>/*                                              </code>
-</pre>
-</div>
 
 <h3 id="4.7">4.7 Bind CDC Plan</h3> 
-<p>The Metadata Catalog is a zFS that holds catalog tables ( systables, syscolumns etc... ). 
-The CACCATUT utility is used to create the metadata catalog tables in the Metadata Catalog. 
-This is performed using job CECCDCAT. Review the generated JCL and submit when happy.</p>
 
-<div class="w3-container" style="color:#00FF00; background-color:#000000">   
-<pre>
-<code>//INIT     EXEC PGM=CACCATUT,PARM='INIT',REGION=&RGN        </code>
-<code>//STEPLIB  DD  DISP=SHR,DSN=&CAC..SCACLOAD                  </code>
-<code>//SYSOUT   DD  SYSOUT=&SOUT                                 </code>
-<code>//SYSPRINT DD  SYSOUT=&SOUT                                 </code>
-<code>//MSGCAT   DD  DISP=SHR,DSN=&CAC..SCACMSGS                  </code>
-<code>//CACCAT   DD  PATHDISP=(KEEP,KEEP),                        </code>
-<code>//             PATH='/opt/IBM/isclassic113/catalogv/caccat' </code>
-<code>//CACINDX  DD  PATHDISP=(KEEP,KEEP),                        </code>
-<code>//             PATH='/opt/IBM/isclassic113/catalogv/cacindx'</code>
-</pre>
-</div>
 
 <h3 id="4.8">4.8 Create Log Cache ( Single Scrape )</h3> 
-<p>The Replication Mapping datasets are used to hold the metadata to support subscriptions from IMS to targets like Kafka. 
-These mapping datasets will be empty until you start defining subscriptions using Management Console or CHCCLP scripts. 
-This is performed using job CECCDSUB. Review the generated JCL and submit when happy.</p>
-
-<div class="w3-container" style="color:#00FF00; background-color:#000000">   
-<pre>
-<code> DEFINE CLUSTER                  - </code>
-<code>    (NAME(&CPHLQ..SUB)        -    </code>
-<code>     RECSZ(1024 2048)            - </code>
-<code>     KEY(80 12)                  - </code>
-<code>     CYL(2 1)                    - </code>
-<code>     SPEED REUSE)                - </code>
-<code>  DATA                           - </code>
-<code>    (NAME(&CPHLQ..SUB.DATA)   -    </code>
-<code>     CISZ(8192)                  - </code>
-<code>     FSPC(20 5))                 - </code>
-<code>  INDEX                          - </code>
-<code>    (NAME(&CPHLQ..SUB.INDEX)  -    </code>
-<code>     CISZ(6144))                   </code>
-<code> /**/                              </code>
-<code> DEFINE CLUSTER                  - </code>
-<code>    (NAME(&CPHLQ..RM)        -     </code>
-<code>     RECSZ(512 2432)             - </code>
-<code>     KEY(20 12)                  - </code>
-<code>     CYL(15 5)                   - </code>
-<code>     SPEED REUSE)                - </code>
-<code>   DATA                          - </code>
-<code>     (NAME(&CPHLQ..RM.DATA)   -    </code>
-<code>      CISZ(8192)                 - </code>
-<code>      FSPC(20 5))                - </code>
-<code>   INDEX                         - </code>
-<code>     (NAME(&CPHLQ..RM.INDEX)  -    </code>
-<code>      CISZ(2048))                  </code>
-<code>/*                                 </code>
-</pre>
-</div>
-
-
 
 
 <br><hr>
@@ -628,64 +403,60 @@ This worked example was implement on a Z Development and Test v13 environment, u
 The z/OS customizations that I needed to do were as follows</p>
 
 <h3 id="5.1">5.1 APF Authorised Load Libraries</h3>
-<p>The Classic CDC Load Libraries need to be APF Authorized. 
+<p>The CDC Load Libraries need to be APF Authorized. 
 With the ADCD distribution I simply added these libraries to ADCD.Z24C.PARMLIB(PROGAD)</p>
 
 <div class="w3-container" style="color:#00FF00; background-color:#000000">   
 <pre>
 <code>/**********************************************/                      </code>
-<code>/*  CDCV 11.4                                 */                      </code>
+<code>/*  IIDR 11.4                                 */                      </code>
 <code>/**********************************************/                      </code>
 <code>APF ADD                                                               </code>
-<code>    DSNAME(CDCV.SCACLOAD)                               VOLUME(USER0B)</code>
+<code>    DSNAME(CDCD.SCHCLOAD)                               VOLUME(USER0B)</code>
 </pre>
 </div>	
 	
 <h3 id="5.2">5.2 TCPIP Ports</h3> 
-<p>Classic CDC for VSAM is configured to listen on one port. I used the custom port of 9088 because 9087 was already taken by my Classic CDC for IMS server. 
-The ADCD z/OS v2.4 distribution does not lock high ports, so I didn’t have any network administration to perform to open port 9087.</p> 
+<p>CDC for Db2 z/OS is configured to listen on port 6789, as per the editing CDCD.CHCCMM65. 
+The ADCD z/OS v2.4 distribution does not lock high ports, so I didn’t have any network administration to perform to open port 6789.</p> 
 
 <h3 id="5.3">5.3 RACF Started Task ID</h3> 
 <p>For the ZD&T environment I didn’t bother the define a started task ID to RACF. 
-I just added the PROC to ADCD.Z24B.PROCLIB and ran it as START1.</p>
+I just added the PROC to ADCD.Z24C.PROCLIB and ran it as START1.</p>
 
 <h3 id="5.4">5.4 Test Start the CDC Server</h3> 
-<p>This is a good point to start the server and resolve any problems with the Classic CDC Server.  
-You can test the Classic CDC as a Job using the JCL in member CECCDSRC, and then deploy it as a started task later on.
+<p>This is a good point to start the server and resolve any problems with the CDC Server.  
+You can test CDC as a Job using the JCL in <code style="color:#00FF00; background-color:#000000">CDCD.SCHCCNTL(CHCPROC)</code>, and then deploy it as a started task later on.
 Upon first start, you should expect to see the Classic CDC Server come up.
 </p>
 
-<Ccenter><img src="/recipes/images/neale/cdc/cdcv_startup.PNG" alt="Classic CDC Startup Messages" style="border:1px solid black; width:800px"></center> 
+<center><img src="/recipes/images/neale/cdc/cdcd_startup.PNG" alt="CDC Startup Messages" style="border:1px solid black; width:800px"></center> 
 
-
-
-<p>If you configured the CECCUSPC parameters to include an MQ target, then you are likely to experience MQ connection errors until you resolve
-RACF permissions.</p>
 
 <br><hr>
 
-<h2 id="6.0">6. Configure the VSAM Environment</h2>
-<p>This is the section where Classic CDC differs from deploying CDC for a relational data source. 
-CDC needs the following 3 things that are more complex to provide from IMS than Db2.</p>
-<ul>
-<li>Provide read Access to VSAM datasets (for development work, and cdc initialization of target)
-<li>Configure CICS-TS or CICS-VR to write replication logs to a z/OS logstream
-<li>Alter the VSAM datasets to identify the z/OS logstream to use as a replication log.
-</ul>
+<h2 id="6.0">6. Configure the Db2 z/OS Environment</h2>
+<p>There is very little to do here.</p>
+
 
 <h3 id="6.1">6.1 Alter Source Tables for full row logging</h3>
-<p>This is done automatically by the customisation process. The steps in section 4 will create the VSAM Access Service definition and provide it with a default set of configuration paramaters.</p>
+<p>By default Db2 z/OS only logs enough data to perform rollforward and rollback recovery processing. Unchanged column values are not usually logged, but a data replication 
+product needs to see all the before and after column values of the entire row. This is achieved by ALTERing the Db2 table to instruct Db2 to perform full row logging 
+for all logged SQL operations.</p>
+<p>You don't even need to do this in advance, because the CDC administration tools will detect if "Data Capture None" is in force for any source table, and generate an ALTER 
+statement to make the change.</p>
 
+<p><code style="color:#00FF00; background-color:#000000">ALTER TABLE TABSCHEMA.TABNAME DATA CAPTURE CHANGES</code></p> 
 
 <h3 id="6.2">6.2 Db2 configuration considerations</h3> 
-<p>This is outwith the direct Classic CDC for VSAM setup tasks. It is simply a pre-requisite that must be in place before Classic CDC for VSAM can do it's job.</p>
-<p>Classic CDC for VSAM works by using a z/OS logstream as a replication log.</p>
-<ul>
-<li>If the VSAM dataset is augmented correctly (step 6.3) and under CICS-TS control, then CICS-TS will write replication log records to the z/OS logstream when VSAM writes are performed.
-<li>If the VSAM dataset is augmented correctly (step 6.3) and outside control, then CICS-VR will write replication log records to the z/OS logstream when VSAM writes are performed.
-</ul>
-<p>In this worked example, the VSAM changes were executed using a CICS sample transaction that places orders for pens. We were operating this VSAM dataset under CICS-TS control, which provided the log writing function.</p>
+<p>There is nothing else that needs to be done for a basic up and running exercise.</p>
+<p>As you progress with CDC for Db2 z/OS you may need to perform some Db2 tuning. Examples of the sorts of work you may need to do are:</p>
 
+<ul> 
+<li>Db2 log buffer configuration should be adjusted to ensure that all log reads for Db2 are satisfied from memory
+<li>For Ultra-active Db2 systems you will want to schedule the ALTER TABLE commands for a quiet time
+<li>If you replicate a lot of tables, the increase in logging may prompt you to review your log configuration.
+</ul>
 
 
 <p>That's it for the CDC Server !!!</p>
@@ -694,16 +465,16 @@ CDC needs the following 3 things that are more complex to provide from IMS than 
 
 <h2 id="7.0">7. Integrate with the wider CDC Landscape</h2>
 <p>Now that the mainframe CDC Capture Server is ready for business, you will need to start using some non-mainframe tools in order 
-to define "VSAM Tables", and define Subscriptions from them to target systems. Section 7 covers this matters.</p>
+to define Subscriptions from them to target systems. Section 7 covers these matters.</p>
 
 <h3 id="7.1">7.1 Deploy CDC as a Started Task</h3> 
-<p>Assuming you want to run Classic CDC as a started task, rather than a batch job, you should copy 
-the contents of the JCL to run Classic CDC as a batch job <code style="color:#00FF00; background-color:#000000">CDCV.I2.USERSAMP(CECCDSRC)</code> 
+<p>Assuming you want to run CDC as a started task, rather than a batch job, you should copy 
+the contents of the JCL to run CDC as a batch job <code style="color:#00FF00; background-color:#000000">CDCD.SCHCCNTL(CHCPROC)</code> 
 to your PROCLIB, and follow your site standards for establishing a new started task.</p> 
 
 
 <h3 id="7.2">7.2 Connect from Management Console to CDC Started Task</h3>
-<p>This document is primarily concerned with everything that needs to be done to establish Classic CDC for VSAM as a CDC source.</p>
+<p>This document is primarily concerned with everything that needs to be done to establish CDC for Db2 z/OS as a started task.</p>
 <p>Using the the CDC administration tools is now a standard CDC task which is covered in 
 the <a href="/recipes/docs/NA_CDC/cdcu2.html">Devops Options for CDC.</a> paper.</p>
 

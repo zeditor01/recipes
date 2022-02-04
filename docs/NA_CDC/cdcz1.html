@@ -377,6 +377,9 @@ paramaters that can be coded (and their default values) in the <a href="https://
 
 <h3 id="4.2">4.2 Create PAL ( Product Admin Log )</h3> 
 
+<p>Customize the job CDCD.SCHCCNTL(CDCDFPAL) to create a VSAM cluster for the CDC Replication product administration log (PAL).</p>
+
+
 <div class="w3-container" style="color:#00FF00; background-color:#000000">   
 <pre> 
 <code>  DEFINE -                                                              </code> 
@@ -403,10 +406,81 @@ paramaters that can be coded (and their default values) in the <a href="https://
 
 <h3 id="4.3">4.3 Create cluster for metadata</h3> 
 
+<p>Customize the job CDCD.SCHCCNTL(CDCDFMTD) to create the CDC Replication metadata VSAM cluster.</p>
+
+<div class="w3-container" style="color:#00FF00; background-color:#000000">   
+<pre> 
+<code>  DEFINE -                                                              </code> 
+<code>    CLUSTER -                                                           </code> 
+<code>     (NAME(CDCD.META)                                                 - </code> 
+<code>      VOL(USER0A)                                                     - </code> 
+<code>      SHAREOPTIONS(3 3) -                                               </code> 
+<code>      CYL(20 20)  -                                                     </code> 
+<code>      RECSZ(512 2048) -                                                 </code>  
+<code>      CISZ(4096) -                                                      </code> 
+<code>      INDEXED -                                                         </code> 
+<code>      NOREUSE -                                                         </code> 
+<code>      KEYS(128 16)) -                                                   </code> 
+<code>    DATA -                                                              </code> 
+<code>     (NAME(CDCD.META.DATA))                                           - </code> 
+<code>    INDEX -                                                             </code> 
+<code>     (NAME(CDCD.META.INDEX))                                            </code> 
+<code>                                                                        </code> 
+<code>  REPRO -                                                               </code> 
+<code>    INFILE(VSAMINIT) -                                                  </code> 
+<code>    OUTDATASET(CDCD.META)                                               </code> 
+</pre>
+</div>
+
 
 <h3 id="4.4">4.4 Bind Packages for metadata utility</h3> 
 
+<p>Customize the job CDCD.SCHCCNTL(CDCMDMDB) to bind the packages and plan for the CHCMDMUT (metadata install and upgrade utility) program.</p> 
 
+<div class="w3-container" style="color:#00FF00; background-color:#000000">   
+<pre> 
+<code>//SYSTSIN  DD *                                                         </code> 
+<code>  DSN SYSTEM(DBCG)                                                      </code> 
+<code>  BIND -                                                                </code> 
+<code>    PACKAGE(CHCPK165)                                                 - </code> 
+<code>    MEMBER(CHCMDMMN) -                                                  </code> 
+<code>    ACTION(REPLACE) -                                                   </code> 
+<code>    CURRENTDATA(NO) -                                                   </code> 
+<code>    ENCODING(UNICODE) -                                                 </code> 
+<code>    OWNER(IBMUSER)                                                    - </code> 
+<code>    QUALIFIER(IBMUSER)                                                  </code> 
+<code>  BIND -                                                                </code> 
+<code>    PACKAGE(CHCPK165)                                                 - </code> 
+<code>    MEMBER(CHCMDMDB) -                                                  </code> 
+<code>    ACTION(REPLACE) -                                                   </code> 
+<code>    CURRENTDATA(NO) -                                                   </code> 
+<code>    ENCODING(UNICODE) -                                                 </code> 
+<code>    OWNER(IBMUSER)                                                    - </code> 
+<code>    QUALIFIER(IBMUSER)                                                  </code> 
+<code>  BIND -                                                                </code> 
+<code>    PACKAGE(CHCPK265)                                                 - </code> 
+<code>    MEMBER(CHCDB2DL) -                                                  </code> 
+<code>    ACTION(REPLACE) -                                                   </code> 
+<code>    CURRENTDATA(NO) -                                                   </code> 
+<code>    ENCODING(UNICODE) -                                                 </code> 
+<code>    OWNER(IBMUSER)                                                    - </code> 
+<code>    QUALIFIER(IBMUSER)                                                  </code> 
+<code>  BIND -                                                                </code> 
+<code>    PLAN(CHCMDM65)                                                    - </code> 
+<code>    PKLIST(CHCPK165.CHCMDMMN -                                          </code> 
+<code>           CHCPK165.CHCMDMDB -                                          </code> 
+<code>           CHCPK265.CHCDB2DL -                                          </code> 
+<code>          ) -                                                           </code> 
+<code>    ACTION(REPLACE) RETAIN -                                            </code> 
+<code>    CACHESIZE(256) -                                                    </code> 
+<code>    ISOLATION(CS) -                                                     </code> 
+<code>    OWNER(IBMUSER)                                                    - </code> 
+<code>    RELEASE(COMMIT)                                                     </code> 
+<code>  END                                                                   </code> 
+</pre>
+</div>                                           
+
+		   
 
 <h3 id="4.5">4.5 Create Metadata tables in Db2</h3> 
 

@@ -484,17 +484,109 @@ paramaters that can be coded (and their default values) in the <a href="https://
 
 <h3 id="4.5">4.5 Create Metadata tables in Db2</h3> 
 
+<p>Customize the job CDCD.SCHCCNTL(CHCMDMUT) to create or upgrade the CDC Replication metadata tables. This table defines the identity of 
+a CDC instance by identifying all the DB2 z/OS artefacts that the instance should refer to. The SYSIN data for this job is commented very 
+well, and the values used in this worked example are shown below.</p> 
 
+<div class="w3-container" style="color:#00FF00; background-color:#000000">   
+<pre> 
+<code>//SYSIN    DD  *                                                       </code> 
+<code>*Lines with an '*' in column 1 are treated as comments.                </code> 
+<code>*                                                                      </code> 
+<code>* Subsystem or data sharing group name of the                          </code> 
+<code>* DB2 system which holds (or will hold) the metadata.                  </code> 
+<code>SUBSYS=DBCG                                                            </code> 
+<code>* The plan suffix used when the plan CHCMDMxx was bound.               </code> 
+<code>PLANSFX=65                                                             </code> 
+<code>* The name of the DB2 storage group which should be used               </code> 
+<code>* to create any metadata objects. This storage group                   </code> 
+<code>* will be created if it does not exist.                                </code> 
+<code>STOGROUP=SYSDEFLT                                                      </code> 
+<code>* The list of volume names to be used to create the                    </code> 
+<code>* storage group if it does not exist. Must be specified                </code> 
+<code>* if the storage group does not exist.                                 </code> 
+<code>*OLUMES=<CHCVOLSER>                                                    </code> 
+<code>* The name of the catalog to use in creating the                       </code> 
+<code>* storage group if it does not exist. Must be specified                </code> 
+<code>* if the storage group does not exist.                                 </code> 
+<code>*ATLG=<CHCCatlg>                                                       </code> 
+<code>* The name of the database which holds the metadata.                   </code> 
+<code>* This database will be created if it does not exist.                  </code> 
+<code>DBNAME=CHCDB                                                           </code> 
+<code>* The name of the table space which will contain the majority          </code> 
+<code>* of the metadata tables. This tablespace should be a Unicode          </code> 
+<code>* table space with a page size of 4K. This table space will            </code> 
+<code>* be created if it does not exist.                                     </code> 
+<code>TBSP01=CHCTBSP1                                                        </code> 
+<code>* The name of the table space which will contain metadata tables       </code> 
+<code>* which require a 32K page size. This tablespace should be a           </code> 
+<code>* Unicode table space with a page size of 32K. This table space        </code> 
+<code>* will be created if it does not exist.                                </code> 
+<code>TBSP02=CHCTBSP2                                                        </code> 
+<code>* The buffer pool to be used when creating a new database,             </code> 
+<code>* tablespaces and indexes requiring a 4k page size.                    </code> 
+<code>* By default, bufferpool BP0 will be used.                             </code> 
+<code>* If the database specified by DBNAME already exists then its          </code> 
+<code>* buffer pool will be used instead.                                    </code> 
+<code>BPOOL4K=BP0                                                            </code> 
+<code>* The  buffer pool to be used when creating a new tablespace,          </code> 
+<code>* and index that requires a 32k page size.                             </code> 
+<code>* By default, bufferpool BP32K will be used.                           </code> 
+<code>BPOOL32K=BP32K                                                         </code> 
+<code>* The user name which owns the metadata.                               </code> 
+<code>OWNER=IBMUSER                                                          </code> 
+<code>* The SQLID this job should operate under. By default, this            </code> 
+<code>* is the user ID this job is executing under.                          </code> 
+<code>SQLID=IBMUSER                                                          </code> 
+<code>* When set to Y, this option will cause all existing metadata          </code> 
+<code>* tables to be dropped and a completely new set of metadata            </code> 
+<code>* created. This option is intended to facilitate start over            </code> 
+<code>* scenarios, e.g. if re-running a fresh install or if running          </code> 
+<code>* an upgrade where metadata is not needed and will be recreated.       </code> 
+<code>* It should be set to N otherwise.                                     </code> 
+<code>* In general, it is not recommended to be set to Y for upgrade         </code> 
+<code>* since all existing product metadata will be lost.                    </code> 
+<code>DROPTBL=N                                                              </code> 
+<code>* When set to Y, this option will cause all DB2 system                 </code> 
+<code>* catalog tables indexes to be created. The storage group              </code> 
+<code>* used for the indexes will be the storage group specified.            </code> 
+<code>CRSYSIND=N                                                             </code> 
+<code>* When set to Y, this option will set DATA CAPTURE CHANGES             </code> 
+<code>* on selected DB2 system catalog tables.  This is necessary for        </code> 
+<code>* certain product features to function properly.                       </code> 
+<code>STSYSCAP=N                                                             </code> 
+<code>/*                                                                     </code> 
+</pre>
+</div>  
 
 
 <h3 id="4.6">4.6 Grant Package Execution</h3> 
 
+<p>Customize the job CDCD.SCHCCNTL(CDCGRNTA) to grant Db2 authorities to the userid for the started task.</p> 
+<p>The objects that the started task ID needs execute authority on are PACKAGE CHCPK165.* and PACKAGE CHCPK265.*</p>
 
 <h3 id="4.7">4.7 Bind CDC Plan</h3> 
-
+<p>Customize the job CDCD.SCHCCNTL(CDCBNDPL) to bind the Db2 Packages and Plans that will be used by CDC Replication to access the DB2 log, metadata tables, and application data tables that are to be replicated.</p> 
+<p>30 packages and 15 plans will be bound.</p>
 
 <h3 id="4.8">4.8 Create Log Cache ( Single Scrape )</h3> 
+<p>Customize the job CDCD.SCHCCNTL(CDCCRCCH) to allocate the VSAM cluster that will back up the Log Cache (which was configured <b>CDCD.CHCDBM65</b>).</p> 
 
+<div class="w3-container" style="color:#00FF00; background-color:#000000">   
+<pre> 
+<code>  DEFINE -                                                              </code> 
+<code>    CLUSTER -                                                           </code> 
+<code>     (NAME(CDCD.CHCCACHE)                                             - </code> 
+<code>      VOL(*) -                                                          </code> 
+<code>      RECORDSIZE(32760 32760) -                                         </code> 
+<code>      NUMBERED -                                                        </code> 
+<code>      SHAREOPTIONS(2))-                                                 </code> 
+<code>    DATA -                                                              </code> 
+<code>     (NAME(CDCD.CHCCACHE.DA)                                          - </code> 
+<code>      BUFFERSPACE(8388608) -                                            </code> 
+<code>      CYLINDERS(600))                                                   </code> 
+</pre>
+</div> 
 
 <br><hr>
 

@@ -161,9 +161,9 @@ spanyellow {
   <li><a href="#4.2">4.2 Kafka Connection Properties</a></li>
   <li><a href="#4.3">4.3 Likely additional Kafka configuration</a></li>  
 </ul>
-<li><a href="#5.0">5. Working with CDC for Kafka</a>
+<li><a href="#5.0">5. CDC for Kafka as a Kafka Client</a>
 <ul>
-  <li><a href="#5.1">5.1 CDC for Kafka as a Kafka Client</a></li>
+  <li><a href="#5.1">5.1 TCPIP connections between CDC and Kafka</a></li>
   <li><a href="#5.2">5.2 Kafka Schema Registry considerations</a></li>
   <li><a href="#5.3">5.3 Console Consumers for testing Subscriptions</a></li>
   <li><a href="#5.4">5.4 Using Kafka Custom Operators (KCOPs)</a></li>
@@ -341,7 +341,9 @@ to use an LDAP directory for authentication services. LDAP configuration is cove
 <p>A couple of pieces of Linux adminsitration must be done.</p>
 
 <h3 id="4.1">4.1 TCPIP Ports</h3> 
-<p>We configured this instance to listen on port 11701. You must ensure that the Linux Firewall allows incoming traffic on this port.</p>
+<p>We configured this instance to listen on port 11701. You must ensure that the Linux Firewall allows incoming traffic on this port, as well as any 
+other network firewalls between other CDC components and this instance.</p>
+
 
 <h3 id="4.2">4.2 Kafka Connection Properties</h3>
 <p>You don't actually need to specify the Kafka connection properties at this stage. 
@@ -354,12 +356,22 @@ as a Kafka consumer, and a Kafka producer. The CDC agent provides files for both
 will be performed. This is also referenced in section 5.</p>
 
 
-<h2 id="5.0">5. Working with CDC for Kafka</h2>
-<p>The structure of this document has deliberately separated out the setup of CDC for Kafka, from the configuration of it's connection and 
-integration with the Kafka cluster. The setup work that has been documented up till now can be done independently of the Kafka team. The configuration of 
-CDC for Kafka to connect to the Kafka cluster is very definitely a task that will require collaboration with the Kafka team.</p>
+<h2 id="5.0">5. CDC for Kafka as a Kafka Client</h2>
+<p>The installation and configuration work up till this point has been concerned with the CDC Environment, and connections from CDC Access Server and 
+CDC Capture Agents into CDC for Kafka. This section is about how CDC for Kafka communicates with the Kafka Cluster.</p>
 
-<h3 id="5.1">5.1 CDC for Kafka as a Kafka Client</h3>
+<h3 id="5.1">5.1 TCPIP connections between CDC and Kafka</h3>
+<p>Kafka clients (like CDC for Kafka) have a chice of two APIs to connect to Kafka.</p> 
+<ol>
+<li>REST API.
+<li>Java API.
+</ol>
+<p>The REST API to Kafka is intended for simple, lower throughput clients. The Java API is intended for high volume streaming use cases like data replication. 
+This worked example uses the Java API, which will use Kafka's zookeeper service to find a broker for the connection to Kafka.</p>
+<p>ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. 
+When you define the Kafka properties of a CDC subscription to Kafka, you must provide the TCPIP address and port of the Zookeeper service. 
+The default port for zookeeper is 2181, as per the screenshot below.</p>
+<center><img src="/recipes/images/neale/cdc/cdckafka07.png" style="border:1px solid black; width:800px"></center> 
 
 <h3 id="5.2">5.2 Kafka Schema Registry considerations</h3>
 

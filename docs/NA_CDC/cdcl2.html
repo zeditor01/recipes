@@ -231,10 +231,34 @@ Enterprises today. But Kafka is different in that...</p>
 <li>It is legendary for providing lightning fast performance.
 <li>It conforms the an "eventually consistent" model for data integrity (wheras databases follow a transactionally consistent model).
 <li>Every message will be processed <b>at least once</b>, which means consuming applications have to be responsible for de-duping.
-<li>Message structures are defined outside the messages in a schema registry
+<li>Message structures are defined outside the messages in a schema registry.
+<li>Many Kafka clusters are kerberized, which is another area of endeavour that Database and MQ experts may not be totally familiar with.
 </ul>
 
-<p>This article does not attempt to provide a tutorial on Kafka. However, if the reader is unfamiliar with Kafka, som
+<p>This article does not attempt to provide a tutorial on Kafka. However, if the reader is unfamiliar with Kafka, some research is strongly recommended. 
+Section 6 of this paper addresses how CDC for Kafka handles some of these Kafka concepts and constructs.</p>
+
+<h2 id="2.0">2. High Level Review of Implementation Steps</h2>  
+
+
+
+
+<li><a href="#2.0">2. High Level Review of Implementation Steps</a>
+<li><a href="#3.0">3. Install the CDC Agent for Kafka on Linux</a>
+<li><a href="#4.0">4. Creating the CDC Kafka Instance</a>
+<ul>
+  <li><a href="#4.1">4.1 Linux paths and permissions</a></li>
+  <li><a href="#4.2">4.2 Install the CDC Apply Agent for Kafka</a></li>
+  <li><a href="#4.3">4.3 Create the CDC for Kafka Instance</a></li>
+</ul> 
+<li><a href="#5.0">5. Configure the Linux Environment</a>
+<ul>
+  <li><a href="#5.1">5.1 TCPIP Ports</a></li>
+  <li><a href="#5.2">5.2 Kafka Connection Properties</a></li>
+  <li><a href="#5.3">5.3 Likely additional Kafka configuration</a></li>  
+</ul>
+
+
 
 
 

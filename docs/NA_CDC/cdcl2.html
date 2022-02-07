@@ -323,7 +323,10 @@ topic in <a href="/recipes/docs/NA_CDC/cdcu4.html"> Security for CDC (LDAP and T
 <p>ADD dialog here</p>
 <center><img src="/recipes/images/neale/cdc/cdckafka05.png" style="border:1px solid black; width:800px"></center> 
 
-<p>Having defined encruption profile "noencrypt", we can select it and complete the instane creation.</p>
+<p>Having defined encruption profile "noencrypt", we can select it and complete the instance creation.</p>
+<p>The CDC for Kafka instance needs to have a userid and password created to authenticate connections from the Access Server. In this basic 
+"up and running" example, we will accept the default userid (tsuser) and assign a password. In most real world scenarios you would configure the Access Server 
+to use an LDAP directory for authentication services. LDAP configuration is covered in <a href="/recipes/docs/NA_CDC/cdcu4.html"> Security for CDC (LDAP and TLS).</a></p>
 <center><img src="/recipes/images/neale/cdc/cdckafka06.png" style="border:1px solid black; width:800px"></center> 
 
 <p>Once the installation is created, you can start it immediately from the dialog. The command to start it at any other time is</p>

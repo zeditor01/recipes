@@ -100,14 +100,12 @@ which combines both models to provide a comprehensive <a href="/recipes/docs/eri
             <a href="/recipes/docs/NA_CDC/cdcu1.html"><button class="w3-button w3-blue w3-padding-small" style="width:250px; line-height:16px">CDC Replication</button></a>
             </td>
 			<td style="vertical-align:top;"> 
-            <p><b>CDC Replication</b> is aimed at <b>heterogenous</b> data replication.</p>
+            <p><b>CDC Replication</b> is aimed at <b>heterogenous</b> data replication, and streams changed data over TCPIP sockets.</p>
 				<ul style="list-style:none; padding:0px; margin-left:15px; line-height:16px;">
 				<li>It supports all the regular relational databases ( Db2 Oracle, SQL Server etc... ) as sources and targets.
 				<li>Additionally, it supports non-relational databases such as IMS and VSAM.
 				<li>And it supports non-relational targets such as Apache Kafka (various distributions of Kafka).
 				</ul> 			
-			<p>CDC Capture Agents stream changes to CDC Apply agents over TCPIP sockets. Devops management is supported with both graphical and scripting interfaces.</p>
-
             </td>
         </tr>  
 
@@ -116,15 +114,12 @@ which combines both models to provide a comprehensive <a href="/recipes/docs/eri
             <button class="w3-button w3-blue w3-padding-small"  style="width:250px; line-height:16px"><a href="/recipes/docs/NA_QREP/qrepu1.html">Q Replication</a></button>
             </td>
 			<td style="vertical-align: top;"> 
-            <p><b>Q Replication</b> is primarily aimed at <b>homogeneous</b> DB2 Replication. (both Db2 z/OS and DB2 LUW). If your sources and targets are all Db2, 
-			then Q Replication offers some attractive benefits such as:</p> 
+            <p><b>Q Replication</b> is primarily aimed at <b>homogeneous</b> DB2 Replication, and streams changed data over Websphere MQ links.</p> 
 			<ul style="list-style:none; padding:0px; margin-left:15px; line-height:16px;">
 				<li>It supports in-line DDL Replication between Db2 z/OS sources and Db2 z/OS targets..
 				<li>It supports publishing to MQ in open formats, enabling a pub/sub integration model with MQ consumers.
 				<li>It is the basis for the GDPS Active-Active continuous availability solution.
 				</ul> 			
-			<p>Q Capture Agents stream changes to Q Apply agents over Websphere MQ messaging channels. Devops management is supported with both graphical and scripting interfaces.</p>
-
             </td>
         </tr> 
 		
@@ -133,7 +128,7 @@ which combines both models to provide a comprehensive <a href="/recipes/docs/eri
             <button class="w3-button w3-blue w3-padding-small"  style="width:250px; line-height:16px"><a href="/recipes/docs/NA_CDC/cdc01.html">Datagate</a></button>
             </td>
 			<td style="vertical-align: top;"> 
-            <p><b>Datagate</b> is a <b>lightning fast</b> data replication protocol between a Db2 z/OS V12 source and a <b>Db2 Software Container</b>, such as Db2 Analytics Accelerator, or Datagate. </p> 
+            <p><b>Datagate</b> is a <b>lightning fast</b> data replication protocol between a Db2 z/OS V12 source and a <b>Db2 Software Container</b>, such as IDAA or Datagate. </p> 
 			<ul style="list-style:none; padding:0px; margin-left:15px; line-height:16px;">
 				<li>It supports a choice of conventional row-based Db2 targets, or columnar Db2 targets that are optimised for Analytics.
 				<li>It supports acceleration of analytical SQL queries on Db2 z/OS by transparently routing them to a columnar Db2 Software Container.
@@ -142,7 +137,6 @@ which combines both models to provide a comprehensive <a href="/recipes/docs/eri
 			<p>Datagate is a much narrower use case that the more generalised CDC and Q Replication tools, because it only supports Db2 Software containers as targets. 
 			But if your requirements fit within that envelope it is the best replication option by far ( lower z/OS software consumption charges, redcued cpu cycles, 
 			ultra-low data latency, devops controls for changes, etc... ).</p>
-
             </td>
         </tr> 			
     </table> 

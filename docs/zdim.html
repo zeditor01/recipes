@@ -35,7 +35,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 </div>
 
 <!-- Start of Page Content -->
-<div class="w3-content w3-small w3-light-grey" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
+<div class="w3-content w3-small w3-light-grey" style="max-width:1100px">
 
 <h2>Z Data in Motion</h2>
 <p>As Enterprises deploy more and more applications in the cloud, the demand for access to <b>CURRENT DATA</b> becomes ever more critical. 
@@ -46,9 +46,9 @@ Sidestepping the precise academic meanings and subtleties of these terms, it is 
 <li>Leave the data in situ, and provide efficient APIs to access from wherever you need it.
 </ul>
 <p>Candidly, the first pattern is the most common pattern being implemented today. Advocates of this approach use a wide range of arguments to justify the 
-approach, including "CQRS Architecture", "Getting off the Mainframe", "Cloud Modernisation".</p>
-<p>As a mainframe advocate I often find myself arguing in favour of the second approach on the basis of efficiency in not moving the data, and not incurring all 
-the associated costs of software, hardware, encryption, governance etc... for all the data copying.>/p>
+approach, including "CQRS Architecture", "Getting off the Mainframe", "Cloud Modernisation". As a mainframe advocate I often find myself arguing in favour 
+of the second approach on the basis of efficiency in not moving the data, and not incurring all 
+the associated costs of software, hardware, encryption, governance etc... for all the data copying.</p>
 <p>Truth is that both approaches have their merits for different use cases, and the worked examples in this site show how to deploy solutions to either the  
 <a href="/recipes/docs/zdim.html">Z Data in Motion</a> model or the <a href="/recipes/docs/zdar.html">Z Data at REST</a> model. We also publish a hybrid model 
 which combines both models to provide a comprehensive <a href="/recipes/docs/eris.html">Environment for Realtime Information Services</a>.</p>
@@ -63,7 +63,7 @@ which combines both models to provide a comprehensive <a href="/recipes/docs/eri
     <table style="width:100%; border:1px;">
         <tr>
             <td style="width:20%; vertical-align: center;"> 
-            <a href="/recipes/docs/NA_CDC/cdcu1.html"><button class="w3-button w3-blue w3-padding-large" style="width:250px">CDC Replication</button></a>
+            <a href="/recipes/docs/NA_CDC/cdcu1.html"><button class="w3-button w3-blue w3-padding-small" style="width:250px">CDC Replication</button></a>
             </td>
 			<td style="vertical-align:top;"> 
             <p>CDC Replication is aimed at <b>heterogenous</b> data replication.</p>
@@ -80,7 +80,7 @@ which combines both models to provide a comprehensive <a href="/recipes/docs/eri
     <table style="width:100%; border:1px;">	
         <tr>
             <td style="width:20%; vertical-align: center;">  
-            <button class="w3-button w3-blue w3-padding-large"  style="width:250px"><a href="/recipes/docs/NA_QREP/qrepu1.html">Q Replication</a></button>
+            <button class="w3-button w3-blue w3-padding-small"  style="width:250px"><a href="/recipes/docs/NA_QREP/qrepu1.html">Q Replication</a></button>
             </td>
 			<td style="vertical-align: top;"> 
             <p>Q Replication is primarily aimed at <b>homogeneous</b> DB2 Replication. (both Db2 z/OS and DB2 LUW). If your sources and targets are all Db2, 
@@ -98,7 +98,7 @@ which combines both models to provide a comprehensive <a href="/recipes/docs/eri
     <table style="width:100%; border:1px;">			
         <tr>
             <td style="width:20%; vertical-align: center;"> 
-            <button class="w3-button w3-blue w3-padding-large"  style="width:250px"><a href="/recipes/docs/NA_CDC/cdc01.html">Datagate</a></button>
+            <button class="w3-button w3-blue w3-padding-small"  style="width:250px"><a href="/recipes/docs/NA_CDC/cdc01.html">Datagate</a></button>
             </td>
 			<td style="vertical-align: top;"> 
             <p>Datagate is a <b>lightning fast</b> data replication protocol between a Db2 z/OS V12 source and a <b>Db2 Software Container</b>, such as Db2 Analytics Accelerator, or Datagate. </p> 

@@ -171,7 +171,7 @@ spanyellow {
 <li><a href="#7.0">7. Integrate with the wider CDC Landscape</a>
 <ul>
   <li><a href="#7.1">7.1 Automation of the CDC Apply for Kafka Service</a></li>
-  <li><a href="#7.2">7.2 Connect from Management Console to Classic CDC Started Task</a></li>
+  <li><a href="#7.2">7.2 Connect from Management Console to CDC for Kafka instance</a></li>
   <li><a href="#7.3">7.3 Use CHCCLP Scripting</a></li>  
   <li><a href="#7.4">7.4 Conforming to site standards for cross-platform devops and security</a></li>
 </ul> 
@@ -183,13 +183,13 @@ spanyellow {
 
 
 <h2 id="abstract"> Abstract</h2>
-<p>This document is a basic worked example of setting up Classic CDC for VSAM as a CDC Source Server.</p> 
+<p>This document is a basic worked example of setting up CDC for Kafka as a CDC Target Engine.</p> 
 <ul>
-<li>It deals with the practical considerations for implementing VSAM as a CDC data source. 
-<li>It's scope is limited to a "basic up and running guide", and is intended to be easy to follow (assuming a base of z/OS and CICS-VSAM practical experience).
+<li>It deals with the practical considerations for implementing CDC for Kafka. 
+<li>It's scope is limited to a "basic up and running guide", and is intended to be easy to follow (assuming a base of Linux experience).
 <li>It does not attempt to cover all the product's features.
 <li>It is categorically <b>not</b> a replacement for the  
-<a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=replication-infosphere-classic-cdc-zos">IBM Classic CDC knowledge centre</a>, which is the comprehensive official product documentation.
+<a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=replication-cdc-engine-kafka">IBM CDC for Kafka knowledge centre</a>, which is the comprehensive official product documentation.
 </ul> 
 
 <p>It is part of a series of documents providing practical worked examples and 
@@ -198,27 +198,45 @@ The complete set of articles can be accessed using the links at the very top of 
 
 <br><hr>
 
-<h2 id="1.0">1. Introduction to Classic CDC for VSAM</h2>  
+<h2 id="1.0">1. Introduction to CDC for Kafka</h2>  
 
-!!!!!!!!!!!!!!!!!
+<p>CDC for Kafka is a CDC Apply Agent only. It does not have CDC Capture functionality.</p>
 
-<p>These CDC Worked Examples are based upon the systems landscape illustrated below. TCPIP addresses and ports are represented by the black boxes.</p>
-<center><img src="/recipes/images/neale/cdc/cdc_landscape.PNG" style="width:800px"></center>
+<p>CDC Replication is a set of products that implement a common data replication architecture spanning 
+a large number of diverse data sources and targets. The CDC common architecture is based upon replication of 
+data that conforms to the relational model. Any CDC capture or apply agent that supports a non-relational data structure 
+must perform whatever conversion work that is necessary to implement a mapping between that data structure and the 
+relational model of data.</p> 
 
-<p>IBM InfoSphere Data Replication ( aka "CDC" ) provides a data replication capability between lots of <b>heterogeneous</b> data sources. 
+<h3 id="1.1">1.1 Requirements to Replicate to Apache Kafka</h3> 
+
+<p>Apache Kafka, and it's varioud commercial distributions, is widely used for event streaming services both on-premise and in-cloud. 
+This document assumes that the reader is familiar with the basics of Kafka, which is widely documented online.</p>
+
+<p>CDC architecture (which is founded on the relational model of data) provides a range of integration options to write data to Kafka topics and integrate with 
+constructs in the Kafka world like Schema Registries that enable Kafka applications to consume the events that CDC writes to Kafka.</p>
+
+<p>CDC for Kafka supports all the major Kafka distributions, including Confluent, Hortonworks, Cloudera, Amazon MSK, BigInsights, Event Streams. CDC for Kafka is 
+supported for Ubuntu, Redhat, Suse and CentOS.</p>
+
+<p>For latest details on supported versions of Linux and Kafka please check with the <a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=replication-cdc-engine-kafka">IBM CDC for Kafka knowledge centre.</a>
+
+<h3 id="1.1">1.2 Kafka Concepts</h3> 
+
+<p>The author comes from a Db2 relational database platform. If you are a specialist in Relational Database and CDC replication, you will need to become familiar with a very different set of
+concepts from relational databases. Initially you will probably thing of Kafka as something similar to Websphere MQ, which provides messaging and integration solutions for many 
+Enterprises today. But Kafka is different in that...</p>
 <ul>
-<li>Some data sources ( like IMS and VSAM ) can only act as CDC sources <spandarkblue>CDC Cap</spandarkblue>.
-<li>Some data sources ( like Apache Kafka ) can only act as CDC targets <spanlightblue>CDC App</spanlightblue>.
-<li>Some data sources ( like DB2 z/OS ) can act as both CDC sources and CDC targets.
-<li>A set of common <spanyellow>tools</spanyellow> operate with all CDC agents.
-<li>CDC integrates with industry standards to support common authentication and encryption services like LDAP and TLS.
+<li>It is designed to be run on scalable, industry-standard cluster fabrics.
+<li>It is legendary for providing lightning fast performance.
+<li>It conforms the an "eventually consistent" model for data integrity (wheras databases follow a transactionally consistent model).
+<li>Every message will be processed <b>at least once</b>, which means consuming applications have to be responsible for de-duping.
+<li>Message structures are defined outside the messages in a schema registry
 </ul>
 
-<p>A CDC Capture Source (like Classic CDC for IMS shown below) can replicate data to any CDC Apply Target.</p>
-<center><img src="/recipes/images/neale/cdc/cdc_landscapeC.PNG" style="width:800px"></center>
+<p>This article does not attempt to provide a tutorial on Kafka. However, if the reader is unfamiliar with Kafka, som
 
-<p>A CDC Apply Target (like CDC for Kafka shown below) can receive replicated data from and CDC Capture Source.</p>
-<center><img src="/recipes/images/neale/cdc/cdc_landscapeA.PNG" style="width:800px"></center>
+
 
 <hr>
 <h2>About these Worked Examples</h2>

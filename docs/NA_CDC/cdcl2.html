@@ -287,10 +287,31 @@ Preparation : JRE Libraries
 </ul>
 
 <h3 id="3.2">3.2 Install the CDC Apply Agent for Kafka</h3>
+<ul>
+<li>logon as cdcinst1
+<li>switch to the directory where the installer binary was downloaded to
+<li>unset DISPLAY ( to force a terminal dialog, rather than a GUI )
+<li>./setup-iidr-11.4.0.4-5618-linux-x86.bin
+</ul>
+
+<p>Respond to the installer dialog as follows to specify "Install New", followed by "Datastore Type:Kafka" followed by the license type of your entitlement.</p>
+<center><img src="/recipes/images/neale/cdc/cdckafka01.png" style="border:1px solid black; width:800px"></center> 
+
+<p>Next, accept the installation path, Choose instance directory, and Review the install request.</p>
+<center><img src="/recipes/images/neale/cdc/cdckafka02.png" style="border:1px solid black; width:800px"></center> 
+
+<p>Then let the installer run, and defer the instance creation till later.</p>
+<center><img src="/recipes/images/neale/cdc/cdckafka03.png" style="border:1px solid black; width:800px"></center> 
 
 <h3 id="3.3">3.3 Create the CDC for Kafka Instance</h3>
 
+<p>The dmconfigurets command in the installation/bin directory will start a dialog to allow you to create a CDC instance. Run the command below as cdcinst1.</p>
+<ul>
+</ul>/opt/ibm/InfoSphereDataReplication/ReplicationEngineforKafka/bin/dmconfigurets
+</ul>
 
+<p>Now, create an instance called ubuntu32kafka, listening on port 11701, allocated 8MB of memory.</p>
+<center><img src="/recipes/images/neale/cdc/cdckafka04.png" style="border:1px solid black; width:800px"></center> 
 
 
 

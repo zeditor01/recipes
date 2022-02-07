@@ -14,6 +14,31 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 .w3-tag, .fa {cursor:pointer}
 .w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
 
+.greendot {
+  height: 12px;
+  width: 12px;
+  background-color: #7CFC00;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.greydot {
+  height: 12px;
+  width: 12px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+spandarkblue {
+  background-color: #0000ff;
+  color: white;
+}
+
+spanlightblue {
+  background-color: #00ffff;
+  color: black;
+}
 
 </style>
 <body style="margin:0px;"> 
@@ -46,40 +71,43 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 <h2>CDC Replication Worked Examples</h2>
 
-<!-- A Grid with hyperlinks to the CDC papers -->
+<!-- A Grid with hyperlinks to the CDC papers   -->
   <div class="w3-row-padding">
 
-    <div class="w3-third w3-margin-bottom">
+    <div class="w3-third">
       <ul class="w3-ul w3-border w3-left w3-hover-shadow" style="width:100%">
-        <li class="w3-black w3-large w3-padding-16">Using CDC</li>
-        <li><a href="/recipes/docs/NA_CDC/cdcu1.html">Environment for CDC Worked Examples.</a></li>
-        <li><a href="/recipes/docs/NA_CDC/cdcu2.html">Devops Options for CDC.</a></li> 
-        <li><a href="/recipes/docs/NA_CDC/cdcu3.html">CHCCLP Scripting.</a></li>
-        <li><a href="/recipes/docs/NA_CDC/cdcu4.html">Security for CDC (LDAP and TLS).</a></li>
-        <li><a href="/recipes/docs/NA_CDC/cdcu5.html">Container Deployment.</a></li>
+        <li class="w3-black w3-large w3-padding-4">Using CDC</li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu1.html"> Environment for CDC Worked Examples.</a></li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu2.html"> Devops Options for CDC.</a></li> 
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu3.html"> CHCCLP Scripting.</a></li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu4.html"> Security for CDC (LDAP and TLS).</a></li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu5.html"> Container Deployment.</a></li>
+		<li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu5.html"> Monitoring and Managing outwith the Windows MC.</a></li>
       </ul>
     </div>
 
-    <div class="w3-third w3-margin-bottom">
+    <div class="w3-third">
       <ul class="w3-ul w3-border w3-left w3-hover-shadow" style="width:100%">
-        <li class="w3-black w3-large w3-padding-16">Deploying z/OS CDC Agents</li>
-        <li><a href="/recipes/docs/NA_CDC/cdcz1.html">Setting up CDC for Db2 on z/OS.</a></li> 
-        <li><a href="/recipes/docs/NA_CDC/cdcz2.html">Setting up Classic CDC for IMS.</a></li>
-        <li><a href="/recipes/docs/NA_CDC/cdcz3.html">Setting up Classic CDC for VSAM.</a></li> 
+        <li class="w3-black w3-large w3-padding-4">Deploying z/OS CDC Agents</li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcz1.html"> Setting up CDC for Db2 on z/OS.</a></li> 
+        <li class="w3-small"><span class="greendot"></span><a href="/recipes/docs/NA_CDC/cdcz2.html"> Setting up Classic CDC for IMS.</a></li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcz3.html"> Setting up Classic CDC for VSAM.</a></li> 
+		<li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcz4.html"> Setting up CDC for Kafka in zCX.</a></li> 
       </ul>
     </div>
 	
-    <div class="w3-third w3-margin-bottom">
+    <div class="w3-third">
       <ul class="w3-ul w3-border w3-left w3-hover-shadow" style="width:100%">
-        <li class="w3-black w3-large w3-padding-16">Deploying Linux CDC Agents</li>
-        <li><a href="/recipes/docs/NA_CDC/cdcl1.html">Setting up CDC for Db2 on Linux.</a></li>
-        <li><a href="/recipes/docs/NA_CDC/cdcl2.html">Setting up CDC for Kafka.</a></li>
-        <li><a href="/recipes/docs/NA_CDC/cdcl3.html">Setting up remote CDC Capture for Db2 z/OS.</a></li>
-        <li><a href="/recipes/docs/NA_CDC/cdcl4.html">Setting up remote CDC Capture for VSAM.</a></li>
+        <li class="w3-black w3-large w3-padding-4">Deploying Linux CDC Agents</li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcl1.html"> Setting up CDC for Db2 on Linux.</a></li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcl2.html"> Setting up CDC for Kafka.</a></li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcl3.html"> Setting up remote CDC Capture for Db2 z/OS.</a></li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcl4.html"> Setting up remote CDC Capture for VSAM.</a></li>
       </ul>
     </div>
 
   </div>
+<!-- End Grid with hyperlinks to the CDC papers -->
 
 <hr>
 
@@ -127,6 +155,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   <li><a href="#4.6">4.6 Define and Populate the Configuration Datasets</a></li>
   <li><a href="#4.7">4.7 Create the Metadata Catalog</a></li>
   <li><a href="#4.8">4.8 Create the Replication Mapping Datasets</a></li>  
+  <li><a href="#4.9">4.9 Setup Encrypted Passwords</a></li>  
 </ul> 
 <li><a href="#5.0">5. Configure the z/OS Environment</a>
 <ul>
@@ -147,14 +176,10 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   <li><a href="#7.1">7.1 Deploy Classic CDC as a Started Task</a></li>
   <li><a href="#7.2">7.2 Deploy and use the Classic Data Architect IDE</a></li>
   <li><a href="#7.3">7.3 Connect from Management Console to Classic CDC Started Task</a></li>
-  <li><a href="#7.4">7.4 Use CHCCLP Scripting for z/OS</a></li>  
-  <li><a href="#7.5">7.5 Conforming to site standards for devops and security</a></li>
-  <li><a href="#7.6">7.6 Collaboration with non-z/OS teams</a></li>
+  <li><a href="#7.4">7.4 Use CHCCLP Scripting</a></li>  
+  <li><a href="#7.5">7.5 Conforming to site standards for cross-platform devops and security</a></li>
 </ul> 
 <li><a href="#App">Appendix</a>
-<ul>
-  <li><a href="#A1">Information Sources</a></li>
-</ul>
 </ul>
 </div>
 
@@ -173,13 +198,17 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 <p>It is part of a series of documents providing practical worked examples and 
 guidance for seting up CDC Replication between mainframe data sources and mid-range or Cloud targets.
-The complete set of articles can be read at <a href="http://www.zeditor.org/">Zeditor.Org</a></p> 
+The complete set of articles can be accessed using the links at the very top of this page</p> 
 
 <br><hr>
 
 <h2 id="1.0">1. Introduction to Classic CDC for IMS</h2>  
 
 <p>Classic CDC for IMS is a CDC Capture Source only. It does not have CDC Apply functionality.</p>
+
+<p style="margin-left: 50px"><b>Aside:</b> Classic CDC for IMS is licensed seperately from Classic CDC for VSAM. However, these two 
+products share a lot of common components. The sister document <a href="/recipes/docs/NA_CDC/cdcz3.html">Setting up Classic CDC for VSAM.</a> follows the same pattern as this worked 
+example for much of the setup work, but has differences with regard to the services to access VSAM and capture changes from VSAM.</p>
 
 <p>CDC Replication is a set of products that implement a common data replication architecture spanning 
 a large number of diverse data sources and targets. The CDC common architecture is based upon replication of 
@@ -191,26 +220,29 @@ relational model of data.</p>
 
 <p>The core functionaility of any CDC Capture agent is to read the source database logs asynchronously, 
 stage captured data (preferably in memory) until the Unit of Work is commited or rolled back, 
-and then publish the changes over TCPIP sockets to a CDC Apply agent.</p> 
+and then publish the committed changes over TCPIP sockets to a CDC Apply agent.</p> 
 <p>In addition to the usual requirements, Classic CDC for IMS needs to handle the fact that IMS data is stored 
 in hierarchical structures (not relational), and the Log configurations supporting IMS workloads (online and batch) 
 are significantly different to a comparatively simple recovery log used by most relational databases.</p>
 
-<p><b>Regarding hierarchical data structures:</b> The Classic CDC for IMS product provides tooling to map the hierarchical data structures
+<p style="margin-left: 50px"><b>Regarding hierarchical data structures:</b> The Classic CDC for IMS product provides 
+a tool (Classic Data Architect) to map the hierarchical data structures
 into relational projections of that data, for the purposes of acting as a CDC Replication capture agent. 
 The mappings of data structures are stored in a zFS dataset called the "Classic Catalog". This contains relational catalog tables 
 like Db2 ( sysibm.systables , sysibm.syscolumns etc... ) that contain the mapping between the fields in the relevant copybooks for the 
 IMS data, and their relational projection. The mapping information allows SQL access to the IMS database to retrieve the base data, 
 and also allows IMS log records to be consumed for the purposes of capturing IMS database changes.</p>
-<p><b>Regarding IMS logs:</b>Interfaces must be established between Classic CDC and the IMS logging environment, which is managed by DBRC. 
-Additionally new log records (Type 99) must be cut for IMS databases, because standard Type 50 log records do not contain enough 
+<p style="margin-left: 50px"><b>Regarding IMS logs:</b>Interfaces must be established between Classic CDC and the IMS logging environment, which is managed by DBRC. 
+DBRC provides Classic CDC with information about all the IMS log datasets that it needs to track, and notifies Classic CDC when 
+log datasets become full and are switched. 
+Additionally, new log record types (Type 99) must be cut for IMS databases, because standard Type 50 log records do not contain enough 
 information for the purposes of data repliaction.</p> 
 
 <h3 id="1.2">1.2 The Classic CDC Started Task</h3>
 <p>The diagram below is a representation of the components within a Classic CDC for IMS started task, and how they 
 relate to external artefacts.</p>
 
-<img src="/recipes/images/neale/cdc//cdc01_01.png" alt="Classic CDC Services" style="border:1px solid black"> 
+<center><img src="/recipes/images/neale/cdc/ccdc_services.PNG" alt="Classic CDC Services" style="border:1px solid black; width:800px"></center> 
 
 <p>The services that are outlined in red are the ones that can be protected by the SAF Exit. 
 The primary services involved in the cdc capture server are  the IMS Log Reader Service (IMSLRS) and the Capture process (Capture). 
@@ -287,31 +319,28 @@ followng stages.</p>
 <p>Once the SMPE installation is complete, the following target libraries will exist under the chosen high level qualifier. (CCDC in this example).</p>
 
  <table>
-  <tr><td width=200>Library</td><td width=500>Contents</td></tr> 
-  <tr><td>CCDC.SCACBASE</td><td>xxxx</td></tr> 
-  <tr><td>CCDC.SCACCONF</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACLOAD</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACMAC</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACMSGS</td><td>xxxx</td></tr> 
-  <tr><td>CCDC.SCACSAMP</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACSIDE</td><td>xxxx</td></tr>  
-  <tr><td>CCDC.SCACSKEL</td><td>xxxx</td></tr>  
+  <tr><td width=200><b>Library</b></td><td width=500><b>Contents</b></td></tr> 
+  <tr><td>CCDC.SCACBASE</td><td>Samples</td></tr> 
+  <tr><td>CCDC.SCACCONF</td><td>Configuration datsets</td></tr>  
+  <tr><td>CCDC.SCACLOAD</td><td>Load modules</td></tr>  
+  <tr><td>CCDC.SCACMAC</td><td>Macros</td></tr>  
+  <tr><td>CCDC.SCACMSGS</td><td>Messages</td></tr> 
+  <tr><td>CCDC.SCACSAMP</td><td>Sample JCL</td></tr>  
+  <tr><td>CCDC.SCACSIDE</td><td>Load Modules</td></tr>  
+  <tr><td>CCDC.SCACSKEL</td><td>ISPF skeleton library</td></tr>  
 </table> 
 
 <br><hr>
 	
 <h2 id="4.0">4. Creating the Classic CDC Instance</h2>
 <p>The installed product code can now be used to support one or more instances of Classic CDC for IMS. 
-This worked example will create a single instance, under the instance high level qualifier of CCDC.I1.</p>
+This worked example will create a single instance, under the instance high level qualifier of CCDC.I1 (in this example).</p>
 
 <h3 id="4.1">4.1 Create the Instance Libraries</h3> 
 <p>Creating the instance libraries is easy. Job CECCUSC1 will allocate the instance library, 
 and populate the instance library with a parameters file and a job to generate fully customised versions of all the JCL and configuration members that you need</p>
 <p>Just edit CCDC.SCACSAMP(CECCUSC1) to specify the high level qualifier for 
 the installation library (CACINHLQ=CCDC) and the instance library (CACUSHLQ=CCDC.I1), and submit the job to create the instance libraries.</p> 
-
-<!--This is a comment. Comments are not displayed in the browser-->
-<!--567890123456789012345678901234567890123456789012345678901234567890123456789012345-->
 
 <div class="w3-container" style="color:#00FF00; background-color:#000000">   
 <pre> 
@@ -336,8 +365,16 @@ the installation library (CACINHLQ=CCDC) and the instance library (CACUSHLQ=CCDC
  <table>
   <tr><td width=200>Library</td><td width=500>Initial Contents</td></tr> 
   <tr><td>CCDC.I1.USERCONF</td><td>empty</td></tr> 
-  <tr><td>CCDC.I1.SCACSAMP</td><td>just a parameters member plus generation job</td></tr>  
+  <tr><td>CCDC.I1.USERSAMP</td><td>just a parameters member plus generation job, listed below:</td></tr>  
 </table> 
+
+<div class="w3-container" style="color:#00FF00; background-color:#000000">   
+<pre> 
+<code>CECCUSC2                                                         </code>
+<code>CECCUSPC                                                         </code>                                                          
+</pre>
+</div>
+
 
 <h3 id="4.2">4.2 Edit the Parameters member</h3> 
 <p>Editing the parameters member <code>CCDC.I1.USERSAMP(CECCUSPC)</code> is a critical step. It will generate 
@@ -365,7 +402,7 @@ In this worked example the parameters (and line numbers for V11.3) that we edite
 <li>Line 235, provide the Userid that will access IMS via DRA <code style="color:#00FF00; background-color:#000000">IMSDRAUS="IBMUSER"</code>
 <li>Line 236, provide the identification suffix for the DRA Table to use <code style="color:#00FF00; background-color:#000000">IMSDRASX="00"</code> 
 </ul>
-<p>... and optionally, if you also want to use the ability to publish changes to MQ</p>
+<p>... and optionally, if you also want to use the ability to publish changes to MQ (in addition to CDC Apply agents)</p>
 <ul>
 <li>Line 249, provide the HLQ for the MQ Libraries <code style="color:#00FF00; background-color:#000000">CDCMQHLQ="CSQ911"</code>
 <li>Line 250, provide the name of the Queue Manager to connect to for MQ publishing<code style="color:#00FF00; background-color:#000000">CDCMQMGR="CSQ9"</code>
@@ -373,7 +410,7 @@ In this worked example the parameters (and line numbers for V11.3) that we edite
 <li>Line 260, provide the name of the Subscription Queue to use for MQ publishing <code style="color:#00FF00; background-color:#000000">CDCSUBLQ="CCDC.IMSPUB"</code>
 </ul>
 
-<p>Browse the entire PARMS file in the github repository (opens new tab) <a href="https://github.com/zeditor01/recipes/blob/main/samples/cdc/ceccuspc.jcl" target="_blank">here.</a></p>
+<p>Browse the entire PARMS file in the github repository (opens new tab) <a href="https://github.com/zeditor01/recipes/blob/main/samples/cdc/CECCUSPC_IMS.TXT" target="_blank">here.</a></p>
 
 <h3 id="4.3">4.3 Generate the Customised JCL members</h3> 
 <p>The list of parameters above is enough to completely define the Classic CDC instance. All you need is to run a program 
@@ -553,6 +590,34 @@ This is performed using job CECCDSUB. Review the generated JCL and submit when h
 </pre>
 </div>
 
+
+<h3 id="4.8">4.9 Setup Encrypted Passwords</h3> 
+<p>Assuming that you enabled security in the CACCUSPC parameters file earlier: <code style="color:#00FF00; background-color:#000000">CDCPSAFX="CACSX04"</code> 
+you will need to setup encrypted passwords for connections to the Classic CDC instance. (Enabling security requires providing a password for all user access. 
+The utilities used in the validation job require encrypted passwords to access the Classic data server.)</p>
+<p>The following steps are required to generate an encrypted password for the userid that will run jobs to access Classic CDC, and save it in a referencable PDS member.</p>
+
+<p>Edit <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERCONF(CACPWDIN)</code>. Set the value to the TSO password (SYS1) for the User ID (IBMUSER) that you use to run the customization jobs.</p>
+<center><img src="/recipes/images/neale/cdc/encrypt01.PNG" style="width:800px"></center>
+
+<p>Submit <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CACENCRP)</code> JCL to run the password generator utility, which updates <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERCONF(CACPWDIN)</code> with the encrypted value.</p>
+<center><img src="/recipes/images/neale/cdc/encrypt02.PNG" style="width:800px"></center>
+
+<p>Edit <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERCONF(CACPWDIN)</code> again and copy the hex string value for the ENCRYPTED= keyword.</p>
+<center><img src="/recipes/images/neale/cdc/encrypt03.PNG" style="width:800px"></center>
+
+<p>Edit <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERCONF(CACMUCON)</code> and replace the X'.ENCRYP PASSWD..' string with the hex string copied in the previous step.</p>
+<center><img src="/recipes/images/neale/cdc/encrypt04.PNG" style="width:800px"></center>
+
+<p>Edit <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CACQRSYS)</code> and replace the second line of the member with the hex string that you copied.</p>
+<center><img src="/recipes/images/neale/cdc/encrypt05.PNG" style="width:800px"></center>
+
+
+
+<p><code style="color:#00FF00; background-color:#000000">CCDC.I1.USERCONF(CACMUCON)</code> and <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CACQRSYS)</code> will be 
+referenced by the Installation Verification Jobs, and other utility jobs. Click through the slideshow sequence below to follow the example above</p)
+
+
 <br><hr>
 
 <h2 id="5.0">5. Configure the z/OS Environment</h2>
@@ -592,12 +657,25 @@ Upon first start, you should expect to see the Classic CDC Server come up, but r
 <img src="/recipes/images/neale/cdc//cdc01_16.png" alt="Classic CDC Startup Messages" style="border:1px solid black"> 
 
 <p>Further down the job output you may spot more detailed error messages and return codes which will give you more insight into any problems. 
-Specifically the SpcRC codes can be particularly useful.</p>
+Specifically the SpcRC codes can be particularly useful.</p> 
 
 <img src="/recipes/images/neale/cdc//cdc01_17.png" alt="Classic CDC Startup SpcRC codes" style="border:1px solid black"> 
 
-<p>It should be expected that Classic CDC will have errors connecting to IMS until you have completed the IMS configuration work, which is 
+<p>Specifically, if you lookup SPcRC(00570082) in the Classic CDC Messages 
+publication you will see the following explanation:</p>
+
+<p style="margin-left: 50px"><b>0x00570082</b> (5701762) The DRA initialization failed.
+User response: See the system log from the data
+server for more information on the cause. This is
+usually a problem in either the JCL for the data server
+or the task parameters for the service information entry
+of the DRA service.</p>
+
+<p>It should be expected that Classic CDC will initially have errors connecting to IMS, which will be resolved when you have completed the IMS configuration work, which is 
 covered in the next section.</p>
+
+<p>Additionally, if you configured the CECCUSPC parameters to include an MQ target, then you are likely to experience MQ connection errors until you resolve
+RACF permissions.</p>
 
 <br><hr>
 
@@ -610,7 +688,7 @@ CDC needs the following 3 things that are more complex to provide from IMS than 
 <li>Additional IMS logging, with sufficient information for replication purposes.
 </ul>
 
-<h2 id="6.1">6.1 DRA Startup Module</h2>
+<h3 id="6.1">6.1 DRA Startup Module</h3>
 <p>When a CDC Capture agent works with a relational database it uses the SQL interface to the database 
 to obtain the data structures in the development phase, and to perform a full refresh in the operational phase. 
 With Classic CDC for IMS we use the IMS DRA interface to achieve these tasks.</p>
@@ -687,8 +765,8 @@ My example below was used to assemble and link edit a DRA Table called DFSPZP01,
 <p>Download JCL from github repository (opens new tab) <a href="https://github.com/zeditor01/recipes/blob/main/samples/cdc/asmbldra.jcl" target="_blank">here.</a></p>
 <p><b>Note the deliberate mistake! </b></p>
 <sl>
-<li>We just generated a DRA Table with suffix 01 <code>NAME DFSPZP01 (R)</code></p>
-<li>Back in section 4.2 I coded my parameters member with suffix 00 <code>IMSDRASX="00"</code>
+<li>We just generated a DRA Table with suffix 01 <code style="color:#00FF00; background-color:#000000">NAME DFSPZP01 (R)</code></p>
+<li>Back in section 4.2 I coded my parameters member with suffix 00 <code style="color:#00FF00; background-color:#000000">IMSDRASX="00"</code>
 </sl>
 <p>That "mistake" serves to force us to review how to change the Classic CDC Service parameters.</p>
 <p>One way of changing service parameters is by modifying the started task. The MTO commands below 
@@ -711,8 +789,8 @@ So, Classic CDC for IMS requires that IMS tells it about log activations, deacti
 <p>This is done with the <b>IMS Partner Program User Exit</b> (PPUE). 
 <p>A modified PPUE must be created and deployed into IMS RESLIB. 
 The module CEC1OPT must be assembled, and contain the TCPIP Log Reader Notification Port 
-that was defined in the CECCUSPC parameters module <code>IMCPNPRT="5003"</code>.</p>
-<p>A sample assembler source module (CECE1OPT) is provided for the PPUE <code>CCDC.I1.USERSAMP(CECE1OPT)</code>.</p> 
+that was defined in the CECCUSPC parameters module <code style="color:#00FF00; background-color:#000000">IMCPNPRT="5003"</code>.</p>
+<p>A sample assembler source module (CECE1OPT) is provided for the PPUE here :  <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CECE1OPT)</code>.</p> 
 <p>You need to edit the module to suit your environment. 
 In the worked example below the TCPIP address of the z/OS system was 192.168.1.191 and 
 Classic CDC Server is configured to listen on port 5003.</p>  
@@ -822,7 +900,7 @@ write log records with all the before and after images in the log record.
 <p>For Db2 databases, the log records can simply be expanded for the tables of interest, by altering 
 the definition, with DDL such as:</p>
 <pre> 
-<code>ALTER TABLE MYSCHEMA.MYTABLE DATA CAPTURE CHANGES</code>.
+<code style="color:#00FF00; background-color:#000000">ALTER TABLE MYSCHEMA.MYTABLE DATA CAPTURE CHANGES</code>.
 </pre>
 <p>IMS is different. IMS generates Type 50 log records by default. 
 In order to support data replication you need to augment the IMS database to write Type 99 log records, 
@@ -830,7 +908,7 @@ which are designed for the purposes of data replication.
 This requires the IMS database to be “augmented” with an EXIT clause to specify the content 
 to be written to the Type 99 log records.</p> 
 <p>This worked example used the IBM-provided sample database (DI21PART) as the CDC source database. 
-The DBD source is stored in DFSF10.SDFSISRC(DI21PART). 
+The DBD source is stored in <code style="color:#00FF00; background-color:#000000">DFSF10.SDFSISRC(DI21PART)</code>. 
 This example only adds the EXIT clause to three specific segments (PARTROOT, STANINFO, STOKSTAT). 
 You can choose to augment whichever segments you want, or you could augment the entire database on the DBD statement. 
 This DBD source in this worked example was edited to specify Type 99 logging as follows.</p>
@@ -893,7 +971,7 @@ you need to copy the IBM-Supplied Exits from CCDC.SCACLOAD into IMS RESLIB.</p>
 <li>Copy DFSPPUE0 from wherever you created in to IMS RESLIB, or a concatenated library.
 </ul>
 
-<p>That's it for the Classic CDC Server!</p>
+<p>That's it for the Classic CDC Server !!!</p>
 
 <br><hr>
 
@@ -903,7 +981,7 @@ to define "IMS Tables", and define Subscriptions from them to target systems. Se
 
 <h3 id="7.1">7.1 Deploy Classic CDC as a Started Task</h3> 
 <p>Assuming you want to run Classic CDC as a started task, rather than a batch job, you should copy 
-the contents of the JCL to run Classic CDC as a batch job <code>CCDC.I1.USERSAMP(CECCDSRC)</code> 
+the contents of the JCL to run Classic CDC as a batch job <code style="color:#00FF00; background-color:#000000">CCDC.I1.USERSAMP(CECCDSRC)</code> 
 to your PROCLIB, and follow your site standards for establishing a new started task.</p> 
 
 <h3 id="7.2">7.2 Deploy and use the Classic Data Architect IDE</h3>
@@ -924,73 +1002,161 @@ Installation to Windows is a standard setup.exe style of installer.</p>
 </ol> 
 
 <h4>7.2.1 Configure the connection to the Classic CDC started task</h4>
-<p>This should work fine unless you need to punch a hole in a firewall.</p>
+
 <p>Start up the CDA and choose a workspace on your PC filesystem.</p>
-<p>Verify that you are using the "Data Perspective" from the Action Bar : Window - Open Perspective - Data. The Data Perpective 
-is shown in the screenshot below.</p>  
+<p>Verify that you are using the "Data Perspective" from the Action Bar : Window - Open Perspective - Data.</p>
+<p>The Data Perpective is shown in the screenshot below.</p>  
 <ul>
 <li>Top-Left Window : The project explorer
 <li>Top-Middle Window : Working subject pane (contents depend on what objects are selected)
 <li>Bottom-Left Window : Data Source Explorer (data soucre data access) and Console Explorer (data source configurations).
 </ul>
-<img src="/recipes/images/neale/cdc/CDA_Data_Perspective.png" alt="CDA Data Perspective" style="border:1px solid black"> 
+<center><img src="/recipes/images/neale/cdc/CDA_Data_Perspective.png" alt="CDA Data Perspective" style="border:1px solid black; width:800px"></center> 
 
 <p>In order to make a connection to the Classic CDC Server you must open up the "Data Source Explorer" 
 (bottom left window in the Data Perspective), right click on "Database Connections" and choose "New". 
 Then fill in the connection details ( 192.168.1.191:9087 IBMUSER/SYS1 ), test the connection and press OK.</p>
-<img src="/recipes/images/neale/cdc/CDA_Connect.png" alt="CDA Connection" style="border:1px solid black"> 
+<center><img src="/recipes/images/neale/cdc/CDA_Connect.png" alt="CDA Connection" style="border:1px solid black; width:500px"></center> 
+
+<p>You must also repeat this process to define a connection on the "Console Explorer" window. Defining a connection in one window does 
+not copy that connection to the other window.</p>
 <p>If the connection fails, the most likely cause is a firewall. Once you have eliminated firewalls, 
 check in the Classic CDC started task output for correction errors.</p> 
 <p>Once connected, you can expand the "SAMPLEDS" datasource and explore the schemas, and the table objects within the schemas. 
 Initially, the Catalog Tables will be visible under schemas "SYSIBM" and "SYSCAC". When you have developed some IMS Tables" 
 they will be visible under the schema that they were created in.</p>
-<img src="/recipes/images/neale/cdc/CDA_Data_Source.png" alt="CDA Data Source Explorer" style="border:1px solid black">  
+<center><img src="/recipes/images/neale/cdc/CDA_Data_Source.png" alt="CDA Data Source Explorer" style="border:1px solid black; width:300px"></center>  
 
 <p>Click on the Console explorer tab now, and expand the Services and Configuration Tabs. 
-If you select a configuration (such as the DRA Service configuration) and edit the properties, you can make parameter changes here.</p>
-<img src="/recipes/images/neale/cdc/CDA_Console_Parms.png" alt="CDA Imported Artefacts" style="border:1px solid black"> 
+If you select a configuration (such as the DRA Service configuration) and edit the properties, you can make parameter changes here (such as DRATABLESUFFIX=01).</p>
+<center><img src="/recipes/images/neale/cdc/CDA_Console_Parms.png" alt="CDA Imported Artefacts" style="border:1px solid black; width:800px"></center>  
+
 
 <h4>7.2.2 Create a data development project, and Import DBDs and Copybooks for the mapping work</h4>
-<p>Go to the "Data Project Explorer" (top left window) and create a new project, such as "Project1"</p>
-<p>Now, highlight "Data Models" within "Project1" and create a new Physical Data Model based on teh Classic Integration V11.3 template.</p>
-<img src="/recipes/images/neale/cdc/CDA_PhysicalDM.png" alt="CDA Physical Data Model" style="border:1px solid black"> 
-<p>Next, highlight the sections for "IMS DBDs" and "COBOL Copybooks", and import the corresponding definitions. You have a choice of 
-importing from local PC files, or connecting the z/OS and importing from PDS members.</p>
-<img src="/recipes/images/neale/cdc/CDA_Import.png" alt="CDA Imported Artefacts" style="border:1px solid black"> 
+<p>Having configured CDA to operate with the Classic CDC server, the next task is to define an IMS Table. 
+This is a multi-step graphical dialog, that enables you to use DBDs and Copybooks to create a relational 
+projection of data slices from the IMS hierarchical database.</p>
+<p>Go to the "Data Project Explorer" (top left window) and create a new project, such as "Zeditor"</p>
 
-<h4>7.2.3 Develop a relational model "IMS Table" based on the imported DBDs and copybooks</h4> 
-<p>This is a multi-step graphical dialog, that enables you to use DBDs and Copybooks to create a relational 
-projection of data slices from the IMS hierarchical database. It helps to be able to visualize the IMS database, and the 
-"IMS Table" that you want to project.</p>
-<p>Click the arrows to progress through a dialog of defining an IMS Table with CDA.</p>
+<p>The steps you need to follow are described in the list below, and illustrated in the slideshow below that.</p>
+<ol>
+<li>Create a Data Development Project.
+<li>Create a physical data model (Classic Integration) within that project.
+<li>Import the IMS DBDs and Copybooks that describe the IMS database.
+<li>Create an IMS Table mapping based on the imported DBDs and Copybooks.
+<li>Generate DDL to create that IMS Table definition.
+<li>Execute the DDL against the target Classic CDC server.
+<li>Verify the generated object
+</ol>
+
+<p>Click the arrows to progress through series of screenshots for performing these tasks.</p>
+
 
   <!-- Slideshow -->
-  <div class="w3-container">
-    <div class="w3-display-container mySlides">
-      <img src="/recipes/images/mergefade.png" style="width:100%">
-      <div class="w3-display-topleft w3-container w3-padding-32">
-        <span class="w3-white w3-padding-large w3-animate-bottom">Recipes for z/OS Tasks</span>
-      </div>
-    </div>
-    <div class="w3-display-container mySlides">
-      <img src="/recipes/images/ts2.JPG" style="width:100%">
-      <div class="w3-display-topright w3-container w3-padding-32">
-        <span class="w3-white w3-padding-large w3-animate-bottom">Worked Examples of z/OS Software Deployments</span>
-      </div>
-    </div>
-    <div class="w3-display-container mySlides">
-      <img src="/recipes/images/ts1.JPG" style="width:100%">
-      <div class="w3-display-bottomleft w3-container w3-padding-32">
-        <span class="w3-white w3-padding-large w3-animate-bottom">Devops Pipelines with z/OS</span>
-      </div>
-    </div>
-    <div class="w3-display-container mySlides">
-      <img src="/recipes/images/ts2.JPG" style="width:100%">
+  <div class="w3-container"> 
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab01.PNG" style="width:100%">
       <div class="w3-display-bottomright w3-container w3-padding-32">
-        <span class="w3-white w3-padding-large w3-animate-bottom">Unleashing z/OS Data</span>
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Create a new Data Design Project (Zeditor)</span>
       </div>
     </div>
-
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab02.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Inside the project, create a new Physical Data Model</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab03.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Use the Classic Integration template for this data model</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab04.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Highlight IMS DBDs, right mouse click, import files</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab05.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Import either from 3270 or Local PC, and Review artefact</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab06.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Repeat process to import COBOL Copybooks</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab07.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Highlight the Physical Data Model, Create an IMS Table</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab08.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Specify the DBD, assign the desired Schema Name</span>
+      </div>
+    </div> 
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab09.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Specify Segments, SSID, PSB, and choose Table Name and Usage</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab10.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Specify root segment copybook and choose fields</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab11.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Specify dependent segment copybooks and choose fields</span>
+      </div>
+    </div>
+     <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imstab12.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Review the IMS table mapping, and Finish</span>
+      </div>
+    </div>
+    <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imsgen01.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Highlight the Mapped Object, right mouse click and Generate DDL</span>
+      </div>
+    </div>
+    <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imsgen02.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Specify Artefacts required</span>
+      </div>
+    </div>
+    <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imsgen03.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Review DDL, and tick to execute DDL on Classic CDC Server</span>
+      </div>
+    </div>
+    <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imsgen04.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Specify the target server (SAMPLEDS) and Finish</span>
+      </div>
+    </div>
+    <div class="w3-display-container mySlides">
+      <img src="/recipes/images/neale/cdc/imsgen05.PNG" style="width:100%">
+      <div class="w3-display-bottomright w3-container w3-padding-32">
+        <span class="w3-yellow w3-padding-large w3-animate-bottom">Review object in Data Source Explorer</span>
+      </div>
+    </div>
+	
     <!-- Slideshow next/previous buttons -->
     <div class="w3-container w3-dark-grey w3-padding w3-xlarge">
       <div class="w3-left" onclick="plusDivs(-1)"><i class="fa fa-arrow-circle-left w3-hover-text-teal"></i></div>
@@ -999,51 +1165,32 @@ projection of data slices from the IMS hierarchical database. It helps to be abl
       <div class="w3-center">
         <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
         <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
-        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span> 
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span>
 		<span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(4)"></span>
-      </div>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(5)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(6)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(7)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(8)"></span>
+		<span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(9)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(10)"></span>		
+ 		<span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(11)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(12)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(13)"></span>		
+ 		<span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(14)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(15)"></span>
+        <span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(16)"></span>		
+ 		<span class="w3-tag demodots w3-border w3-transparent w3-hover-white" onclick="currentDiv(17)"></span>	
+	  </div>
     </div>
   </div>
   
-  
-<p>Highlight the physical database model, right mouse click, and add a classic object, type "IMS Table".</p>
-<img src="/recipes/images/neale/cdc/CDA_Add_IMS_Table.png" alt="CDA Add IMS Object" style="border:1px solid black"> 
-<p>Choose the DBD that the Table will be mapped from (DI21PART) and the schema that the new IMS Table will be created in</p>
-<img src="/recipes/images/neale/cdc//cdc01_26.png" alt="Classic CDC Services" style="border:1px solid black"> 
+<br>
 
-<p>Specify the IMS artefacts that will be accessed for this IMS Table mapping definition.</p>
-<ul>
-<li>Choose the Leaf and Root IMS Segments that will be accessed. (STOKSTAT, PARTROOT).
-<li>Specify the IMS Subsystem ID (IVP1). 
-<li>Specify the IMS PSB (DFSSAM04) that will be used by the DRA Service to access the data.
-<li>Specify the required Table Usage ( Query / Update / Data Capture )
-</ul>
-
-<img src="/recipes/images/neale/cdc/cdc01_27.png" alt="Classic CDC Services" style="border:1px solid black"> 
-
-<p>Map the root segment (PARTROOT) followed by the child segment (STOKSTAT)</p>
-<p>Just tick the fields that you want to include in the IMS Table</p>
-<img src="/recipes/images/neale/cdc/cdc01_28.png" alt="Classic CDC Services" style="border:1px solid black"> 
-
-<p>Review the generated mapping. It will show the selected copybook fields and their corresponding relational data types.</p>
-<img src="/recipes/images/neale/cdc/cdc01_29.png" alt="Classic CDC Services" style="border:1px solid black"> 
-
-<p>Review the generated DDL. This will be structured like a relational "Create Table" statement. 
-However it will include the required offsets and types in the underlying IMS segment where the fields actually reside.</p>
-<img src="/recipes/images/neale/cdc/cdc01_30.png" alt="Classic CDC Services" style="border:1px solid black"> 
-
-
-
-<h4>7.2.4 Deploy the "IMS Table" to the Classic CDC for IMS Started Task</h4>
-<p>One the previous dialog windows, you can save the DDL for later execution, or invoke the DDL execution interactively.<p>
-<p>If you tick the "Run DDL on Server" box, you can create the object in your Classic CDC server immediately.</p>
-
-
-<h4>7.2.5 Test the validity of the IMS Table Mapping using SQL through the CDA</h4>
+<h4>7.2.3 Test the validity of the IMS Table Mapping using SQL through the CDA</h4>
 <p>Once you have deployed the IMS Table to the Classic CDC Server, you should validate that the table mapping is correct. 
 The simplest way to do this is to run an SQL query against the mapped IMS Table. 
 Right Click on the Table, and either "return all rows" or choose "sample contents" to eyeball the data for validity</p>
-<img src="/recipes/images/neale/cdc/cdc01_31.png" alt="Classic CDC Services" style="border:1px solid black"> 
+<center><img src="/recipes/images/neale/cdc/cdc01_31.png" alt="Classic CDC Services" style="border:1px solid black; width:800px"></center> 
 
 <p>You can dig deeper into data validation with more probing SQL through the Classic Data Architect. 
 Just click the SQL icon in the Data Source Exporer window (bottom-right) and SQL away.</p>
@@ -1070,49 +1217,42 @@ However, at some point before deploying to production, you must take responsibil
 </table> 
 
 
-<h4>7.2.6 Make the IMS Table available for use as a source for CDC subscriptions</h4> 
-<p>Deploying the IMS Table (with Change Capture Table Usage) makes it visible to the CDC Administration tools as a table source for replication.
-Nothing further needs to be done.</p>
+<p>Deploying the IMS Table <b>(with Change Capture Table Usage)</b> makes it visible to the CDC Management Console and Access Server 
+when they connect to the Classic CDC Server</p>
 
 <h3 id="7.3">7.3 Connect from Management Console to Classic CDC Started Task</h3>
 <p>This document is primarily concerned with everything that needs to be done to establish Classic CDC for IMS as a CDC source.</p>
-<p>Using the the CDC administration tools is now a standard CDC task which is covered elsewhere.</p>
-<p>The CDC Devops Options paper in this series reviews the capabilities of the graphical and command line options for defining and operating 
-CDC replication subscriptions.</p>
+<p>Using the the CDC administration tools is now a standard CDC task which is covered in 
+the <a href="/recipes/docs/NA_CDC/cdcu2.html">Devops Options for CDC.</a> paper.</p>
+
 
 <h3 id="7.4">7.4 Use CHCCLP Scripting for z/OS</h3>
-<p>CDC Replication is traditionally a Windows-centric environment for operations and control.</p>
+<p>CDC Replication is traditionally a Windows-centric environment for operations and control, but it also has advanced scripting capabilities for automation.</p>
 <p>The CDC Management Console is a comprehensive GUI that addresses all parts of the devops 
 lifecycle ( access control, definition, operations, monitoring ).</p>
 <p>The CHCCLP Scripting tools offer automated devops controls using scripts. These can be executed from the Windows-based 
-Management Console, or from the Access Server on Windows or Linux.<p>
-<p>The CHCCLP scripting option will be attractive to all shops that wish to implement strong devops governance and control to their 
+Management Console, or from the Access Server on Windows or Linux. 
+The CHCCLP scripting option will be attractive to all shops that wish to implement strong devops governance and control to their 
 CDC replication environments. Shops with a z/OS operation bridge should know that the CHCCLP scripting environment can also be deployed 
 inside z/OS, either from unix system services (USS) or from JCL (using the java batch scheduler).<p>
-<p>All of these devops options are covered in the CDC devops papers in this series of articles.</p>
+<p>All of these devops options are covered in the the <a href="/recipes/docs/NA_CDC/cdcu2.html">Devops Options for CDC.</a> paper 
+and <a href="/recipes/docs/NA_CDC/cdcu3.html">CHCCLP Scripting.</a> paper in this series of articles.</p>
 
-<h3 id="7.5">7.5 Conforming to site standards for devops and security.</h3> 
+<h3 id="7.5">7.5 Conforming to site standards for cross-platform devops and security.</h3> 
 <p>So far, this document has been primarily concerned with the mechanics of making CDC operate from IMS to any number of heterogeneous targets. 
 It may be hard to believe, but that was the easy part!</p>
-<p>The author has worked with several mainframe customers deploying CDC for IMS. The most difficult parts of implementing CDC for IMS 
-usually arise when you start liaising outside the immediate project team who wants to publish IMS data for a specific business application.</p>
-<p>With so many moving parts in a CDC solution that bridges between IMS and mid-range or cloud, the architecture team will 
-want to understand the implications for network security, data encryption, auditing, authentication, resource consumption and many other things.</p>
-<p>If you are replicatiing IMS data outside the mainframe, you are going to want to implement TLS encryption</p>
-<p>Change Control and devops processes will be another topic of intense debate.</p>
-<p>The remaining papers in this section cover a lot more ground, including these very valid questions. Do not underestimate the 
-amount of debate that will be needed to get a cross-platform CDC project approved with your organisation. 
-Start these dialogs sooner rather than later to establish a constructive dialog as early as possible.</p> 
-
-<h3 id="7.6">7.6 Collaboration with non-z/OS teams</h3> 
-<p>The following generalised observations may, or may not, apply to your organisation.
-<ul> 
-<li>Few oganisations have integrated devops processes spanning mainframe, mid-range and cloud platforms.
-<li>The devops standards and methods will differ between the groups that manage these platforms.
+<p>The author has worked with several mainframe customers deploying CDC for IMS to feed a stream of changes to midrange and Cloud targets. 
+The challenges to overcome will include...</p>
+<ul>
+<li>different development and operational teams supporting the capture and apply services
+<li>co-ordinating devops tasks between cross-platform teams
+<li>change control procedures
+<li>implementing TLS encryption between the application-transparent z/OS platform and application-controlled LUW platforms
 </ul>
-<p>These differences could be very sigificant to CDC implementations that are almost always cross-platform solutions.</p> 
-<p>It is important to identify the business sponsors for any cross platform CDC solutions, and to explore the service 
-levels that their business projects demand (for availability, latency, monitoring, recovery etc... ).</p>
+<p>A good approach is to start by considering the non-functional requriements for the business service that CDC will support. If the business 
+requires a high level of service ( low latency, stringent monitoring and alerting, minimal downtime, fast recovery from outages etc... ) then
+an operational support model can be developed to meet those requirements.</p>
+
 <p>Once the required service levels are defined, that is a useful reference point for assessing whether the opertional 
 management controls and interfaces between different operations teams can satisfy those service levels</p>
 <p>In some cases, the co-operation between different operational teams can be adjusted to satisfy the required service levels</p>
@@ -1125,13 +1265,15 @@ This case be done by selecting different CDC agents in many cases, as follows</p
 <p>Please be aware of the flexible CDC deployment options that exist, and take an early view on what choices may provide the best 
 devops lifecycle proposition for your organisation.</p>
 
+<p>This series of articles includes a heavy focus of worked deployment examples, but the articles in the "Using CDC" column do aim 
+to address the practical devops challenges with recommendations on how to address common challenges.</p>
+
+
 <br><hr>
 
 <h2 id="App">Appendix</h2>
-<p>This document </p>
+<p>placeholder</p>
 
-<h3 id="A1">Information Sources</h3> 
-<p>xxx</p>
 
 
 

@@ -389,7 +389,13 @@ screenshot above. The default port for the Kafka schema registry is 8081.</p>
 This approach requires the use of a KCOP that specifies a JSON format, as discussed in section 5.4 below.</p>
 
 <h3 id="5.3">5.3 Console Consumers for testing Subscriptions</h3>
-<p>When you use CDC to replicate to a relational database it is easy toprovide examples of console consumer, avro console consusmer, tcc</p>
+<p>When you use CDC to replicate to a relational database it is easy to check the results of the active subscriptions by writing some 
+SQL statements to query the target tables. With Kafka you can read the messages in the topics using a range of programming lanuages, such as Spark, nifi and java. 
+However, for testing purposes initial verification of messages would be via a console consumer.</p>
+<p>Most distributions of Kafka will include a console consumer to read messages that are not encoded with an avro schema, and an avro console consumer for messages that 
+are encoded with an avro schema. The screenshot below is an example of using a console consumer to read messages that were published by CDC for Kafka.</p> 
+<center><img src="/recipes/images/neale/cdc/cdckafka09.png" style="border:1px solid black; width:800px"></center> 
+
 
 <h3 id="5.4">5.4 Using Kafka Custom Operators (KCOPs)</h3>
 <p>couple of kcop scenarios</p>

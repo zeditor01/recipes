@@ -147,7 +147,6 @@ spanyellow {
 <li><a href="#1.0">1 Introduction to CDC for Db2 on Linux</a>
 <ul>
   <li><a href="#1.1">1.1 Requirements to Replicate Db2 for Linux data</a></li>
-  <li><a href="#1.2">1.2 Kafka Concepts</a></li>
 </ul>
 <li><a href="#2.0">2. High Level Review of Implementation Steps</a>
 <li><a href="#3.0">3. Installing CDC for Db2 for Linux</a>
@@ -185,13 +184,13 @@ spanyellow {
 
 
 <h2 id="abstract"> Abstract</h2>
-<p>This document is a basic worked example of setting up CDC for Kafka as a CDC Target Engine.</p> 
+<p>This document is a basic worked example of setting up CDC for Db2 on Linux.</p> 
 <ul>
-<li>It deals with the practical considerations for implementing CDC for Kafka. 
+<li>It deals with the practical considerations for implementing CDC for Db2 on Linux. 
 <li>It's scope is limited to a "basic up and running guide", and is intended to be easy to follow (assuming a base of Linux experience).
 <li>It does not attempt to cover all the product's features.
 <li>It is categorically <b>not</b> a replacement for the  
-<a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=replication-cdc-engine-kafka">IBM CDC for Kafka knowledge centre</a>, which is the comprehensive official product documentation.
+<a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=replication-cdc-engine-db2-luw">IBM CDC for Db2 LUW knowledge centre</a>, which is the comprehensive official product documentation.
 </ul> 
 
 <p>It is part of a series of documents providing practical worked examples and 
@@ -200,9 +199,9 @@ The complete set of articles can be accessed using the links at the very top of 
 
 <br><hr>
 
-<h2 id="1.0">1. Introduction to CDC for Kafka</h2>  
+<h2 id="1.0">1. Introduction to CDC for Db2 on Linux</h2>  
 
-<p>CDC for Kafka is a CDC Apply Agent only. It does not have CDC Capture functionality.</p>
+<p>CDC for Db2 Linux is a full CDC implementatuion: both Capture and Apply.</p>
 
 <p>CDC Replication is a set of products that implement a common data replication architecture spanning 
 a large number of diverse data sources and targets. The CDC common architecture is based upon replication of 
@@ -210,35 +209,19 @@ data that conforms to the relational model. Any CDC capture or apply agent that 
 must perform whatever conversion work that is necessary to implement a mapping between that data structure and the 
 relational model of data.</p> 
 
-<h3 id="1.1">1.1 Requirements to Replicate to Apache Kafka</h3> 
+<h3 id="1.1">1.1 Requirements to Replicate Db2 for Linux data</h3> 
 
-<p>Apache Kafka, and it's varioud commercial distributions, is widely used for event streaming services both on-premise and in-cloud. 
-This document assumes that the reader is familiar with the basics of Kafka, which is widely documented online.</p>
+<p>The core functionaility of any CDC Capture agent is to read the source database logs asynchronously, 
+stage captured data (preferably in memory) until the Unit of Work is commited or rolled back, 
+and then publish the committed changes over TCPIP sockets to a CDC Apply agent.</p> 
 
-<p>CDC architecture (which is founded on the relational model of data) provides a range of integration options to write data to Kafka topics and integrate with 
-constructs in the Kafka world like Schema Registries that enable Kafka applications to consume the events that CDC writes to Kafka.</p>
-
-<p>CDC for Kafka supports all the major Kafka distributions, including Confluent, Hortonworks, Cloudera, Amazon MSK, BigInsights, Event Streams. CDC for Kafka is 
-supported for Ubuntu, Redhat, Suse and CentOS.</p>
-
-<p>For latest details on supported versions of Linux and Kafka please check with the <a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=replication-cdc-engine-kafka">IBM CDC for Kafka knowledge centre.</a>
-
-<h3 id="1.1">1.2 Kafka Concepts</h3> 
-
-<p>The author comes from a Db2 relational database platform. If you are a specialist in Relational Database and CDC replication, you will need to become familiar with a very different set of
-concepts from relational databases. Initially you will probably thing of Kafka as something similar to Websphere MQ, which provides messaging and integration solutions for many 
-Enterprises today. But Kafka is different in that...</p>
-<ul>
-<li>It is designed to be run on scalable, industry-standard cluster fabrics.
-<li>It is legendary for providing lightning fast performance.
-<li>It conforms the an "eventually consistent" model for data integrity (wheras databases follow a transactionally consistent model).
-<li>Every message will be processed <b>at least once</b>, which means consuming applications have to be responsible for de-duping.
-<li>Message structures are defined outside the messages in a schema registry.
-<li>Many Kafka clusters are kerberized, which is another area of endeavour that Database and MQ experts may not be totally familiar with.
-</ul>
-
-<p>This article does not attempt to provide a tutorial on Kafka. However, if the reader is unfamiliar with Kafka, some research is strongly recommended. 
-Section 6 of this paper addresses how CDC for Kafka handles some of these Kafka concepts and constructs.</p>
+<p>Any supported version of Db2 for Linux is ready to go with CDC. The customisation of Db2 to support CDC is limited to:</p>
+<ol>
+<li>Creating a few CDC control tables insid Db2 for Linux
+<li>Binding a few packages
+<li>Granting the CDC task ID sufficient privileges to access the Db2 Catalog and Log Interface
+<li>Altering source tables to enforce full row logging so that the log records contain enough information to support replication
+<li>
 
 <h2 id="2.0">2. High Level Review of Implementation Steps</h2>  
 
@@ -246,11 +229,11 @@ Section 6 of this paper addresses how CDC for Kafka handles some of these Kafka 
 <ol>
 <li>Prepare the Linux paths and permissions
 <li>Run the software installer binary
-<li>Create an instance of CDC for Kafka with it's own operational paramaters
+<li>Create an instance of CDC for Db2 Linux with it's own operational paramaters
 <li>Configure TCPIP Network and Secuirty
 </ol>
 
-<h2 id="3.0">3. Installing CDC Kafka</h2>  
+<h2 id="3.0">3. Installing CDC for Db2 for Linux</h2>  
 <p>Download the CDC for Linux x64 package from Passport Advantage or Fix Central. 
 The filename of the version that was used in this example is <b>setup-iidr-11.4.0.4-5618-linux-x86.bin</b></p>
 <p>The version is 11.4.0.4 and the specific build is 5618. New builds are published periodically without necessarily incrementing the version number.</p>

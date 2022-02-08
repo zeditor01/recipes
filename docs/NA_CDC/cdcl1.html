@@ -221,7 +221,7 @@ and then publish the committed changes over TCPIP sockets to a CDC Apply agent.<
 <li>Binding a few packages
 <li>Granting the CDC task ID sufficient privileges to access the Db2 Catalog and Log Interface
 <li>Altering source tables to enforce full row logging so that the log records contain enough information to support replication
-<li>
+</ol>
 
 <h2 id="2.0">2. High Level Review of Implementation Steps</h2>  
 
@@ -261,10 +261,10 @@ I created a group ( cdcadm1 ) for the user ( cdcinst1 )</p>
 <li>chown cdcinst1:cdcadm1 /opt/IBM/InfoSphereDataReplication
 </ul>
 
+
 <p>Also, add cdcinst1 to Sudoers</p>
 <ul>
 <li>usermod -aG wheel username
-</li>
 </ul>
 
 <p>If the JRE is not installed, do so now</p>
@@ -274,7 +274,7 @@ Preparation : JRE Libraries
 <li>sudo yum install unzip libnsl
 </ul>
 
-<h3 id="3.2">3.2 Install the CDC Apply Agent for Kafka</h3>
+<h3 id="3.2">3.2 Install the CDC Agent for Db2 Linux</h3>
 <ul>
 <li>logon as cdcinst1
 <li>switch to the directory where the installer binary was downloaded to
@@ -282,7 +282,7 @@ Preparation : JRE Libraries
 <li>./setup-iidr-11.4.0.4-5618-linux-x86.bin
 </ul>
 
-<p>Respond to the installer dialog as follows to specify "Install New", followed by "Datastore Type:Kafka" followed by the license type of your entitlement.</p>
+<p>Respond to the installer dialog as follows to specify "Install New", followed by "Datastore Type:Db2" followed by the license type of your entitlement.</p>
 <center><img src="/recipes/images/neale/cdc/cdckafka01.png" style="border:1px solid black; width:500px"></center> 
 
 <p>Next, accept the installation path, Choose instance directory, and Review the install request.</p>

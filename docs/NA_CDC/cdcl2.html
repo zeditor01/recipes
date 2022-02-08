@@ -390,6 +390,15 @@ screenshot above. The default port for the Kafka schema registry is 8081.</p>
 This approach requires the use of a KCOP that specifies a JSON format, as discussed in section 5.4 below.</p>
 
 <h3 id="5.3">5.3 Connecting to Kerberized Kafka</h3>
+<p>Many Enterprise Grade Kafka clusters are highly secured. At a minimum you can expect that the connection from the CDC client to Kafka will be encrypted by SSL. 
+More likely the kafka cluster will be kerberized, so that certificates will be used as the basis for authentcation and encryption between the CDC client and the 
+Kafka cluster.</p>
+<p>The worked examples in these documents are using a local Kafka instance on a single node, without SSL or kerberos. If you are dealing with SSL or Kerberos to 
+connect to your kafka cluster, then please review the following excellent documents that cover the configuration of CDC for Kafka in these environments.</p>
+
+<p><a href="https://www.ibm.com/support/pages/system/files/inline-files/IIDR.Apache.Kafka_.and_.SSL_.pdf">CDC SSL connection to Kafka</a>.</p>
+
+<p><a href="https://www.ibm.com/support/pages/system/files/inline-files/CDC%20Kafka%20-%20Installation%20and%20Configuration_0.pdf">CDC Connecttion to Kerberized Kafka</a>.</p>
 
 
 <h3 id="5.4">5.4 Console Consumers for testing Subscriptions</h3>
@@ -412,7 +421,7 @@ Examples of what the IBM-supplied KCOPs can do include:</p>
 <li>writing messages in JSON (avoid using a serialiser)
 <li>referencing a custom avro serialiser (other than the default Confluent serialiser)
 <li>enabling partitioning of data topics
-</ul>
+</ol>
 <p>Full details are in the knowledgecenter <a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=crek-kafka-custom-operation-processor-kcop-cdc-replication-engine-kafka">here</a>.</p>
 
 

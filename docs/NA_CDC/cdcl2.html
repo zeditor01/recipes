@@ -298,13 +298,13 @@ Preparation : JRE Libraries
 </ul>
 
 <p>Respond to the installer dialog as follows to specify "Install New", followed by "Datastore Type:Kafka" followed by the license type of your entitlement.</p>
-<center><img src="/recipes/images/neale/cdc/cdckafka01.png" style="border:1px solid black; width:800px"></center> 
+<center><img src="/recipes/images/neale/cdc/cdckafka01.png" style="border:1px solid black; width:500px"></center> 
 
 <p>Next, accept the installation path, Choose instance directory, and Review the install request.</p>
-<center><img src="/recipes/images/neale/cdc/cdckafka02.png" style="border:1px solid black; width:800px"></center> 
+<center><img src="/recipes/images/neale/cdc/cdckafka02.png" style="border:1px solid black; width:500px"></center> 
 
 <p>Then let the installer run, and defer the instance creation till later.</p>
-<center><img src="/recipes/images/neale/cdc/cdckafka03.png" style="border:1px solid black; width:800px"></center> 
+<center><img src="/recipes/images/neale/cdc/cdckafka03.png" style="border:1px solid black; width:500px"></center> 
 
 <h3 id="3.3">3.3 Create the CDC for Kafka Instance</h3>
 
@@ -315,26 +315,26 @@ Preparation : JRE Libraries
 
 
 <p>Now, create an instance called ubuntu32kafka, listening on port 11701, allocated 8MB of memory.</p>
-<center><img src="/recipes/images/neale/cdc/cdckafka04.png" style="border:1px solid black; width:800px"></center> 
+<center><img src="/recipes/images/neale/cdc/cdckafka04.png" style="border:1px solid black; width:500px"></center> 
 
 <p>Next step is to define an encryption profile. This dialog is iterative, allowing you to define multiple encryption profiless, and then choose the one to use. 
 You can also return to this dialog later and change the encryption profile of the instance. The configuration of TLS and encryption profiles is handled as a separate 
 topic in <a href="/recipes/docs/NA_CDC/cdcu4.html"> Security for CDC (LDAP and TLS)</a>. For now we will create an encryption profile that disables encryption.</p>
 <p>ADD dialog here</p>
-<center><img src="/recipes/images/neale/cdc/cdckafka05.png" style="border:1px solid black; width:800px"></center> 
+<center><img src="/recipes/images/neale/cdc/cdckafka05.png" style="border:1px solid black; width:500px"></center> 
 
 <p>Having defined encruption profile "noencrypt", we can select it and complete the instance creation.</p>
 <p>The CDC for Kafka instance needs to have a userid and password created to authenticate connections from the Access Server. In this basic 
 "up and running" example, we will accept the default userid (tsuser) and assign a password. In most real world scenarios you would configure the Access Server 
 to use an LDAP directory for authentication services. LDAP configuration is covered in <a href="/recipes/docs/NA_CDC/cdcu4.html"> Security for CDC (LDAP and TLS).</a></p>
-<center><img src="/recipes/images/neale/cdc/cdckafka06.png" style="border:1px solid black; width:800px"></center> 
+<center><img src="/recipes/images/neale/cdc/cdckafka06.png" style="border:1px solid black; width:500px"></center> 
 
 <p>Once the installation is created, you can start it immediately from the dialog. The command to start it at any other time is</p>
 <ul>
 <li>/opt/ibm/InfoSphereDataReplication/ReplicationEngineforKafka/bin/dmts64 -I ubuntu32kafka
 </ul>
 
-<center><img src="/recipes/images/neale/cdc/cdckafka07.png" style="border:1px solid black; width:800px"></center> 
+<center><img src="/recipes/images/neale/cdc/cdckafka07.png" style="border:1px solid black; width:500px"></center> 
 
 
 <h2 id="4.0">4. Configure the Linux Environment</h2>  
@@ -375,24 +375,24 @@ The default port for zookeeper is 2181, as per the screenshot below.</p>
 <center><img src="/recipes/images/neale/cdc/cdckafka08.png" style="border:1px solid black; width:300px"></center> 
 
 <h3 id="5.2">5.2 Kafka Schema Registry considerations</h3>
-<p>CDC for Kafka can write messages to Kafka as self-defining JSON messages, whic do not require a schema in the schema registry. 
+<p>CDC for Kafka can write messages to Kafka as self-defining JSON messages, which do not require a schema in the schema registry. 
 This approach requires the use of a KCOP that specifies a JSON format, as discussed in section 5.4 below.</p>
-<p>By default CDC for Kafka will write messages to Kafka in an avro format, which is a de facto standard for Kafka, and requires a schema for the 
+<p>However, it is normally preferable for CDC for Kafka to write messages to Kafka in an avro format (performance, common standards etc...), 
+which is a de facto standard for Kafka, and requires a schema for the 
 record structure to be recorded in he Kafka schema registry. At initialisation of each subscription it will write a schema 
-into the schema registry. 
+into the schema registry.</p> 
 
 <h3 id="5.3">5.3 Console Consumers for testing Subscriptions</h3>
-
+<p>provide examples of console consumer, avro console consusmer, tcc</p>
 
 <h3 id="5.4">5.4 Using Kafka Custom Operators (KCOPs)</h3>
-
+<p>couple of kcop scenarios</p>
 
 
 
 <h2 id="6.0">6. Integrate with the wider CDC Landscape</h2>
 
 <h3 id="6.1">6.1 Automation of the CDC Apply for Kafka Service</h3> 
-
 
 
 <h3 id="6.2">6.2 Connect from Management Console to CDC for Kafka instance</h3>

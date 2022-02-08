@@ -166,8 +166,9 @@ spanyellow {
 <ul>
   <li><a href="#5.1">5.1 TCPIP connections between CDC and Kafka</a></li>
   <li><a href="#5.2">5.2 Kafka Schema Registry considerations</a></li>
-  <li><a href="#5.3">5.3 Console Consumers for testing Subscriptions</a></li>
-  <li><a href="#5.4">5.4 Using Kafka Custom Operators (KCOPs)</a></li>
+  <li><a href="#5.3">5.3 Connecting to Kerberized Kafka</a></li>  
+  <li><a href="#5.4">5.4 Console Consumers for testing Subscriptions</a></li>
+  <li><a href="#5.5">5.5 Using Kafka Custom Operators (KCOPs)</a></li>
 </ul>
 <li><a href="#6.0">6. Integrate with the wider CDC Landscape</a>
 <ul>
@@ -388,7 +389,10 @@ screenshot above. The default port for the Kafka schema registry is 8081.</p>
 <p>Optionally, CDC for Kafka can write messages to Kafka as self-defining JSON messages, which do not require a schema in the schema registry. 
 This approach requires the use of a KCOP that specifies a JSON format, as discussed in section 5.4 below.</p>
 
-<h3 id="5.3">5.3 Console Consumers for testing Subscriptions</h3>
+<h3 id="5.3">5.3 Connecting to Kerberized Kafka</h3>
+
+
+<h3 id="5.4">5.4 Console Consumers for testing Subscriptions</h3>
 <p>When you use CDC to replicate to a relational database it is easy to check the results of the active subscriptions by writing some 
 SQL statements to query the target tables. With Kafka you can read the messages in the topics using a range of programming lanuages, such as Spark, nifi and java. 
 However, for testing purposes initial verification of messages would be via a console consumer.</p>
@@ -397,10 +401,23 @@ are encoded with an avro schema. The screenshot below is an example of using a c
 <center><img src="/recipes/images/neale/cdc/cdckafka09.png" style="border:1px solid black; width:1000px"></center> 
 
 
-<h3 id="5.4">5.4 Using Kafka Custom Operators (KCOPs)</h3>
-<p>couple of kcop scenarios</p>
+<h3 id="5.5">5.5 Using Kafka Custom Operators (KCOPs)</h3>
+<p>CDC for Kafka supports the use of KCOPs to control the writing of messages to Kafka topics. KCOPs are java classes that give you control of the records that 
+are being written to Kafka for the purposes of formatting and topic assignment. You can code your own KCOPs or use the IBM-supplied KCOPs. 
+Examples of what the IBM-supplied KCOPs can do include:</p> 
+<ol>
+<li>controlling which replication messages get written to which Kafka topics
+<li>Adding headers to messages 
+<li>Writing Audit records. (before and after values on the same message(
+<li>writing messages in JSON (avoid using a serialiser)
+<li>referencing a custom avro serialiser (other than the default Confluent serialiser)
+<li>enabling partitioning of data topics
+</ul>
+<p>Full details are in the knowledgecenter <a href="https://www.ibm.com/docs/en/idr/11.4.0?topic=crek-kafka-custom-operation-processor-kcop-cdc-replication-engine-kafka">here</a>.</p>
 
 
+<p>Just a reminder that section 5 of this document is a brief overview of the Kafka integration considerations. Worked examples of thse tasks are included 
+in <a href="/recipes/docs/NA_CDC/cdcu2.html"> Creating and Operating CDC Subscriptions.</a></p> 
 
 <h2 id="6.0">6. Integrate with the wider CDC Landscape</h2>
 

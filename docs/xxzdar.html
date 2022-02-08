@@ -12,9 +12,7 @@
 html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 .mySlides {display:none}
 .w3-tag, .fa {cursor:pointer}
-.w3-tag {height:15px;width:15px;padding:0;margin-top:6px} 
-
-
+.w3-tag {height:15px;width:15px;padding:0;margin-top:6px}
 </style>
 <body style="margin:0px;"> 
 
@@ -36,63 +34,33 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
   </div>
 </div>
 
-
 <!-- Start of Page Content -->
+<div class="w3-content w3-padding-large w3-light-grey" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
 
-
-
-
-<div class="w3-content" style="max-width:1100px;margin-top:80px">
-	  <h2>Building a Data Fabric for Mainframe Data</h2>
-  <!-- Grid -->
-  <div class="w3-row-padding w3-center"  style="max-width:1100px" id="zones">
-
-    <div class="w3-third w3-margin-bottom">
-      <ul class="w3-ul w3-border w3-center w3-hover-shadow">
-        <li class="w3-grey w3-large w3-padding-16"><a href="/recipes/docs/zdim.html">Z Data in Motion</a></li>
-      </ul>
-    </div>
-
-    <div class="w3-third w3-margin-bottom">
-      <ul class="w3-ul w3-border w3-center w3-hover-shadow">
-        <li class="w3-greeen w3-large w3-padding-16"><a href="/recipes/docs/zdar.html">Z Data at REST</a></li>
-      </ul>
-    </div>
-
-    <div class="w3-third w3-margin-bottom">
-      <ul class="w3-ul w3-border w3-center w3-hover-shadow">
-        <li class="w3-grey w3-large w3-padding-16"><a href="/recipes/docs/eris.html">ERIS</a></li>
-      </ul>
-    </div>
-	
-  </div>
-
-
-
-<div class="w3-content w3-small w3-light-grey" style="max-width:1100px;line-height:16px;">
-
-<h2 style="line-height:24px;">Z Data at REST</h2>
-<p>As Enterprises deploy more and more applications in the cloud, the demand for access to <b>CURRENT DATA</b> becomes ever more critical. 
-Terms Like "Data Fabric" and "Data Mesh" have entered the vernacular of IT professionals to describe architectural approaches for addressing that need. 
-Sidestepping the precise academic meanings and subtleties of these terms, it is safe to say that most data fabrics fall into one of two broad catageories</p>
-<ul>
-<li>Stream everything off the mainframe as fast as possible, and use modern, open source integration technologies to create a digital integration hub.
-<li>Leave the data in situ, and provide efficient APIs to access from wherever you need it.
-</ul>
-<p>Candidly, the first pattern is the most common pattern being implemented today. Advocates of this approach use a wide range of arguments to justify the 
-approach, including "CQRS Architecture", "Getting off the Mainframe", "Cloud Modernisation". As a mainframe advocate I often find myself arguing in favour 
-of the second approach on the basis of efficiency in not moving the data, and not incurring all 
-the associated costs of software, hardware, encryption, governance etc... for all the data copying.</p>
-<p>Truth is that both approaches have their merits for different use cases, and the worked examples in this site show how to deploy solutions to either the  
-<a href="/recipes/docs/zdim.html">Z Data in Motion</a> model or the <a href="/recipes/docs/zdar.html">Z Data at REST</a> model. We also publish a hybrid model 
-which combines both models to provide a comprehensive <a href="/recipes/docs/eris.html">Environment for Realtime Information Services</a>.</p>
-<p> This section covers the three primary "Z Data in Motion" options for IBM Z data sources.</p>
+                <h2>Z Data at REST</h2>
+                <p>The ongoing costs of making low-latency copies of z/OS data for every new application that needs current operational data access are <b>HUGE</b>, not 
+				to mention the layers of technical debt that can be added to your systems to be maintained forwever. 
+				Some use cases may genuinely have some need for a physical copy of the mainframe data, but many use cases can be served better and cheaper by just deploying an 
+				API to serve the data on demand to any application on the internet</p> 
+				
+				<p style="margin-left:50px;">It is true that the predominant pattern for serving new cloud applications with current operational data is to stream the data off the mainframe 
+				to a digital integration hub of some sort. Many sites are so familiar with that pattern that they don't fully evaluate the merits of serving APIs 
+				directly from the original data source.</p> 
+												
+				<p>The articles in this section contain worked examples of how to use various IBM software solutions to serve data and information APIs directly from z/OS.</p>
 
 </div>
 
-<div class="w3-content w3-small" style="max-width:1100px">
+<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
 
 
+	<h3 align=center>IBM's Z Data at REST Options</h3>
+    <p>IBM's premier solution for serving REST APIs from mainframe systems is z/OS Connect Enterprise Edition. It is designed to act as an API gateway 
+	into z/OS transactions as well as z/OS data.</p> 
+	<p>This sets of papers is focussed on the details of how the underlying data services are created and implemented. They also show how APIs can be published 
+	(whether by z/OS Connect, or API Connect) based on those data services.</p>
+
+		  
 				 
     <table style="width:100%; border:1px;">
         <tr>
@@ -145,7 +113,6 @@ which combines both models to provide a comprehensive <a href="/recipes/docs/eri
         </tr> 			
     </table> 
 
-
 	<div class="w3-center w3-dark-grey" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
 	<p>copyright &copy; zeditor.org</p>
     </div>
@@ -156,7 +123,7 @@ which combines both models to provide a comprehensive <a href="/recipes/docs/eri
 
 
 	
-</div>
+
 	
 </body>
 </html>

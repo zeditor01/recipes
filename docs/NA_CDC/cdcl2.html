@@ -368,12 +368,18 @@ CDC Capture Agents into CDC for Kafka. This section is about how CDC for Kafka c
 </ol>
 <p>The REST API to Kafka is intended for simple, lower throughput clients. The Java API is intended for high volume streaming use cases like data replication. 
 This worked example uses the Java API, which will use Kafka's zookeeper service to find a broker for the connection to Kafka.</p>
-<p>ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. 
+<p>When CDC for Kafka subscriptions are configured, they must reference the zookeeper service of the Kafka cluster. 
+ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. 
 When you define the Kafka properties of a CDC subscription to Kafka, you must provide the TCPIP address and port of the Zookeeper service. 
 The default port for zookeeper is 2181, as per the screenshot below.</p>
 <center><img src="/recipes/images/neale/cdc/cdckafka07.png" style="border:1px solid black; width:800px"></center> 
 
 <h3 id="5.2">5.2 Kafka Schema Registry considerations</h3>
+<p>CDC for Kafka can write messages to Kafka as self-defining JSON messages, whic do not require a schema in the schema registry. 
+This approach requires the use of a KCOP that specifies a JSON format, as discussed in section 5.4 below.</p>
+<p>By default CDC for Kafka will write messages to Kafka in an avro format, which is a de facto standard for Kafka, and requires a schema for the 
+record structure to be recorded in he Kafka schema registry. At initialisation of each subscription it will write a schema 
+into the schema registry. 
 
 <h3 id="5.3">5.3 Console Consumers for testing Subscriptions</h3>
 

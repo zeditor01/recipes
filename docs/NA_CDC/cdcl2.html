@@ -82,7 +82,8 @@ spanyellow {
     <div class="w3-third">
       <ul class="w3-ul w3-border w3-left w3-hover-shadow" style="width:100%">
         <li class="w3-black w3-large w3-padding-4">Using CDC</li>
-        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu1.html"> Environment for CDC Worked Examples.</a></li>
+        <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu1.html"> Environment for CDC Worked Examples.</a></li> 
+		<li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu2.html"> Creating and Operating CDC Subscriptions.</a></li> 
         <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu2.html"> Devops Options for CDC.</a></li> 
         <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu3.html"> CHCCLP Scripting.</a></li>
         <li class="w3-small"><span class="greydot"></span><a href="/recipes/docs/NA_CDC/cdcu4.html"> Security for CDC (LDAP and TLS).</a></li>
@@ -161,7 +162,7 @@ spanyellow {
   <li><a href="#4.2">4.2 Kafka Connection Properties</a></li>
   <li><a href="#4.3">4.3 Likely additional Kafka configuration</a></li>  
 </ul>
-<li><a href="#5.0">5. CDC for Kafka as a Kafka Client</a>
+<li><a href="#5.0">5. Understanding CDC for Kafka as a Kafka Client</a>
 <ul>
   <li><a href="#5.1">5.1 TCPIP connections between CDC and Kafka</a></li>
   <li><a href="#5.2">5.2 Kafka Schema Registry considerations</a></li>
@@ -356,9 +357,11 @@ as a Kafka consumer, and a Kafka producer. The CDC agent provides files for both
 will be performed. This is also referenced in section 5.</p>
 
 
-<h2 id="5.0">5. CDC for Kafka as a Kafka Client</h2>
+<h2 id="5.0">5. Understanding CDC for Kafka as a Kafka Client</h2>
 <p>The installation and configuration work up till this point has been concerned with the CDC Environment, and connections from CDC Access Server and 
 CDC Capture Agents into CDC for Kafka. This section is about how CDC for Kafka communicates with the Kafka Cluster.</p>
+<p>This section provides an overview of what is involved in using CDC for Kafka. The worked examples of developing CDC subscriptions to Kafka are 
+contained in <a href="/recipes/docs/NA_CDC/cdcu2.html"> Creating and Operating CDC Subscriptions.</a></p>
 
 <h3 id="5.1">5.1 TCPIP connections between CDC and Kafka</h3>
 <p>Kafka clients (like CDC for Kafka) have a chice of two APIs to connect to Kafka.</p> 
@@ -375,15 +378,18 @@ The default port for zookeeper is 2181, as per the screenshot below.</p>
 <center><img src="/recipes/images/neale/cdc/cdckafka08.png" style="border:1px solid black; width:300px"></center> 
 
 <h3 id="5.2">5.2 Kafka Schema Registry considerations</h3>
-<p>CDC for Kafka can write messages to Kafka as self-defining JSON messages, which do not require a schema in the schema registry. 
+<p>With CDC for Kafka, you have a choice of writing self-defining JSON messages into the target Kafka topics, or writing messages 
+in an efficient avro format. (Avro is an open source data serialization system that helps with data exchange between systems).</p>
+<p>It is normally preferable for CDC for Kafka to write messages to Kafka in an avro format (performance, common standards etc...). 
+This requires a schema for the  record structure to be recorded in the Kafka schema registry, so that Kafka consumers have the information to parse the messages.  
+At initialisation of each subscription CDC will automatically write a schema into the schema registry. 
+You must provide the TCPIP address and port for the Kafka schema registry (default port 8081) on the Kafka properties of the subscription, as per the 
+screenshot above. The default port for the Kafka schema registry is 8081.</p> 
+<p>Optionally, CDC for Kafka can write messages to Kafka as self-defining JSON messages, which do not require a schema in the schema registry. 
 This approach requires the use of a KCOP that specifies a JSON format, as discussed in section 5.4 below.</p>
-<p>However, it is normally preferable for CDC for Kafka to write messages to Kafka in an avro format (performance, common standards etc...), 
-which is a de facto standard for Kafka, and requires a schema for the 
-record structure to be recorded in he Kafka schema registry. At initialisation of each subscription it will write a schema 
-into the schema registry.</p> 
 
 <h3 id="5.3">5.3 Console Consumers for testing Subscriptions</h3>
-<p>provide examples of console consumer, avro console consusmer, tcc</p>
+<p>When you use CDC to replicate to a relational database it is easy toprovide examples of console consumer, avro console consusmer, tcc</p>
 
 <h3 id="5.4">5.4 Using Kafka Custom Operators (KCOPs)</h3>
 <p>couple of kcop scenarios</p>

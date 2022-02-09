@@ -43,7 +43,7 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 
 <div class="w3-content" style="max-width:1100px;margin-top:80px">
-	  <h2>Building a Data Fabric for Mainframe Data</h2>
+<h2>Building a Data Fabric for Mainframe Data</h2>
 	  
 
 	  
@@ -73,24 +73,14 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 
 <div class="w3-content w3-small w3-light-grey" style="max-width:1100px;line-height:16px;">
+<p>The diagram below depicts two of the most popular approaches to building a data fabric that incorporates data from IBM Z systems of record. 
+Many sites will start with the approach of moving large amounts of data to external Digital Integration Hubs whose purpose is curate data to serve new cloud-based application services. 
+Another approach is to serve data and transactional APIs directly from IBM Z. The Z-centric approach also provides for patterns of consuming data in motion to derive curated data.</p>
 <center><img src="/recipes/images/neale/zdatamesh.png" style="width:800px"></center>
 
 <h2 style="line-height:24px;">Z Data in Motion</h2>
-<p>As Enterprises deploy more and more applications in the cloud, the demand for access to <b>CURRENT DATA</b> becomes ever more critical. 
-Terms Like "Data Fabric" and "Data Mesh" have entered the vernacular of IT professionals to describe architectural approaches for addressing that need. 
-Sidestepping the precise academic meanings and subtleties of these terms, it is safe to say that most data fabrics fall into one of two broad catageories</p>
-<ul>
-<li>Stream everything off the mainframe as fast as possible, and use modern, open source integration technologies to create a digital integration hub.
-<li>Leave the data in situ, and provide efficient APIs to access from wherever you need it.
-</ul>
-<p>Candidly, the first pattern is the most common pattern being implemented today. Advocates of this approach use a wide range of arguments to justify the 
-approach, including "CQRS Architecture", "Getting off the Mainframe", "Cloud Modernisation". As a mainframe advocate I often find myself arguing in favour 
-of the second approach on the basis of efficiency in not moving the data, and not incurring all 
-the associated costs of software, hardware, encryption, governance etc... for all the data copying.</p>
-<p>Truth is that both approaches have their merits for different use cases, and the worked examples in this site show how to deploy solutions to either the  
-<a href="/recipes/docs/zdim.html">Z Data in Motion</a> model or the <a href="/recipes/docs/zdar.html">Z Data at REST</a> model. We also publish a hybrid model 
-which combines both models to provide a comprehensive <a href="/recipes/docs/eris.html">Environment for Realtime Information Services</a>.</p>
-<p> This section covers the three primary "Z Data in Motion" options for IBM Z data sources.</p>
+<p>Whichever Data Fabric pattern an enterprise uses, there will be a need to surface Z Data in Motion, to enable business events that are processed by systems of records to be 
+surfaced for realtime business process and analytics. This section discusses the primary solutions that IBM offers for capturing and consuming "Z Data in Motion".</p>
 
 </div>
 

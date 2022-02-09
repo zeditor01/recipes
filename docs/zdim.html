@@ -74,15 +74,19 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 <div class="w3-content w3-small w3-light-grey" style="max-width:1100px;line-height:16px;margin-bottom:20px;margin-top:20px">
 <p>The diagram below depicts a very common approach for building a Data Fabric that contains data from IBM Z Systems of Record. 
-It is to move and replicate large amounts of data to external Digital Integration Hubs whose purpose is curate data to serve new cloud-based application services.</p>
+The idea is to stream operational data out of the System of Record as soon as it changes, and feed it into a digital integration hub (cloud or on-prem) for curation of 
+data service APIs to support business applications on the cloud.</p>
 <center><img src="/recipes/images/neale/zdim.png" style="width:800px"></center>
 
-<h2 style="line-height:24px;">Z Data in Motion</h2>
-<p>For customers that adopt a data fabric based on this pattern, you will need low latency data replication and event publishing solutions. 
-This section discusses the primary solutions that IBM offers for capturing and consuming "Z Data in Motion" whichever Data Fabric architecture is preferred.</p>
-
+<p>This approach works well for applications of limited scope, where the domain of data needed to support the business applications is clearly defined and the 
+data provisioning infrastructure can be contained to manageable size and complexity. For example, personal banking apps and portals often adopt this pattern.</p>
+<p>The core technology for this pattern is data replication and/or event processing. The data movement technology itself is conceptually simple, but it carries a 
+large amount of technical debt when you consider the devops lifecycle factors including authentication, encryption, ci-cd pipelines, change control, observability, automated operations, 
+continuous service levels and so forth.</p>
+<p>If you scale the cost, technical debt and timescales of extending the data provisioning infrastructure to include all the other data domains, it may be attractive to consider 
+alternative/additional Data Fabric patterns to address the breadth of data that you want to consume within your cloud applications.</p>
 <p>The <a href="/recipes/docs/zdar.html">Z Data at REST</a> and <a href="/recipes/docs/eris.html">ERIS</a> sections describe alternative approaches that reduce or avoid the 
-extensive copying of data to other platforms. Please consider these approaches as complimentary or alternative approaches to building a Data Fabric for mainframe data.</p>
+extensive copying of data to other platforms. The ideal data fabric may be a combination of several patterns.</p>
 </div>
 
 <div class="w3-content w3-small" style="max-width:1100px">

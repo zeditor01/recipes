@@ -70,13 +70,13 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 
 <div class="w3-content w3-small w3-light-grey" style="max-width:1100px;line-height:16px;margin-bottom:20px;margin-top:20px">
-<p>The diagram below depicts two of the most popular approaches to building a data fabric that incorporates data from IBM Z systems of record. 
-A common approach is to move and replicate large amounts of data to external Digital Integration Hubs whose purpose is curate data to serve new cloud-based application services. 
-Another approach is to serve data and transactional APIs directly from IBM Z, and it is important to note that the Z-centric approach also provides for patterns of consuming data in motion to derive curated data.</p>
+<p>The "Z Data at REST" pattern is motivated by avoiding the costs, complexity and timescales of moving the data off Z, and making use of the wide range of data service solutions that 
+exist to serve data direcly from z/OS. This philosphopy behind Cloudpak for Data is to leave data where it is (as far as possible) and use a data virtualization layer to access data on 
+demand from remote sources like z/OS.</p>
 <center><img src="/recipes/images/neale/zdar.png" style="width:800px"></center>
 
-<h2 style="line-height:24px;">Z Data at REST</h2>
-<p>xxxx.</p>
+<p>The worked examples in this section show how z/OS data resources can be surfaced using a range of APIs (REST, SQL, ODBC, JDBC etc....) for consumption by cloud applications directly, or 
+by Data and AI integration solutions like Cloudpak for Data.</p>
 
 </div>
 

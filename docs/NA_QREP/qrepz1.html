@@ -138,38 +138,52 @@ spanyellow {
 <p class="toc_title">Table of Contents</p>
 <ul class="toc_list">
 <li><a href="#abstract">Abstract</a>   
-<li><a href="#1.0">1 AAA.</a>
+<li><a href="#1.0">1 Introduction to Q Replication for Db2 z/OS</a>
 <ul>
-  <li><a href="#1.1">1.1 xxx</a></li> 
-  <li><a href="#1.2">1.2 yyy</a></li> 
-  <li><a href="#1.3">1.3 zzz</a></li>
+  <li><a href="#1.1">1.1 Requirements to Replicate Db2 z/OS Data</a></li>
+  <li><a href="#1.2">1.2 The QREP Started Tasks</a></li>
 </ul>
-<li><a href="#2.0">2. BBB</a> 
+<li><a href="#2.0">2. High Level Review of Implementation Steps</a>
+<li><a href="#3.0">3. SMPE Installation of Code Libraries</a>
+<li><a href="#4.0">4. Customising QREP for Db2 z/OS</a>
 <ul>
-  <li><a href="#2.1">1.1 xxx</a></li> 
-  <li><a href="#2.2">1.2 yyy</a></li> 
-  <li><a href="#2.3">1.3 zzz</a></li>
-</ul>
-<li><a href="#3.0">3. CCC</a>
-<ul>
-  <li><a href="#3.1">3.1 xxx</a></li>
-  <li><a href="#3.2">3.2 yyy</a></li>
-  <li><a href="#3.3">3.3 zzz</a></li>
+  <li><a href="#4.1">4.1 Create a zFS for QREP product messages</a></li>
+  <li><a href="#4.2">4.2 Edit the Parameters member</a></li>
+  <li><a href="#4.3">4.3 Generate the Customised JCL members</a></li>
+  <li><a href="#4.4">4.4 Define CDC Logstreams</a></li>  
+  <li><a href="#4.5">4.5 Define and Mount the Classic Catalog zFS</a></li>
+  <li><a href="#4.6">4.6 Define and Populate the Configuration Datasets</a></li>
+  <li><a href="#4.7">4.7 Create the Metadata Catalog</a></li>
+  <li><a href="#4.8">4.8 Create the Replication Mapping Datasets</a></li>  
+  <li><a href="#4.9">4.9 Setup Encrypted Passwords</a></li>  
 </ul> 
-
-<li><a href="#4.0">4. DDD</a>
+<li><a href="#5.0">5. Configure the z/OS Environment</a>
 <ul>
-  <li><a href="#4.1">4.1 xxx</a></li>
-  <li><a href="#4.2">4.2 yyy</a></li> 
-  <li><a href="#4.3">4.3 zzz</a></li>
+  <li><a href="#5.1">5.1 APF Authorised Load Libraries</a></li>
+  <li><a href="#5.2">5.2 TCPIP Ports</a></li>
+  <li><a href="#5.3">5.3 RACF Started Task ID</a></li>
+  <li><a href="#5.4">5.4 Test Start the Classic CDC Server</a></li>  
 </ul>
-
+<li><a href="#6.0">6. Configure the IMS Environment</a>
+<ul>
+  <li><a href="#6.1">6.1 DRA Startup Module</a></li>
+  <li><a href="#6.2">6.2 IMS Logging and Notification Exits</a></li>
+  <li><a href="#6.3">6.3 Augment DBD to generate T99 Log Records</a></li>
+  <li><a href="#6.4">6.4 Copy the IBM-Supplied Exits into IMS RESLIB</a></li>  
+</ul>
+<li><a href="#7.0">7. Integrate with the wider CDC Landscape</a>
+<ul>
+  <li><a href="#7.1">7.1 Deploy Classic CDC as a Started Task</a></li>
+  <li><a href="#7.2">7.2 Deploy and use the Classic Data Architect IDE</a></li>
+  <li><a href="#7.3">7.3 Connect from Management Console to Classic CDC Started Task</a></li>
+  <li><a href="#7.4">7.4 Use CHCCLP Scripting</a></li>  
+  <li><a href="#7.5">7.5 Conforming to site standards for cross-platform devops and security</a></li>
+</ul> 
 <li><a href="#App">Appendix</a>
 </ul>
 </div>
 
 <hr>
-
 
 <h2 id="abstract"> Abstract</h2>
 

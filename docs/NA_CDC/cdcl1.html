@@ -164,8 +164,9 @@ spanyellow {
 
 <li><a href="#5.0">5. Configure the Db2 Linux Environment</a>
 <ul>
-  <li><a href="#5.1">5.1 Alter Source Tables for full row logging</a></li>
-  <li><a href="#5.2">5.2 Db2 configuration considerations</a></li>
+  <li><a href="#5.1">5.1 Configure Db2 for archival logging</a></li>
+  <li><a href="#5.2">5.2 Alter Source Tables for full row logging</a></li>
+  <li><a href="#5.3">5.3 Db2 configuration considerations</a></li>
 </ul>
 
 
@@ -293,6 +294,10 @@ Preparation : JRE Libraries
 
 <h3 id="3.3">3.3 Create the CDC for Db2 Linux Instance</h3>
 
+<p><b>Procedural Warning:</b> Before you create a cdc instance for Db2 you must ensure that the Db2 database is correctly configured to support archival logging. 
+The consequence of failing to do this is that the cdc instance will only be able to act as a CDC Apply server. 
+Please refer to <a href="#5.0">5. Configure the Db2 Linux Environment</a> if your Db2 database is not suitably configured.</p>
+
 <p>The dmconfigurets command in the installation/bin directory will start a dialog to allow you to create a CDC instance. Run the command below as cdcinst1.</p>
 <ul>
 </ul>/opt/ibm/InfoSphereDataReplication/ReplicationEngineforKafka/bin/dmconfigurets
@@ -338,7 +343,15 @@ TCPIP address and port specified during that dialog.</p>
 
 <h2 id="5.0">5. Configure the Db2 Linux Environment</h2> 
 
-<h3 id="5.1">5.1 Alter Source Tables for full row logging</h3>
+<h3 id="5.1">5.1 Configure Db2 for archival logging</h3>
+<p>A default Db2 instance is created with circular logging, which is incapable of supporting replication capture. This is only likely to 
+be an issue in a playpen environment (like mine!). I configured archive logging for my demo database with the following command.</p>
+<p>db2 update db cfg for DB2CENT using logarchmeth1 logretain</p>
+<p>After configuring archival logging, you will also need to take a db2 backup. My actions are captured in the screenshot below.</p>
+<center><img src="/recipes/images/neale/cdc/db2luwprep.png" style="border:1px solid black; width:500px"></center> 
+
+
+<h3 id="5.2">5.2 Alter Source Tables for full row logging</h3>
 <p>By default Db2 only logs enough data to perform rollforward and rollback recovery processing. Unchanged column values are not usually logged, but a data replication 
 product needs to see all the before and after column values of the entire row. This is achieved by ALTERing the Db2 table to instruct Db2 to perform full row logging 
 for all logged SQL operations.</p>
@@ -347,7 +360,7 @@ statement to make the change.</p>
 
 <p><code style="color:#00FF00; background-color:#000000">ALTER TABLE TABSCHEMA.TABNAME DATA CAPTURE CHANGES</code></p> 
 
-<h3 id="6.2">6.2 Db2 configuration considerations</h3> 
+<h3 id="5.3">5.3 Db2 configuration considerations</h3> 
 <p>There is nothing else that needs to be done for a basic up and running exercise.</p>
 <p>As you progress with CDC for Db2 LUW you may need to perform some Db2 tuning. Examples of the sorts of work you may need to do are:</p>
 

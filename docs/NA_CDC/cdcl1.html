@@ -246,7 +246,7 @@ I created a group ( cdcadm1 ) for the user ( cdcinst1 )</p>
 <ul>
 <li>sudo groupadd -g 970 cdcadm1
 <li>sudo useradd -u 1070 -g cdcadm1 -m -d /home/cdcinst1 cdcinst1
-<li>passwd cdcinst1 (and follow the prompts to set the password for cdcinst1)</p>
+<li>sudo passwd cdcinst1 (and follow the prompts to set the password for cdcinst1)</p>
 </ul>
  
 <p>Next, create the directories that the installer will install the program to.</p>
@@ -257,14 +257,14 @@ I created a group ( cdcadm1 ) for the user ( cdcinst1 )</p>
 
 <p>Make cdcinst1 the owner of those directories</p>
 <ul>
-<li>chown cdcinst1:cdcadm1 /opt/ibm/InfoSphereDataReplication
-<li>chown cdcinst1:cdcadm1 /opt/IBM/InfoSphereDataReplication
+<li>sudo chown cdcinst1:cdcadm1 /opt/ibm/InfoSphereDataReplication
+<li>sudo chown cdcinst1:cdcadm1 /opt/IBM/InfoSphereDataReplication
 </ul>
 
 
 <p>Also, add cdcinst1 to Sudoers</p>
 <ul>
-<li>usermod -aG wheel username
+<li>sudo usermod -aG wheel username
 </ul>
 
 <p>If the JRE is not installed, do so now</p>

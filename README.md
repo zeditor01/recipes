@@ -40,3 +40,24 @@ Walk-thru a series of worked examples for database administration with Db2 z/OS
 - Transparent Archive 
 
 ```
+
+Media Notes
+
+```
+zedtor01/recipes is the HTML landing page introducing the content domains
+- Z Data Analysis
+- Z Data in Motion
+- Machine Learning with IBM Z
+- Db2 z/OS Capabilities
+
+youtube channel ( zeditor01 )  with 4 series of videos at first 
+
+further markdown github repositories for the 4 domains
+
+ZVA image for HoLs
+
+Washington Systems Centre for zCX stuff and performance
+
+
+
+```

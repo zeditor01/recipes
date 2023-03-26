@@ -41,7 +41,7 @@ Walk-thru a series of worked examples for database administration with Db2 z/OS
 
 ```
 
-Media Notes
+## Media Notes
 
 ```
 zedtor01/recipes is the HTML landing page introducing the content domains
@@ -61,3 +61,11 @@ Washington Systems Centre for zCX stuff and performance
 
 
 ```
+
+
+Workplan
+
+- Z Data Analysis
+- Z Data in Motion
+- Machine Learning with IBM Z
+- Db2 z/OS Capabilities

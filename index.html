@@ -135,39 +135,45 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 	
 	  
        <div class="w3-left w3-padding-4">
-       <p>These patterns will cause fierce debate between advocates of competing approaches. Some points of view will be objective, and some will be subjective or even dogmatic. 
-	In reality, a mixture of the patterns is likely to be required by most enterprises, because different use cases have different needs for consuming mainframe data. 
-	"Zeditor" attempts to bypass the soundbyte views presented by each camp, and focus on practical worked examples of how to implement each pattern.</p>
+       <p>These patterns will cause fierce debate between advocates of competing approaches. 
+          The following personalities might argue their corners as follows...</p>
 
-       <p>In the interests of candour, the following snippets are previews of the narratives surrounding the three patterns.</p>
 
 	<table style="width:100%"> 
 	   <tr>
-	   <td style="width:20%">Left-Shift</td>
-	   <td style="width:80%">Summary Narrative. Clearly the best option for Write transactions. Clearly the best options for pre-existing CICS and IMS transactions. Clearly a role to play in a Enterprise-Wide Mainframe Data Integration strategy.</td>
+	   <td style="width:20%">Mainframe Advocate</td>
+	   <td style="width:80%">Why copy the data to other platforms, and incur all the costs, data latency, data security exposures and processing costs of that approach? The modern mainframe implements industry-standard devops pipeline and has great software for publishing Data APIs and Machine Learning services. 
+           Modern tooling is largely offloaded to speciality engines that don't incur MLC software charges, and the z16 Telum chip has an industry-first AI accelerator on the chip.Clearly the best option for Write transactions. 
+	   Cyber security concerns are growing by the day, and the IBM Z platform is the most securable platform in the world. Just use the resources that are already running the core systems to provide the best qualities of service for realtime data and AI services.</td>
 	   </tr> 
 	   <tr>
 	   <td style="width:20%"> </td>
 	   <td style="width:80%"> </td>
 	   </tr> 
 	   <tr>
-	   <td style="width:20%">Right-Shift Narrative</td>
-	   <td style="width:80%">The most common pattern adopted by Enterprises today. Sometimes driven by "getting off the mainframe" dogma. Sometimes driven by project-level funding. Re-inforced by formal Architectural Pattern Naming (CQRS). Enterprise wide Shift-Right patterns would burden the enterprise with massive levels of technical debt. Clearly a role to play in a Enterprise-Wide Mainframe Data Integration strategy.</td>
+	   <td style="width:20%">CQRS Advocate</td>
+	   <td style="width:80%">Command Query Routing Systems (CQRS) are a very well established pattern to offload read-only transactions from the mainframne to cheaper platforms. Modern Data Replication tools can provide a latency of seconds, and you can deliver all your critical data assets into the cloud, and take advantage of the massive pool of cloud developers who are at the right end of their careers.
+	   The future is cloud and containers, and we have a strategy to get off the mainframe and onto the cloud. This is the logical path to take.</td>
 	   </tr> 
 	   <tr>
 	   <td style="width:20%"> </td>
 	   <td style="width:80%"> </td>
 	   </tr> 
 	   <tr>
-	   <td style="width:20%">Openshift Narrative</td>
-	   <td style="width:80%">Could be mis-represented as a sub-class of Right-Shift in this context. Openshift is far more than a pattern for data integration. It's raison d'etre is to bring order to the world of containers that is on a path to revolutionise IT systems. Openshift ... wax lyrical</td>
+	   <td style="width:20%">The New Kid on the Block</td>
+	   <td style="width:80%">There are elements of truth in what both of you say, but neither of you are stepping up to the big strategic picture.
+          The future is the productivity of containers but in a hybrid cloud context.
+	  Copying the data from mainframe to cloud is a great solution for the low hanging fruit like read-only bank balance queries, and digital integration hub services. But it doesn't move our core systems anywhere at all, and just burdens them with additional cpu and i/o intensive data replication chores.
+	  We need a hybrid cloud mix, so that we can continue to have Z qualities of service for predicatable core systems workloads, whilst we can consume public cloud resources for our volatile client engagement systems.
+          We need an effective way of making or core data available to our cloud-based systems of engagement</td>
 	   </tr> 
 	   <tr>
 	   <td style="width:20%"> </td>
 	   <td style="width:80%"> </td>
 	   </tr> 
 	  </table>  
-	       
+
+	       <p>"Zeditor" attempts to bypass the soundbyte views presented by each camp, and focus on practical worked examples of how to implement each pattern.</p>
       
        </div>
 	  

@@ -43,21 +43,16 @@ Walk-thru a series of worked examples for database administration with Db2 z/OS
 
 ## Media Notes
 
-```
-zedtor01/recipes is the HTML landing page introducing the content domains
-- Z Data Analysis
-- Z Data in Motion
-- Machine Learning with IBM Z
-- Db2 z/OS Capabilities
+ <p>The Right-Shift pattern is undoubtedly the most widely adopted pattern in Enterprises at the moment. It is also the pattern with the most technical debt and complexity. 
+       Heterogeneous Data Replication are challenging, largely because of the project management challenges of the number of different technical departments (insourced and outsourced) that all need to work together.
+       The diagram below is perhaps a more realistic representation of the relative difficulty of making the Right-Shift pattern work.</p>
 
-youtube channel ( zeditor01 )  with 4 series of videos at first 
+	<div class="w3-center w3-padding-4">
+       <img src="/images/RightShiftMechanics.JPG" alt="Mechanics" style="height:450px">
 
-further markdown github repositories for the 4 domains
+       </div>
 
-ZVA image for HoLs
-
-Washington Systems Centre for zCX stuff and performance
-
-
-
-```
+      <p>The author is NOT seeking to trash the Right-Shift pattern. The author is frustrated that many organisations opt for the Right-Shift pattern without fully evaluating the relative merits of the other patterns. 
+	It is a fairly common occurance that funding is available for a specific business project only, and the benefits of a broader architecture are simply "outside scope".
+	      The goal of these "Zeditor" resources is to make the reader aware of all three patterns,so that an informed decision can be taken.</p>
+	       

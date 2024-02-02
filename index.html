@@ -83,11 +83,12 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 <img src="/images/RightShift.JPG" alt="Data Streaming" style="height:400px">
 
-<p>A <b>Right Shift</b> Approach deploys services and APIs on other platfoms such as linux on-permise or public cloud. 
-This approach requires infrastructure to stream new data from operational transaction off the mainframe as soon as it has been commited, and deliver it to "data consumers" that will 
-receive and curate the data to serve APIs that are called by cloud applications. There are many software solutions to replicate data between heterogenous systems with productive administration and monitoring interfaces. 
-The challenging aspects to this approach are to overcome the network, security, encryption and automation challenges of the heterogeneous environment that will typically be managed by several tens of technical teams spread across your 
-own organisation and outsourced or cloud providers.</p>
+<p>A Right Shift approach often starts from the premise that many or all new applications should be cloud native, to take advantage of the many benefits of cloud provisioning, flexibility, scalability and so forth.
+It many cases it will be assumed that a copy of the operational data needs to be copied to a cloud data repository for the applications to use, and that assumption may not be properly tested. 
+Sometimes this assumption is founded in a perception of mainframe costs, protecting mainframe service levels or devops flexibility.
+Data replication products are very powerful tools for streaming change data from mainframe to other platforms. 
+The complexity of such implementation projects is not the data replication tools, but the devsecops challenges of deploying them betwen the heterogeneous source and target platforms, with all the network and security infrastructue that is often designed to keep them apart.
+</p>
 
 </div>
 <!-- End Content 02 -->
@@ -103,8 +104,7 @@ own organisation and outsourced or cloud providers.</p>
 
 <img src="/images/LeftShift.JPG" alt="Data as a Zervice" style="height:400px">
 
-<p>A <b>Left Shift</b> Approach deploys services and APIs on the mainframe itself, and avoids the expense, delays and technical debt of infrastructure to copy data to other platforms.
-There are many tools and techniques to facilitate this patterm, including z/OS Connect, Db2 Rest Service Manager, Watson Machne Learning for z/OS and z/OS container extensions.</p>
+<p>A Left Shift Approach looks at the challenge from the other end. The data and transaction assets may be readily available on the mainframe, and it may be a relatively simple task to provide plumbing for those data and transaction services to be called from the cloud, and avoid thecsts and challenges of a major heterogeneous data replication project.</p>
 
 </div>
 <!-- End Content 03 -->
@@ -122,16 +122,10 @@ There are many tools and techniques to facilitate this patterm, including z/OS C
 
 <img src="/images/Openshift.JPG" alt="Hybrid Cloud Data Patterns" style="height:400px">
 
-<p>An <b>Openshift</b> Approach is designed to all you to run the application on the platform that best fits the operational requirements of the business users that it serves.</p>
+<p>An Openshift Approach is designed to allow you to run the application on the platform that best fits the operational requirements of the business users that it serves. Openshift provides the best connections to bridge the mainframe and cloud worlds.</p>
 
 </div>
 <!-- End Content 04 -->
-
-
-	
-
-
-
 
 
 

@@ -83,12 +83,16 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 
 <img src="/images/RightShift.JPG" alt="Data Streaming" style="height:400px">
 
-<p>A Right Shift approach often starts from the premise that many or all new applications should be cloud native, to take advantage of the many benefits of cloud provisioning, flexibility, scalability and so forth.
-It many cases it will be assumed that a copy of the operational data needs to be copied to a cloud data repository for the applications to use, and that assumption may not be properly tested. 
-Sometimes this assumption is founded in a perception of mainframe costs, protecting mainframe service levels or devops flexibility.
-Data replication products are very powerful tools for streaming change data from mainframe to other platforms. 
-The complexity of such implementation projects is not the data replication tools, but the devsecops challenges of deploying them betwen the heterogeneous source and target platforms, with all the network and security infrastructue that is often designed to keep them apart.
-</p>
+<p>A "Right Shift" Pattern is when you decide to copy the mainframe data to other platforms ( intel on-prem ; cloud etc... ) and build entirely new systems independently from the mainframe.</p>
+
+<p>Heterogeneous data replication tools can stream data from IMS, VSAM and DB2 z/OS data sources as soon as it is written, and deliver it in seconds 
+	to databases (Postgres, SQL etc...), messaging systems (MQ, JMS etc...), and event streaming services (Kafka etc...).</p>
+
+
+<p>Such patterns are powerful for point solutions, but can be challenging because of the large number of teams that may be 
+	involved (Database, systems admin, network, security, cloud provider, service provider, outsourcer, audit, data governance etc... ) 
+	and can introduce a lot of technical debt as a result of devsecops co-ordination between these teams.</p> 
+	
 
 </div>
 <!-- End Content 02 -->
@@ -104,8 +108,15 @@ The complexity of such implementation projects is not the data replication tools
 
 <img src="/images/LeftShift.JPG" alt="Data as a Zervice" style="height:400px">
 
-<p>A Left Shift Approach looks at the challenge from the other end. The data and transaction assets may be readily available on the mainframe, and it may be a relatively simple task to provide plumbing for those data and transaction services to be called from the cloud, and avoid thecsts and challenges of a major heterogeneous data replication project.</p>
+<p>A "Left Shift" Pattern is when you decide to leave the data where it is, and serve data and transaction APIs directly from the mainframe.</p>
 
+<p>z/OS hosts a wide range of options for supporting transactional and data services through industry-standard RESTful APIs. 
+	Many of these options are eligible for zIIP processing which makes this option financially attractive.</p> 
+
+<p>Such patterns are powerful when the data and transaction assets are readily available, and just need to be made available with simple configuration and deployment software. 
+	However, when cloud services need to incorporate data from other sources as well as mainframe, enterprises often choose to build "Digital Integration Hubs" off the mainframe 
+	with the wide choice of software and skilled labour which is available in cloud environments.</p>
+	
 </div>
 <!-- End Content 03 -->
 
@@ -122,8 +133,13 @@ The complexity of such implementation projects is not the data replication tools
 
 <img src="/images/Openshift.JPG" alt="Hybrid Cloud Data Patterns" style="height:400px">
 
-<p>An Openshift Approach is designed to allow you to run the application on the platform that best fits the operational requirements of the business users that it serves. Openshift provides the best connections to bridge the mainframe and cloud worlds.</p>
+<p>An "Openshift" Pattern exploits the heterogeneous platform portability of containerised software provided 
+	by Red Hat Openshift to deploy your workloads on whichever platform best suits the qualities of service (availability, security, encryption, on-prem or cloud, scalability etc...) 
+	demanded by your application.</p>
 
+<p>One of the most powerful aspects of Openshift is the simple, high performance data synchronisation offered by IBM Datagate. 
+	It facilitates the shift of your application to whatever platform you choose and makes current data available to that platform.</p>
+	
 </div>
 <!-- End Content 04 -->
 
@@ -141,11 +157,12 @@ The complexity of such implementation projects is not the data replication tools
        <div class="w3-left w3-padding-4">
 
 	<p>These patterns can cause fierce debate between advocates of competing approaches.</p>
+
+       <p>Each of these three patterns has their place.</p>
 	       
-	<p>"Zeditor" deliberately avoids the arguments over which pattern is best. 
-		Each of the patterns has their merits. 
-		Instead, this website is dedicated to providing practical worked examples of all three patterns. 
-		The worked examples should provide some insight into each deployment pattern, so that you can judge what a deployment project might look like in your environment. 
+	<p>"Zeditor" aims to address the choice of pattern by providing. 
+	 practical worked examples of all three patterns. 
+	The worked examples should provide some insight into each deployment pattern, so that you can judge what a deployment project might look like in your environment. 
 	All the worked examples are created on an IBM Z server residing in Sydney, which has z/OS, z/VM and Openshift LPARs. A separate linux environment is used for the Right-Shift examples.</p>
       
        </div>

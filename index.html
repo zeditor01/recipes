@@ -57,8 +57,8 @@ for the mainframe systems to serve their data to the ever-growing hoardes of vor
 <p>"Zeditor" is a practical cookbook a number of IBM solutions for mainframe data integration.
 It comprises documented implementation audit trails, and usage notes for many data integration solutions that fall into the following three general patterns.</p> 
 <sl align=left>
-<li align=left>Right Shift Approaches</li>
-<li align=left>Left Shift Approaches</li>
+<li align=left>"Right Shift" Approaches</li>
+<li align=left>"Left Shift" Approaches</li>
 <li align=left>Openshift Approaches</li>
 </sl>
 	       
@@ -82,13 +82,12 @@ It comprises documented implementation audit trails, and usage notes for many da
 
 <p>A "Right Shift" Pattern is when you decide to copy the mainframe data to other platforms ( intel on-prem ; cloud etc... ) and build entirely new systems independently from the mainframe.</p>
 
-<p>Heterogeneous data replication tools can stream data from IMS, VSAM and DB2 z/OS data sources as soon as it is written, and deliver it in seconds 
-	to databases (Postgres, SQL etc...), messaging systems (MQ, JMS etc...), and event streaming services (Kafka etc...).</p>
+<p>This pattern is undoubtedly the most commonly adopted approach. It is often chosen because specific business projects want the most expedient data integration solution that satisfies the scope of the immediately funded project.
+However, as more and more data consumers emerge, it can develop into a lot of un-coordinated point-to-point solutions over a heterogenous landscape, with considerable ongoing technical debt, 
+and change dependencies between core systems on the mainframe and the data consuming initiatives off the mainframe.</p>
 
-
-<p>Such patterns are powerful for point solutions, but can be challenging to scale in a sustainable way across the entire enterprise because of the large number of teams that may be 
-	involved (Database, systems admin, network, security, cloud provider, service provider, outsourcer, audit, data governance etc... ) 
-	and the inter-dependencies that can introduce a lot of technical debt as a result of devsecops co-ordination between these teams.</p> 
+<p>IBM offers several data replication solutions in this space. This website provides worked examples for <a href="https://github.com/zeditor01/right-shift/blob/main/cdc/cdcpattern.md" target="_blank" rel="noopener noreferrer">CDC Replication</a> spanning data sources including IMS, VSAM, DB2 z/OS, Kafka.</p>
+	
 	
 
 </div>

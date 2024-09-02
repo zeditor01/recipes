@@ -46,25 +46,22 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
        </div>
 	  
        <div class="w3-left w3-padding-4">
-       <p>Mainframe data is the <b>ESSENTIAL RAW MATERIAL</b> for the following critical initiatives in Enterprises (that use mainframes).</b>
-       <ol>
-       <li>Continuous Transaction Processing to support the Core Business</li>
-       <li>Develop and Serve AI models to help automate and govern those core business transactions</li>
-       <li>Deploy realtime Data APIs to serve the needs of Cloud-based systems of engagement with clients</li>
-       </ol>	
+<p>Many of the largest enterprises in the world use IBM Mainframes extensively to run their core business activities.</p>
 
-       <p>The architectural challenge is to find the best way(s) to create realtime APIs ( for transactions, data access, and AI scoring ) based on the mainframe data, to support these initiatives.</p>
+<p>These enterprises also want to exploit new technology patterns such a cloud services, Machine Learning, Artificial Intelligence, 
+API integration, mobile apps and much more to maintain and expand their business with the best tools available to them.</p>
 
-       </div>
+<p>Mainframe data is the <b>ESSENTIAL RAW MATERIAL</b> required by these initiatives, which is why there are so many ways 
+for the mainframe systems to serve their data to the ever-growing hoardes of voracious data consumers.</p> 
 
-       <div class="w3-center w3-padding-4">
-       <img src="/images/pattern0.JPG" alt="The Challenge" style="height:350px">
-
-       </div>
-	  
-       <div class="w3-left w3-padding-4">
-       <p>"Zeditor" is a practical cookbook for the 3 major patterns used for accessing and exploiting data that is created and managed on IBM Mainframe Systems. It comprises documented implementation audit trails, demonstration videos, and access to hands-on test drive systems</p> 
-       <p>The three most common data integration patterns being deployed today could be classified as "Right Shift", "Leftt Shift" and "Openshift" ....</p>
+<p>"Zeditor" is a practical cookbook a number of IBM solutions for mainframe data integration.
+It comprises documented implementation audit trails, and usage notes for many data integration solutions that fall into the following three general patterns.</p> 
+<sl align=left>
+<li align=left>Right Shift Approaches</li>
+<li align=left>Left Shift Approaches</li>
+<li align=left>Openshift Approaches</li>
+</sl>
+	       
        </div>
 	  
   </div>
@@ -81,14 +78,18 @@ html,body,h1,h2,h3,h4 {font-family:"Lato", sans-serif}
 <h2>Right Shift ?</h2>
 </div>
 
-<img src="/images/RightShift.JPG" alt="Data Streaming" style="height:400px">
+<img src="/images/RightShift2.JPG" alt="Data Streaming" style="height:400px">
 
-<p>A Right Shift approach often starts from the premise that many or all new applications should be cloud native, to take advantage of the many benefits of cloud provisioning, flexibility, scalability and so forth.
-It many cases it will be assumed that a copy of the operational data needs to be copied to a cloud data repository for the applications to use, and that assumption may not be properly tested. 
-Sometimes this assumption is founded in a perception of mainframe costs, protecting mainframe service levels or devops flexibility.
-Data replication products are very powerful tools for streaming change data from mainframe to other platforms. 
-The complexity of such implementation projects is not the data replication tools, but the devsecops challenges of deploying them betwen the heterogeneous source and target platforms, with all the network and security infrastructue that is often designed to keep them apart.
-</p>
+<p>A "Right Shift" Pattern is when you decide to copy the mainframe data to other platforms ( intel on-prem ; cloud etc... ) and build entirely new systems independently from the mainframe.</p>
+
+<p>Heterogeneous data replication tools can stream data from IMS, VSAM and DB2 z/OS data sources as soon as it is written, and deliver it in seconds 
+	to databases (Postgres, SQL etc...), messaging systems (MQ, JMS etc...), and event streaming services (Kafka etc...).</p>
+
+
+<p>Such patterns are powerful for point solutions, but can be challenging to scale in a sustainable way across the entire enterprise because of the large number of teams that may be 
+	involved (Database, systems admin, network, security, cloud provider, service provider, outsourcer, audit, data governance etc... ) 
+	and the inter-dependencies that can introduce a lot of technical debt as a result of devsecops co-ordination between these teams.</p> 
+	
 
 </div>
 <!-- End Content 02 -->
@@ -104,8 +105,16 @@ The complexity of such implementation projects is not the data replication tools
 
 <img src="/images/LeftShift.JPG" alt="Data as a Zervice" style="height:400px">
 
-<p>A Left Shift Approach looks at the challenge from the other end. The data and transaction assets may be readily available on the mainframe, and it may be a relatively simple task to provide plumbing for those data and transaction services to be called from the cloud, and avoid thecsts and challenges of a major heterogeneous data replication project.</p>
+<p>A "Left Shift" Pattern is when you decide to leave the data where it is, and serve data and transaction APIs directly from the mainframe.</p>
 
+<p>z/OS hosts a wide range of options for supporting transactional and data services through industry-standard RESTful APIs. 
+	Many of these options are eligible for zIIP processing which makes this option financially attractive.</p> 
+
+<p>Such patterns are powerful when the data and transaction assets are readily available, and just need to be made available with simple configuration and deployment software. 
+	However, when cloud services need to incorporate data from other sources as well as mainframe, enterprises often choose to 
+	use data replication tools to build "Digital Integration Hubs" and "Event Meshes" away the mainframe 
+	with the wide choice of software and skilled labour which is available in cloud environments.</p>
+	
 </div>
 <!-- End Content 03 -->
 
@@ -122,8 +131,16 @@ The complexity of such implementation projects is not the data replication tools
 
 <img src="/images/Openshift.JPG" alt="Hybrid Cloud Data Patterns" style="height:400px">
 
-<p>An Openshift Approach is designed to allow you to run the application on the platform that best fits the operational requirements of the business users that it serves. Openshift provides the best connections to bridge the mainframe and cloud worlds.</p>
+<p>An "Openshift" Pattern exploits the heterogeneous platform portability of containerised software provided 
+	by Red Hat Openshift to deploy your workloads on whichever platform best suits the qualities of service (availability, security, encryption, on-prem or cloud, scalability etc...) 
+	demanded by your application.</p>
 
+<p>One of the most powerful aspects of Openshift is the simple, high performance data synchronisation offered by IBM Datagate.  
+	Datagate is a containerised service provided by Cloudpak for Data, that implements the Db2 integrated synchronisation protocol. 
+	It facilitates the shift of your application to whatever platform you choose by making the current Db2 data available to that platform with low latency, low complexity, and low cost (compared to conventional data replication tools).</p>
+
+<p>In many ways Openshift offers the best of both worlds: deploying containerised solutions on whatever platform you want, 
+	without the cost, complexity and technical debt of maintaining complex heterogeneous data replication dependencies between your systems of record and systems of engagement.</p>
 </div>
 <!-- End Content 04 -->
 
@@ -141,12 +158,13 @@ The complexity of such implementation projects is not the data replication tools
        <div class="w3-left w3-padding-4">
 
 	<p>These patterns can cause fierce debate between advocates of competing approaches.</p>
+
+       <p>Each of these three patterns has their place.</p>
 	       
-	<p>"Zeditor" deliberately avoids the arguments over which pattern is best. 
-		Each of the patterns has their merits. 
-		Instead, this website is dedicated to providing practical worked examples of all three patterns. 
-		The worked examples should provide some insight into each deployment pattern, so that you can judge what a deployment project might look like in your environment. 
-	All the worked examples are created on an IBM Z server residing in Sydney, which has z/OS, z/VM and Openshift LPARs. A separate linux environment is used for the Right-Shift examples.</p>
+	<p>"Zeditor" aims to address the choice of pattern by providing 
+	 practical worked examples of all three patterns. 
+	The worked examples should provide some insight into each deployment pattern, so that you can judge what a deployment project might look like in your environment. 
+	All the worked examples are created on an IBM Z server residing in Sydney, which has a z/OS LPAR with CICS, Db2 and VSAM, and a z/VM LPAR with Openshift and Cloudpak for Data. A separate linux environment is used for the Right-Shift examples.</p>
       
        </div>
 	  
@@ -157,49 +175,26 @@ The complexity of such implementation projects is not the data replication tools
 <!-- End Content -->
 
 
-<!-- Content -->
-<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
 
-  <!-- Document Title -->
-  <div class="w3-row-padding" id="albums">
+<!-- Content 04 -->
+<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:5px">
+
+<div class="w3-left w3-padding-4">
+<h2>What's in the worked examples below ?</h2>
+</div>
+
+
 	
-	  
-       <div class="w3-left w3-padding-4">
+<img src="/images/materials.JPG" alt="Worked Example contents" style="height:250px">
 
-        <h3>Worked Examples: Left-Shift Patterns</h3> 
+<p>The worked examples below are audit trails of deployments, written in markdown language, stored in public github repositoiries, alongside code samples used in the deployments. Additionally there are links to video recordings about the worked examples, and web-hosted presentation slides.</p>
 
-	<p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Db2 Connect & SQL-based APIs</a></tp>
-
-        <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Db2 z/OS REST Service Manager</a></p>
-
-        <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">z/OS Connect - REST APIs</a></p>
-
-        <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">ACE - Application Connect Integration</a></p>
-
-        <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Watson Machine Learning for z/OS</a></p>
-
-
-       <p>And using z/OS Container Extensions to support popular software container solutions that can run anywhere (including z/OS).</p>
-
-       <ul> 
-        <li><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">graphQL REST APIs executing from z/OS Container Extensions</a>
-
-        <li><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">graphDB graphical query executing from z/OS Container Extensions</a>
-
-        <li><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Tensorflow Serving executing from z/OS Container Extensions</a>
-
-       </ul>
-	       
-       </div>
-	  
-  </div>
-  <!-- End Document Title -->
 	
 </div>
-<!-- End Content -->
+<!-- End Content 04 -->
 
-
-
+	
+	
 
 <!-- Content -->
 <div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
@@ -212,13 +207,16 @@ The complexity of such implementation projects is not the data replication tools
 
 
 
-        <h3>Worked Examples: Right-Shift Patterns</h3> 
+        <h3>Links to Worked Examples of Right-Shift Patterns</h3> 
 
-	<p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">CDC Replication</a></tp>
+	<p><a href="https://github.com/zeditor01/right-shift/blob/main/cdc/cdcpattern.md" target="_blank" rel="noopener noreferrer">CDC Replication</a></tp>
 
-        <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Kafka Integhration Patterns</a></p>
+        <p>..... Coming Soon...</p>
 
-        <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Q Replication and Event Publishing</a></p>
+	<ul>
+	<li>Kafka Integration Patterns</li>
+	<li>Q Replication and Event Publishing</li>
+	</ul>
 
 
 	       
@@ -231,6 +229,48 @@ The complexity of such implementation projects is not the data replication tools
 <!-- End Content -->
 
 
+	
+<!-- Content -->
+<div class="w3-content" style="max-width:1100px;margin-top:80px;margin-bottom:80px">
+
+  <!-- Document Title -->
+  <div class="w3-row-padding" id="albums">
+	
+	  
+       <div class="w3-left w3-padding-4">
+
+        <h3>Links to Worked Examples of Left-Shift Patterns</h3> 
+
+	<p><a href="https://github.com/zeditor01/left-shift/blob/main/ddfsql/ddfsqlpattern.md" target="_blank" rel="noopener noreferrer">Db2 Connect & SQL-based APIs</a></tp>
+
+        <p><a href="https://github.com/zeditor01/left-shift/blob/main/ddfrest/ddfrestpattern.md" target="_blank" rel="noopener noreferrer">Db2 z/OS REST Service Manager</a></p>
+
+        <p><a href="https://github.com/zeditor01/left-shift/blob/main/python/pythonpattern.md" target="_blank" rel="noopener noreferrer">Python for z/OS, supporting Data Science on z/OS</a></p>
+
+        <p><a href="https://github.com/zeditor01/left-shift/blob/main/graphQL/graphQLpattern.md" target="_blank" rel="noopener noreferrer">graphQL REST APIs executing from z/OS Container Extensions</a></p>
+
+        <p><a href="https://github.com/zeditor01/left-shift/blob/main/tensorflow/tensorflowservingpattern.md" target="_blank" rel="noopener noreferrer">Tensorflow Serving executing from z/OS Container Extensions</a></p>
+
+
+        <p>..... Coming Soon...</p>
+
+	<ul>
+	<li>z/OS Connect - REST APIs</li>
+	<li>ACE - Application Connect Integration</li>
+	<li>Watson Machine Learning for z/OS</li>
+	</ul>
+
+	       
+       </div>
+	  
+  </div>
+  <!-- End Document Title -->
+	
+</div>
+<!-- End Content -->
+
+
+
 
 
 <!-- Content -->
@@ -244,32 +284,26 @@ The complexity of such implementation projects is not the data replication tools
 
 
 
-        <h3>Worked Examples: OpenShift Patterns</h3> 
+        <h3>Links to Worked Examples of OpenShift Patterns</h3> 
 
 	
         <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Datagate for Db2 z/OS</a></tp>
 
         <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Cloudpak for Data services</a></p>
 
-        <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Watson.X AI Platform</a></p>
+	<p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">db2 (row based DBMS) container</a></p>
 
-	<p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">graphQL REST APIs, using Openshift</a></p>
-
-        <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">graphDB graphical query, using Openshift</a></p>
-
-        <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Tensorflow Serving, using Openshift</a></p>
-
-        <p>And using popular software container solutions that can run anywhere that Openshift runs.</p>       
+        <p><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">db2 Warehouse (columnar in-memory DBMS) container</a></p>  
 	       
-        <ul> 
- 
-	<li><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">graphQL REST APIs executing from Openshift</a>
 
-        <li><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">graphDB graphical query executing from Openshift</a>
 
-        <li><a href="https://github.com/zeditor01/cdc_examples/blob/main/create_scale_sustain_cdc_systems.md" target="_blank" rel="noopener noreferrer">Tensorflow Serving executing from Openshift</a>
+        <p>..... Coming Soon...</p>
 
-       </ul>
+	<ul>
+	<li>WatsonX.data</li>
+	<li>graphQL REST APIs executing from Openshift</li>
+	<li>Tensorflow Serving executing from Openshift</li>
+	</ul>
 	       
        </div>
 	  
@@ -319,11 +353,11 @@ The complexity of such implementation projects is not the data replication tools
 <p>Neale Armstrong works for IBM Australia as a System Z Data Management Technical Specialist. Born a Pom, I had the opportunity to transfer "down under" and live in Australia. Despite being an Aussie citizen now, I confess to being conflicted during Ashes series. On weekends and holidays I can transform into a "mamil" or a "Grey Nomad" as I explore parts of this wonderful country.</p>
 
 <p>My motivation for creating this website was to become more efficient at my job by creating re-useable content for the client projects that I get involved with. 
-For example, when advising multiple clients about heterogeeous CDC deployments I found that 80% of the discussion content was common to all clients, so I decided to document worked examples that were genericly indicative for all use cases. 
+For example, when advising multiple clients about heterogeneous CDC deployments I found that 80% of the discussion content was common to all clients, so I decided to document worked examples that were genericly applicable to most use cases. 
 It was helpful to be able to refer clients to worked examples for the majority of their questions, and then address client-specific questions directly.
 </p>
 
-<p>As the scope of my word expanded, I realised that most of my client engagements fell into one of three patterns for delivering "data products" for Enterprise clients whose core systems ran on z/OS. I found it helpful to contrast the relative merits of each pattern. 
+<p>As the scope of my work expanded, I realised that most of my client engagements fell into one of three patterns for delivering "data products" for Enterprise clients whose core systems ran on z/OS. I found it helpful to contrast the relative merits of each pattern. 
 As Openshift becomes more widely adopted, more clients are open to considering the Hybrid Cloud pattern for Mainframe Data Integration. By providing side-by-side worked examples of all three major patterns we can have a better-informed discussion about the options.</p>
 	
 
